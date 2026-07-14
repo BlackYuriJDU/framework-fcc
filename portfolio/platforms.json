@@ -1,0 +1,13 @@
+{
+  "development": ["Claude Code", "FCC", "WSL", "Lovable", "Vercel", "Base44"],
+  "backend": ["Supabase", "Lovable Cloud", "armazenamento local", "APIs próprias Vertexion"],
+  "automation": ["Pipedream", "n8n", "GitHub Actions", "Windows Task Scheduler"],
+  "research": ["Tavily", "pesquisa nativa quando disponível"],
+  "models": ["Claude", "Groq", "OpenAI", "DeepSeek"],
+  "communication": ["Telegram", "Gmail", "Outlook", "WhatsApp manual", "WAHA", "Discord"],
+  "analytics": ["Google Analytics"],
+  "payments": ["AppMax"],
+  "design": ["Canva", "Figma", "Bloom", "Lovable"],
+  "crm": ["Supabase", "Notion"],
+  "spendPolicy": "Nenhum gasto autônomo. Interromper, estimar e pedir aprovação."
+}

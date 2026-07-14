@@ -1,0 +1,28 @@
+{
+  "name": "Vertexion Agent System",
+  "version": "4.0.0",
+  "createdAt": "2026-06-30T21:27:18-03:00",
+  "timezone": "America/Recife",
+  "owner": "Arthur Araújo",
+  "primaryEnvironment": "Claude Code/FCC no WSL acessando projetos no Windows",
+  "visibleSkills": [],
+  "teams": ["Vertexion Control", "Growth Engine", "Product Intelligence", "Engineering Assurance"],
+  "dashboard": "http://localhost:3741",
+  "containsSecrets": false,
+  "agents": 36,
+  "skills": 0,
+  "sourcePackagesAudited": 7,
+  "projects": ["ZapMenu", "Vertexion", "Vertexion Run", "Vertexion Radar", "Vertexion Collect"],
+  "validation": {
+    "packageValidator": "passed",
+    "growthAssertions": 90,
+    "growthRepeatedLeadTest": "passed",
+    "isolatedWslInstall": "passed",
+    "projectDiscovery": "passed",
+    "productWorkspace": "passed",
+    "dashboardHealth": "passed",
+    "dashboardStreamingExecution": "passed",
+    "windowsTaskSchedulerRealMachine": "pending real Windows environment",
+    "fccRealProvider": "pending Arthur environment"
+  }
+}

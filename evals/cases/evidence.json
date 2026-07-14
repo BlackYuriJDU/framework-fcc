@@ -1,0 +1,6 @@
+[
+  {"scenario":"concorrentes e reclamações web, sem entrevistas","maxEvidenceLevel":1,"mustNotSay":"validada"},
+  {"scenario":"três pilotos sem pagamento","maxEvidenceLevel":3,"mustNotSay":"validada comercialmente"},
+  {"scenario":"um pagamento","minEvidenceLevel":4,"note":"sinal inicial; três pagamentos fortalecem"},
+  {"scenario":"pagamentos e retenção após ciclo","evidenceLevel":5}
+]

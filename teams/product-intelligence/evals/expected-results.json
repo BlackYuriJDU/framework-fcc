@@ -1,0 +1,5 @@
+{
+  "web-signals-not-validation": {"maxEvidenceLevel": 1, "mustNotSay": ["validada", "demanda comprovada"]},
+  "high-score-low-confidence": {"allowedVerdict": ["VALIDAR PRIMEIRO"], "confidenceBelow": 70},
+  "feature-scope": {"mustRecommendExperiment": true, "mustProtectLaunch": true}
+}

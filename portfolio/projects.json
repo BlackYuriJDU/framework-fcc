@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "owner": "Arthur Araújo",
+  "timezone": "America/Recife",
+  "workspaceRoots": [
+    "/mnt/c/Users/Arthur Araújo/Downloads",
+    "/mnt/c/Users/Arthur Araújo"
+  ],
+  "projects": [
+    {
+      "id": "zapmenu",
+      "name": "ZapMenu",
+      "abbr": "zpm",
+      "priority": 1,
+      "status": "pronto para lançamento",
+      "description": "Plataforma brasileira de cardápio digital para restaurantes de todos os segmentos e tamanhos.",
+      "market": "Brasil",
+      "languages": [
+        "pt-BR"
+      ],
+      "audience": "Donos e gestores de restaurantes",
+      "publicUrl": "https://zapmenu.org",
+      "originUrl": "https://zapmenuu.lovable.app",
+      "provider": "Lovable",
+      "repository": "zapmenu-principal",
+      "path": "/mnt/c/Users/Arthur Araújo/Downloads/zapmenu-claude-code-completo",
+      "database": "Supabase fecqfbvpifpirdjinhes",
+      "revenue": "Esquina R$34,99; Movimento R$64,99; Escala R$79,99; trimestral -10%; anual -17%",
+      "goals": {
+        "nearest": "3 clientes pagantes",
+        "launchTarget": "2026-07-07"
+      },
+      "guardrails": [
+        "Pedidos são futuros e não bloqueiam lançamento",
+        "Analytics somente Movimento e Escala",
+        "AppMax é o provedor atual",
+        "Tratar ambiente como produção até confirmação"
+      ]
+    },
+    {
+      "id": "vertexion",
+      "name": "Vertexion",
+      "abbr": "vtx",
+      "priority": 1,
+      "status": "em rebrand, aproximadamente 8/10",
+      "description": "Ecossistema de produtos digitais, startups e ferramentas para clientes, fundadores e desenvolvedores.",
+      "market": "Internacional",
+      "languages": [
+        "pt-BR",
+        "en-US",
+        "en-GB"
+      ],
+      "audience": "Fundadores, desenvolvedores e usuários dos produtos Vertexion",
+      "publicUrl": "https://vertexion.org",
+      "originUrl": "https://vertexion.lovable.app",
+      "provider": "Lovable",
+      "repository": "vertexion-principal",
+      "path": "/mnt/c/Users/Arthur Araújo/Downloads/vertexion-completo",
+      "database": "Supabase rsfhmrhnbrzxgwclqtrz",
+      "guardrails": [
+        "Não virar chatbot genérico",
+        "Equilibrar cliente e Dev",
+        "ChatVD não é o produto inteiro",
+        "Vertexion Pass e Vertexion Dev Pass permanecem"
+      ]
+    },
+    {
+      "id": "vertexion-run",
+      "name": "Vertexion Run",
+      "abbr": "vtx-run",
+      "priority": 3,
+      "status": "ideação, reiniciado do zero",
+      "description": "App mobile-first para pequenos negócios organizarem clientes, tarefas, rotina, cobranças e pagamentos. Antigo Toveli.",
+      "market": "Brasil",
+      "languages": [
+        "pt-BR"
+      ],
+      "audience": "Pequenos empreendedores, equipes e startups",
+      "publicUrl": "",
+      "originUrl": "https://tovelii.lovable.app",
+      "provider": "Expo/React Native",
+      "repository": "",
+      "path": "",
+      "database": "indefinido (ideação)",
+      "guardrails": [
+        "Manter identidade Vertexion (não Toveli)",
+        "Mobile-first e Expo Router"
+      ]
+    },
+    {
+      "id": "vertexion-radar",
+      "name": "Vertexion Radar",
+      "abbr": "vtx-radar",
+      "priority": 4,
+      "status": "ideação, reiniciado do zero",
+      "description": "Change intelligence: monitorar fontes, identificar mudanças verificáveis e orientar ações. Antigo Tenvyr.",
+      "market": "Internacional",
+      "languages": [
+        "en-US",
+        "en-GB"
+      ],
+      "audience": "Times de produto, agências, desenvolvedores, fundadores e marketing",
+      "publicUrl": "",
+      "originUrl": "https://tenvyrr.lovable.app",
+      "provider": "Lovable",
+      "repository": "",
+      "path": "",
+      "database": "indefinido (ideação)",
+      "guardrails": [
+        "Manter identidade Vertexion (não Tenvyr)",
+        "Foco em change intelligence"
+      ]
+    },
+    {
+      "id": "vertexion-collect",
+      "name": "Vertexion Collect",
+      "abbr": "vtx-collect",
+      "priority": 4,
+      "status": "ideação, reiniciado do zero",
+      "description": "SaaS internacional para organizar contas a receber e automatizar follow-up de invoices não pagas. Antigo Signalys.",
+      "market": "EUA, Canadá e Reino Unido",
+      "languages": [
+        "en-US",
+        "en-GB"
+      ],
+      "audience": "Agências, consultores, freelancers, contractors e pequenos negócios de serviço",
+      "publicUrl": "",
+      "originUrl": "https://signalyss.lovable.app",
+      "provider": "Lovable",
+      "repository": "",
+      "path": "",
+      "database": "indefinido (ideação)",
+      "guardrails": [
+        "Manter identidade Vertexion (não Signalys)",
+        "Produto em inglês",
+        "Foco em follow-up de invoices"
+      ]
+    }
+  ]
+}

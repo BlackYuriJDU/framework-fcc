@@ -1,0 +1,17 @@
+{
+  "weekly:week:2026-06-29": {
+    "startedAt": "2026-07-01T11:00:55.666Z",
+    "status": "launched",
+    "updatedAt": "2026-07-01T11:00:55.771Z"
+  },
+  "daily:2026-07-01": {
+    "startedAt": "2026-07-01T14:11:04.266Z",
+    "status": "launched",
+    "updatedAt": "2026-07-01T14:11:04.793Z"
+  },
+  "monthly:month:2026-07": {
+    "startedAt": "2026-07-01T14:11:04.810Z",
+    "status": "launched",
+    "updatedAt": "2026-07-01T14:11:04.990Z"
+  }
+}
