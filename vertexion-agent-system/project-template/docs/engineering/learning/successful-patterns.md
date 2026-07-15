@@ -1,0 +1,2 @@
+# Padrões bem-sucedidos
+

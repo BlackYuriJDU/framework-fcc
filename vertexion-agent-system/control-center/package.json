@@ -1,0 +1,11 @@
+{
+  "name": "vertexion-control-center",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check server.mjs && node --check lib/claude-runner.mjs && node --check lib/store.mjs && node --check lib/scheduler.mjs && node --check public/app.js"
+  }
+}

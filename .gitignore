@@ -1,0 +1,26 @@
+# Secrets & Settings
+settings.json
+*.env
+*.secret
+*.key
+*.pem
+
+# Memory (personal/private)
+agent-memory/
+
+# Backups
+backups/
+
+# Tools (third-party)
+tools/
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+projects/

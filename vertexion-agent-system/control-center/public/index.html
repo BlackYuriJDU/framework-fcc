@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Vertexion Control Center</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar glass">
+      <div class="brand glass-soft">
+        <div class="mark">V</div>
+        <div>
+          <strong>Vertexion</strong>
+          <span>Control Center</span>
+        </div>
+      </div>
+      <nav>
+        <button data-view="home" class="active">Visão geral</button>
+        <button data-view="run">Nova tarefa</button>
+        <button data-view="projects">Projetos</button>
+        <button data-view="leads">Leads</button>
+        <button data-view="ideas">Ideias</button>
+        <button data-view="routines">Rotinas</button>
+        <button data-view="approvals">Aprovações</button>
+        <button data-view="reports">Relatórios</button>
+        <button data-view="activity">Atividade</button>
+        <button data-view="system">Sistema</button>
+      </nav>
+      <div class="local-status"><i></i><span>Somente localhost</span></div>
+    </aside>
+    <main>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">VERTEXION AGENT SYSTEM</p>
+          <h1 id="title">Visão geral</h1>
+          <p class="subtitle">Coordenação visual das equipes, rotinas e decisões do ecossistema.</p>
+        </div>
+        <div class="header-actions">
+          <div class="search-pill">localhost:3741</div>
+          <div class="status-pill" id="activeCount">—</div>
+          <div class="clock-pill" id="clock">—</div>
+        </div>
+      </header>
+      <section id="content" aria-live="polite"></section>
+    </main>
+  </div>
+  <div id="toast" role="status"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

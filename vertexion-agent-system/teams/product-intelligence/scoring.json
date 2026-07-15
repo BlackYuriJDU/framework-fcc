@@ -1,0 +1,17 @@
+{
+  "problemUrgency": 10,
+  "evidenceStrength": 12,
+  "willingnessToPay": 12,
+  "distribution": 12,
+  "marketTiming": 8,
+  "audienceClarity": 5,
+  "competitiveGap": 6,
+  "differentiation": 6,
+  "retention": 5,
+  "technicalFeasibility": 5,
+  "mvpSpeed": 4,
+  "economics": 5,
+  "risk": 4,
+  "ecosystemFit": 3,
+  "executionCapacity": 3
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "daily",
+    "enabled": true,
+    "frequency": "daily",
+    "hour": 10,
+    "minute": 0
+  },
+  {
+    "id": "weekly",
+    "enabled": true,
+    "frequency": "weekly",
+    "weekday": 1,
+    "hour": 10,
+    "minute": 30
+  },
+  {
+    "id": "monthly",
+    "enabled": true,
+    "frequency": "monthly",
+    "day": 1,
+    "hour": 11,
+    "minute": 0
+  }
+]

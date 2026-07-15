@@ -1,0 +1,31 @@
+[
+  {
+    "id": "daily",
+    "name": "Rotina diária",
+    "enabled": true,
+    "frequency": "daily",
+    "hour": 10,
+    "minute": 0,
+    "prompt": "Execute a rotina diária do Vertexion Control. Primeiro tente o fluxo interno autorizado com vertexion-growth-daily quando Growth Engine estiver configurado; caso Pipedream/Supabase já tenha produzido resultados, ingira-os sem duplicar a busca. Verifique follow-ups e incidentes, atualize o painel, selecione o melhor lead válido, pesquise contexto adicional e crie uma mensagem personalizada pronta para revisão e um roteiro Loom opcional de até 2 minutos. Não envie nada, não gere cobrança e respeite a quota gratuita. Se nada útil existir, permaneça silencioso."
+  },
+  {
+    "id": "weekly",
+    "name": "Revisão semanal",
+    "enabled": true,
+    "frequency": "weekly",
+    "weekday": 1,
+    "hour": 10,
+    "minute": 30,
+    "prompt": "Execute a revisão semanal: compliance de ZapMenu e Vertexion, disponibilidade, Marketing Review, documentação, reavaliação de leads, falsos positivos, bloqueios, riscos e resumo das equipes. Não aplique ação externa."
+  },
+  {
+    "id": "monthly",
+    "name": "Cápsula do tempo",
+    "enabled": true,
+    "frequency": "monthly",
+    "day": 1,
+    "hour": 11,
+    "minute": 0,
+    "prompt": "Crie a cápsula do tempo mensal comparando início e fim do mês e o mês anterior: projetos, funcionalidades, clientes, leads, receita, custos, bugs, ideias, decisões, previsões, regressões e aprendizados. Separe impacto confirmado, aparente e inconclusivo."
+  }
+]
