@@ -49,11 +49,12 @@ Buscar leads, validar ideias, marketing, compliance, documentação, incidentes 
 
 | Prioridade | Projeto | Estado | Direção |
 |---:|---|---|---|
-| 1 | ZapMenu | pronto para lançamento | obter 3 clientes pagantes com segurança |
-| 2 | Toveli | MVP quebrado | corrigir Expo Router/config/EAS e reabrir o app |
-| 2 | Vertexion | pausado, avançado | equilibrar cliente, Dev e ecossistema |
-| 3 | Tenvyr | ideação/template | validar change intelligence antes do MVP |
-| 4 | Signalys | base intermediária | completar invoice follow-up real |
+| 1 | ZapMenu | em produção | crescer base de clientes pagantes com segurança |
+| 2 | ZapBot | planejamento | plano ainda não definido |
+| 2 | ZapAgenda | planejamento | plano ainda não definido |
+
+> Vertexion, Toveli, Tenvyr e Signalys foram encerrados/arquivados em 2026-07-27 (redundantes, sem
+> receita, alto custo operacional). Histórico em `archive/`, decisão em `docs/PODA_2026-07-27.md`.
 
 Detalhes ficam em `portfolio/` e `project-plans/`.
 
@@ -149,7 +150,7 @@ vertexion-secret-scan "/mnt/c/caminho/projeto"
 
 ### Semanal
 
-- compliance de ZapMenu e Vertexion;
+- compliance de ZapMenu;
 - saúde dos produtos;
 - marketing review;
 - documentação;
@@ -176,7 +177,7 @@ O Scout moderno foi preservado e melhorado:
 
 - Tavily + Groq em lotes;
 - validação e normalização;
-- deduplicação;
+- dedupicação;
 - histórico mínimo de aceitos, rejeitados e duplicados para não repetir empresas;
 - orçamento local de créditos Tavily;
 - Supabase/Telegram opcionais;
@@ -207,7 +208,7 @@ Vertexion-Agent-System/
 ├── control-center/         dashboard localhost
 ├── teams/                  Growth, Product e Engineering
 ├── portfolio/              projetos, equipe, plataformas e métricas
-├── project-plans/          planos específicos dos cinco produtos
+├── project-plans/          plano do ZapMenu (+ futuros ZapBot/ZapAgenda)
 ├── project-template/       memória técnica por repositório
 ├── marketing/brands/       baselines das marcas
 ├── memory/                 aprendizado geral
