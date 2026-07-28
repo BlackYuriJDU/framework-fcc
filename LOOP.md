@@ -15,8 +15,9 @@
 | Projeto | URL | Check |
 |---------|-----|-------|
 | ZapMenu | zapmenu.org | Site no ar + SSL + status code |
-| Vertexion | vertexion.org | Site no ar |
 | Telegram | — | Report canal autorizado |
+
+> Nota (2026-07-27): monitoramento de vertexion.org removido — projeto encerrado/arquivado. Ver docs/PODA_2026-07-27.md.
 
 ## Budget
 - Max tokens por run: 50K (L1)

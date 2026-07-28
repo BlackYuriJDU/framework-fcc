@@ -1,22 +1,7 @@
 {
   "timezone": "America/Recife",
-  "availability": {
-    "days": "todos os dias, sem folga fixa informada",
-    "mainWindow": "07:50-17:00 com intervalos",
-    "commercialWindow": "09:00-18:00",
-    "additionalWindow": "aproximadamente 17:50 até o computador descarregar",
-    "breaks": ["10:00-10:20", "12:00-12:30/12:50", "15:00-15:20"]
-  },
-  "dailyPlanning": {
-    "primaryTasks": 1,
-    "secondaryTasks": 2,
-    "optionalTasks": "sem limite rígido, mas não apresentar como obrigação"
-  },
-  "focusDistribution": {
-    "zapmenuSales": 40,
-    "toveli": 35,
-    "vertexion": 10,
-    "ideaValidation": 10,
-    "tenvyrAndSignalys": 5
-  }
+  "availability": {"days": "todos os dias, sem folga fixa informada", "mainWindow": "07:50-17:00 com intervalos", "commercialWindow": "09:00-18:00", "additionalWindow": "aproximadamente 17:50 até o computador descarregar", "breaks": ["10:00-10:20", "12:00-12:30/12:50", "15:00-15:20"]},
+  "dailyPlanning": {"primaryTasks": 1, "secondaryTasks": 2, "optionalTasks": "sem limite rígido, mas não apresentar como obrigação"},
+  "focusDistribution": {"zapmenuSalesAndOps": 80, "zapbotZapagendaPlanning": 20},
+  "notes": "Atualizado em 2026-07-27: distribuição antiga incluía Toveli/Vertexion/Tenvyr/Signalys, encerrados. Ver docs/PODA_2026-07-27.md."
 }

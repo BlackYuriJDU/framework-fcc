@@ -1,10 +1,11 @@
 {
   "name": "Vertexion Agent System",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "createdAt": "2026-06-30T21:27:18-03:00",
+  "prunedAt": "2026-07-27T00:00:00-03:00",
   "timezone": "America/Recife",
   "owner": "Arthur Araújo",
-  "primaryEnvironment": "Claude Code/FCC no WSL acessando projetos no Windows",
+  "primaryEnvironment": "Claude Code/FCC (DeepSeek v4 flash) no WSL acessando projetos no Windows",
   "visibleSkills": [],
   "teams": ["Vertexion Control", "Growth Engine", "Product Intelligence", "Engineering Assurance"],
   "dashboard": "http://localhost:3741",
@@ -12,17 +13,8 @@
   "agents": 36,
   "skills": 0,
   "sourcePackagesAudited": 7,
-  "projects": ["ZapMenu", "Vertexion", "Vertexion Run", "Vertexion Radar", "Vertexion Collect"],
-  "validation": {
-    "packageValidator": "passed",
-    "growthAssertions": 90,
-    "growthRepeatedLeadTest": "passed",
-    "isolatedWslInstall": "passed",
-    "projectDiscovery": "passed",
-    "productWorkspace": "passed",
-    "dashboardHealth": "passed",
-    "dashboardStreamingExecution": "passed",
-    "windowsTaskSchedulerRealMachine": "pending real Windows environment",
-    "fccRealProvider": "pending Arthur environment"
-  }
+  "projects": ["ZapMenu", "ZapBot (planejamento)", "ZapAgenda (planejamento)"],
+  "archivedProjects": ["Vertexion", "Vertexion Run (ex-Toveli)", "Vertexion Radar (ex-Tenvyr)", "Vertexion Collect (ex-Signalys)"],
+  "notes": "Poda de 2026-07-27: Vertexion e demais produtos foram encerrados/arquivados por decisão de Arthur (redundantes, sem receita, alto custo operacional). Framework mantido apenas para ZapMenu + planejamento de ZapBot/ZapAgenda. Arquivos legados movidos para archive/. Ver docs/PODA_2026-07-27.md. SYSTEM.md secao 11 ainda pendente de atualizacao (arquivo grande, commit de follow-up).",
+  "validation": {"packageValidator": "passed", "growthAssertions": 90, "growthRepeatedLeadTest": "passed", "isolatedWslInstall": "passed", "projectDiscovery": "passed", "productWorkspace": "passed", "dashboardHealth": "passed", "dashboardStreamingExecution": "passed", "windowsTaskSchedulerRealMachine": "pending real Windows environment", "fccRealProvider": "pending Arthur environment"}
 }
