@@ -3,7 +3,7 @@
 > **Versão:** 5.0.0 (42 agentes + 3 sub-diretores)
 > **Proprietário:** Arthur Araújo
 > **Fuso:** America/Recife
-> **Ambiente:** Claude Code via FCC (DeepSeek v4 flash mapeado do alias `opus`)
+> **Ambiente:** Claude Code via FCC (DeepSeek v4 flash mapeado do alias `sonnet`)
 > **Atualizado em:** 2026-07-15
 
 ---
@@ -92,7 +92,7 @@ control-vertexion-director
   └── product-lead (11 agentes)
 ```
 
-Cada sub-director tem seu próprio `maxTurns: 48`, `model: opus`, e conhece o pipeline específico de sua equipe. O director só precisa conhecer 9 agentes (6 control + 3 leads).
+Cada sub-director tem seu próprio `maxTurns: 48`, `model: sonnet`, e conhece o pipeline específico de sua equipe. O director só precisa conhecer 9 agentes (6 control + 3 leads).
 
 ---
 
@@ -417,7 +417,7 @@ Execução (somente se autorizado)
 
 ### Modelo e Routing
 
-- Modelo solicitado: `opus` (alias)
+- Modelo solicitado: `sonnet` (alias)
 - Modelo efetivo: DeepSeek v4 flash (free tier via FCC)
 - Implicação: modelos menores seguem checklists melhor que prosa abstrata
 - DeepSeek safety classifier pode bloquear comandos intermitentemente

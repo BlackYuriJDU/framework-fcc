@@ -22,5 +22,5 @@ try {
 const detected = spawnSync('bash', ['-c', 'command -v fcc-claude || command -v claude || true'], { encoding: 'utf8' }).stdout.trim();
 if (!detected) { console.error('Claude Code/FCC não encontrado.'); process.exit(3); }
 const systemHome = path.join(os.homedir(), '.claude', 'vertexion-agent-system');
-const child = spawn(detected, ['-p', defaults[routineId], '--agent', 'control-vertexion-director', '--model', 'opus', '--effort', 'high', '--permission-mode', 'default', '--output-format', 'stream-json', '--verbose', '--max-turns', '64'], { cwd: systemHome, stdio: 'inherit', env: { ...process.env, TZ: 'America/Recife' } });
+const child = spawn(detected, ['-p', defaults[routineId], '--agent', 'control-vertexion-director', '--model', 'sonnet', '--effort', 'high', '--permission-mode', 'default', '--output-format', 'stream-json', '--verbose', '--max-turns', '64'], { cwd: systemHome, stdio: 'inherit', env: { ...process.env, TZ: 'America/Recife' } });
 child.on('close', code => process.exit(code ?? 1));

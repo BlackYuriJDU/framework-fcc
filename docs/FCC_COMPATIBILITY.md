@@ -2,7 +2,7 @@
 
 O sistema procura primeiro `fcc-claude` e depois `claude`.
 
-- Todos os agentes declaram `model: opus`.
+- Todos os agentes declaram `model: sonnet`.
 - Com FCC, esse alias pode ser redirecionado para DeepSeek, Groq, OpenRouter ou outro provedor.
 - O dashboard usa `-p --output-format stream-json --verbose`.
 - Configure chaves somente em variáveis de ambiente ou no mecanismo seguro do FCC.

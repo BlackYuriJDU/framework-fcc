@@ -24,4 +24,4 @@ O usuário descreve a intenção em linguagem natural. O diretor escolhe equipes
 
 ## Modelo
 
-Agentes de análise usam `model: opus`. O FCC pode redirecionar esse alias para outro provedor; o sistema registra modelo solicitado e provedor detectado, sem afirmar que foi Anthropic Opus quando não puder confirmar.
+Agentes de análise usam `model: sonnet`. O FCC pode redirecionar esse alias para outro provedor; o sistema registra modelo solicitado e provedor detectado, sem afirmar que foi Anthropic Sonnet quando não puder confirmar.

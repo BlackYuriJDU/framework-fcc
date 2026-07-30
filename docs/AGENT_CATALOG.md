@@ -1,6 +1,6 @@
 # Catálogo de agentes
 
-Todos os agentes de análise declaram `model: opus` e `effort: high`. Com FCC, o provedor efetivo pode ser diferente; o sistema registra a diferença quando detectável.
+Todos os agentes de análise declaram `model: sonnet` e `effort: high`. Com FCC, o provedor efetivo pode ser diferente; o sistema registra a diferença quando detectável.
 
 ## Vertexion Control
 

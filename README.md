@@ -166,7 +166,7 @@ O scheduler fica dentro do Control Center. O Agendador do Windows apenas inicia 
 
 ## FCC
 
-Todos os agentes solicitam `opus`, mas FCC pode redirecionar esse alias para outro modelo/provedor. O sistema diferencia `requestedModel` de `effectiveModel` quando o CLI fornece essa informação. Não afirme que Anthropic Opus foi usado sem confirmação.
+Todos os agentes solicitam `sonnet`, mas FCC pode redirecionar esse alias para outro modelo/provedor. O sistema diferencia `requestedModel` de `effectiveModel` quando o CLI fornece essa informação. Não afirme que Anthropic Sonnet foi usado sem confirmação.
 
 A pesquisa tenta usar ferramentas disponíveis no Claude Code; quando WebSearch não estiver disponível, o diretor pode usar o script Tavily se `TAVILY_API_KEY` estiver configurada localmente.
 

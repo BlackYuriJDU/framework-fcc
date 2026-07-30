@@ -99,7 +99,15 @@ Implementar **arquitetura de 3 camadas** com progressive disclosure real:
 
 ## Implementation Plan
 
-### Fase 1 (Hoje — Concluída Parcial)
+### Fase 0 (Imediata — Compaction, sem infra nova)
+Antes de qualquer MCP/Obsidian/Graphiti, aplicar técnica de *compaction* para reduzir sobrecarga de contexto imediatamente:
+
+- [ ] **Monitorar uso de contexto:** ao atingir ~80% do context window, gerar resumo do estado atual da sessão
+- [ ] **Arquivar em `state/time-capsules/`** o resumo com timestamp
+- [ ] **Instruir restart** em nova sessão com contexto limpo + link para time capsule anterior
+- [ ] **Critério de sucesso:** contexto da sessão reduzido em ~60% sem perda de continuidade
+
+### Fase 1 (Obsidian Vault — `~/vertexion-brain/`)
 - [x] Skills Director com progressive disclosure (`~/.claude/skills/vertexion-director/`)
 - [x] Design-lead skill criado
 - [x] Vault structure criada (`~/vertexion-brain/wiki/resources/` com symlinks)
@@ -109,12 +117,13 @@ Implementar **arquitetura de 3 camadas** com progressive disclosure real:
 - [ ] **Arthur:** `claude plugin install obsidian@obsidian-skills` (kepano)
 - [ ] **Eu:** Popular vault via MCP (projects.json → wiki/projects/, PRODUCT_DECISIONS.md, memory/, rules/)
 
-### Fase 2 (Esta Semana)
+### Fase 2 (agentmemory MCP — Recall Automático)
 - [ ] **Arthur:** Instalar `agentmemory` MCP (`claude mcp add-json agentmemory ...`)
 - [ ] **Eu:** Testar recall cross-session (nova sessão → carrega hot.md + contexto relevante)
 - [ ] **Eu:** Implementar `session_end` hook → atualiza `hot.md` + grava agentmemory
 
-### Fase 3 (Próximas Semanas — Graphiti)
+### Fase 3 (Futuro — Graphiti, só quando necessário)
+- [ ] **Gate:** Só iniciar quando houver volume de decisões temporais que justifique (5+ projetos ativos, 100+ decisões)
 - [ ] Infra: Docker Compose (Neo4j 5.x + Graphiti service)
 - [ ] MCP bridge Graphiti (custom ou wrapper)
 - [ ] Popular KG a partir do vault + agentmemory

@@ -37,17 +37,17 @@ export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general'
     '--agent', 'control-vertexion-director',
     '--output-format', 'stream-json',
     '--verbose',
-    '--model', 'opus',
+    '--model', 'sonnet',
     '--effort', 'high',
     '--max-turns', String(turns),
     '--permission-mode', permissionMode,
   ];
-  if (process.env.VERTEXION_ENABLE_PERMISSION_TOOL === '1') {
+  if (process.env.VERTEXION_DISABLE_PERMISSION_TOOL !== '1') {
     args.push('--permission-prompt-tool', `node ${path.join(systemHome, 'control-center', 'lib', 'permission-prompt.mjs')}`);
   }
 
   const startedAt = new Date().toISOString();
-  const meta = { executionId, projectId, mode: selectedMode, cwd, command, requestedModel: 'opus', startedAt, status: 'running' };
+  const meta = { executionId, projectId, mode: selectedMode, cwd, command, requestedModel: 'sonnet', startedAt, status: 'running' };
   appendJsonl('executions.jsonl', meta);
   onEvent?.({ type: 'execution-start', ...meta });
 
@@ -101,7 +101,7 @@ export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general'
       executionId,
       status,
       sessionId,
-      requestedModel: 'opus',
+      requestedModel: 'sonnet',
       effectiveModel,
       stderr: stderr.slice(-5000),
       endedAt: new Date().toISOString(),
