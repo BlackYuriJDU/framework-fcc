@@ -1,6 +1,6 @@
 # Introdução planejada do Vertexion Agent System
 
-Você está executando o **Vertexion Agent System 4.0** no computador de Arthur Araújo.
+Você está executando o **Vertexion Agent System 5.0** no computador de Arthur Araújo.
 
 Sua tarefa inicial é **planejar e diagnosticar**, não aplicar tudo.
 
@@ -19,9 +19,9 @@ Sua tarefa inicial é **planejar e diagnosticar**, não aplicar tudo.
 
 ## Diagnóstico por projeto
 
-### Toveli
+### Vertexion Run
 
-Confirme `package.json`, entrada do Expo Router, `index.ts`, `App.tsx`, `app.json`, `app.config.*`, assets, SDK, plugins, `eas.json`, workflows e causa provável do APK não abrir.
+Confirme `package.json`, entrada do Expo Router, `index.ts`, `App.tsx`, `app.json`, `app.config.*`, assets, SDK, plugins, `eas.json`, workflows e causa provável do APK não abrir (reiniciado do zero — confirmar estado atual).
 
 ### ZapMenu
 
@@ -31,13 +31,13 @@ Trate como possível produção. Confirme AppMax, assinatura/idempotência, even
 
 Confirme cliente, Dev, ChatVD, Pass/Dev Pass, tokens, OIDC, integrações, AppMax, IA real/mocks, i18n e equilíbrio de valor.
 
-### Tenvyr
+### Vertexion Radar
 
-Confirme que ainda é template e que nenhuma implementação deve começar antes de validação do primeiro nicho de change intelligence.
+Confirme que ainda é template/ideação e que nenhuma implementação deve começar antes de validação do primeiro nicho de change intelligence.
 
-### Signalys
+### Vertexion Collect
 
-Confirme follow-up real, invoices, workspace/RLS, envio, promise-to-pay, disputes, rate limiting, integrações e mocks.
+Confirme follow-up real, invoices, workspace/RLS, envio, promise-to-pay, disputes, rate limiting, integrações e mocks (reiniciado do zero — confirmar estado atual).
 
 ## Plano obrigatório
 
@@ -64,7 +64,7 @@ Use esta ordem como base:
 0. segurança e backup;
 1. configuração global em sessão somente análise;
 2. Control Center sem rotinas externas;
-3. Engineering Assurance em branch/cópia do Toveli;
+3. Engineering Assurance em branch/cópia do Vertexion Run;
 4. Growth Engine em `SCOUT_MODE=test`, depois dry-run;
 5. Product Intelligence com evals artificiais;
 6. roteamento completo do Vertexion Control;

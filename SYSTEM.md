@@ -1,17 +1,17 @@
 # Vertexion Agent System — Architecture & Reference
 
-> **Versão:** 4.0.0 consolidada (36 agentes)
+> **Versão:** 5.0.0 (42 agentes + 3 sub-diretores)
 > **Proprietário:** Arthur Araújo
 > **Fuso:** America/Recife
 > **Ambiente:** Claude Code via FCC (DeepSeek v4 flash mapeado do alias `opus`)
-> **Atualizado em:** 2026-07-13
+> **Atualizado em:** 2026-07-15
 
 ---
 
 ## Sumário
 
 1. [Visão Geral](#1-visão-geral)
-2. [Equipes e Agentes (36)](#2-equipes-e-agentes-36)
+2. [Equipes e Agentes (42)](#2-equipes-e-agentes-42)
 3. [Agentes por Equipe](#3-equipes-e-agentes-detalhados)
    - [Control (6)](#31-control-vertexion-control)
    - [Engineering (14)](#32-engineering-engineering-assurance)
@@ -71,15 +71,28 @@ O Vertexion Agent System é um meta-sistema de agentes de IA que opera dentro do
 
 ---
 
-## 2. Equipes e Agentes (36)
+## 2. Equipes e Agentes (42)
 
 | Equipe | Sigla | Agentes | Função |
 |--------|-------|---------|--------|
-| **Vertexion Control** | CTRL | 6 | Coordenação, prioridades, aprovações, auditoria, evolução |
-| **Engineering Assurance** | ENGR | 14 | Código, segurança, revisão, testes, deploy, runtime |
-| **Growth Engine** | GRTH | 5 | Leads, prospecção, marketing, análise de funil |
-| **Product Intelligence** | PROD | 11 | Produto, preço, concorrência, experimentos, riscos |
-| **Total** | | **36** | |
+| **Vertexion Control** | CTRL | 6 + 3 leads | Coordenação, prioridades, aprovações, auditoria, evolução |
+| **Engineering Assurance** | ENGR | 17 + lead | Código, segurança, revisão, testes, deploy, runtime |
+| **Growth Engine** | GRTH | 5 + lead | Leads, prospecção, marketing, análise de funil |
+| **Product Intelligence** | PROD | 11 + lead | Produto, preço, concorrência, experimentos, riscos |
+| **Total** | | **42** | (39 agentes especializados + 3 sub-diretores) |
+
+### Arquitetura de Sub-Diretores (NOVO v5.0)
+
+O director roteia tarefas para 3 sub-diretores de equipe, que gerenciam seus próprios pipelines:
+
+```
+control-vertexion-director
+  ├── engineering-lead (17 agentes)
+  ├── growth-lead (5 agentes)
+  └── product-lead (11 agentes)
+```
+
+Cada sub-director tem seu próprio `maxTurns: 48`, `model: opus`, e conhece o pipeline específico de sua equipe. O director só precisa conhecer 9 agentes (6 control + 3 leads).
 
 ---
 
@@ -98,10 +111,10 @@ Agentes de governança, coordenação e qualidade do sistema.
 | **control-evidence-ledger** | Auditor independente de evidência. Verifica alegações vs. ferramentas | leitura |
 | **control-agent-evolution-advisor** | Meta-agente que sugere melhorias baseadas em padrões de erro | escrita |
 
-### 3.2 Engineering — Engineering Assurance (14)
+### 3.2 Engineering — Engineering Assurance (17)
 
 Engenharia: código, arquitetura, segurança, testes, deploy, runtime.
-> **Nota:** Consolidado de 23 para 14 agentes em 2026-07-13 (9 agentes fundidos em 5 sobreviventes para reduzir custo de contexto).
+> **Nota:** Consolidado de 23 para 14 agentes em 2026-07-13 (9 agentes fundidos em 5 sobreviventes). +3 novos agentes adicionados pós-consolidação (adversarial-verifier, loop-triage, loop-verifier). Total atual: 17.
 
 | Agente | Descrição | Permissão |
 |--------|-----------|-----------|
@@ -529,7 +542,8 @@ Reportar
 |------|------|---------|
 | 2026-06-30 | Criação do sistema | ~40 |
 | 2026-07-03 | Primeira expansão | 45 |
-| 2026-07-13 | **Consolidação principal** | **45 → 36** |
+| 2026-07-13 | Consolidação principal | 45 → 36 |
+| 2026-07-15 | **Correção 5.0.0 Fases 1-4** | **36 → 42** (+3 correção dead refs, +3 sub-diretores) |
 
 **O que foi fundido:**
 - `adversarial-reviewer` + `api-design-reviewer` → `code-reviewer` (3 modos)

@@ -3,6 +3,12 @@ name: control-evidence-ledger
 description: "Auditor independente que verifica alegações contra evidência real de ferramentas. Usa o protocolo Evidence Ledger para falsificar conclusões e exigir fontes."
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 disallowedTools: Write, Edit
+model: opus
+effort: high
+maxTurns: 20
+memory: user
+color: yellow
+permissionMode: plan
 ---
 
 # Evidence Ledger Auditor

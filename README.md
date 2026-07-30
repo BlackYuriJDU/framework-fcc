@@ -1,4 +1,4 @@
-# Vertexion Agent System 4.0
+# Vertexion Agent System 5.0
 
 Sistema global e visual para Arthur Araújo coordenar produtos, leads, validação de ideias e engenharia pelo Claude Code no WSL, sem depender de dezenas de comandos.
 
@@ -49,11 +49,11 @@ Buscar leads, validar ideias, marketing, compliance, documentação, incidentes 
 
 | Prioridade | Projeto | Estado | Direção |
 |---:|---|---|---|
-| 1 | ZapMenu | pronto para lançamento | obter 3 clientes pagantes com segurança |
-| 2 | Toveli | MVP quebrado | corrigir Expo Router/config/EAS e reabrir o app |
-| 2 | Vertexion | pausado, avançado | equilibrar cliente, Dev e ecossistema |
-| 3 | Tenvyr | ideação/template | validar change intelligence antes do MVP |
-| 4 | Signalys | base intermediária | completar invoice follow-up real |
+| 1 | ZapMenu | lançado (zapmenu.org) | obter 3 clientes pagantes, reter 2 |
+| 1 | Vertexion | em rebrand ~8/10 | equilibrar cliente, Dev e ecossistema |
+| 3 | Vertexion Run | ideação (reiniciado do zero) | app mobile-first para pequenos negócios |
+| 4 | Vertexion Radar | ideação (reiniciado do zero) | change intelligence internacional |
+| 4 | Vertexion Collect | ideação (reiniciado do zero) | SaaS de follow-up de invoices |
 
 Detalhes ficam em `portfolio/` e `project-plans/`.
 

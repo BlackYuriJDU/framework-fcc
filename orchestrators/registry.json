@@ -1,0 +1,53 @@
+{
+  "version": 2,
+  "active": "vertexion-director",
+  "orchestrators": [
+    {
+      "id": "vertexion-director",
+      "name": "Vertexion Director",
+      "description": "Orquestrador geral do ecossistema — produtos, código, growth, design, marketing e SEO/GEO. Visão completa de todos os projetos.",
+      "skill": "vertexion-director",
+      "agent": "control-vertexion-director",
+      "color": "blue",
+      "focus": "full-stack",
+      "projects": [
+        "ZapMenu",
+        "Vertexion",
+        "Vertexion Run",
+        "Vertexion Radar",
+        "Vertexion Collect"
+      ],
+      "updated": "2026-07-20"
+    },
+    {
+      "id": "zapmenu-activity",
+      "name": "ZapMenu Activity",
+      "description": "Orquestrador de prospecção e growth para ZapMenu — busca de leads em maps/web, envio de emails automatizados via Resend, funil de vendas com follow-up inteligente.",
+      "skill": "zapmenu-activity",
+      "agent": "zapmenu-activity",
+      "color": "yellow",
+      "focus": "growth-sales",
+      "projects": [
+        "ZapMenu"
+      ],
+      "updated": "2026-07-20"
+    },
+    {
+      "id": "da-vinci",
+      "name": "Da Vinci",
+      "description": "Orquestrador de design front-end — UI/UX, animações, design systems, prototipação. Sem back-end, sem lógica de servidor.",
+      "skill": "da-vinci",
+      "agent": "da-vinci",
+      "color": "red",
+      "focus": "design-frontend",
+      "projects": [
+        "ZapMenu",
+        "Vertexion",
+        "Vertexion Run",
+        "Vertexion Radar",
+        "Vertexion Collect"
+      ],
+      "updated": "2026-07-20"
+    }
+  ]
+}

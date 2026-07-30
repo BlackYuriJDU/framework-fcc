@@ -1,16 +1,38 @@
 # Changelog
 
-## 5.0.0 — 2026-07-01
+## 5.0.0 — 2026-07-15
 
+### Fase 1 — Correções Críticas
+- 5 agentes mortos removidos do director (compliance-auditor, docs-drift-checker, learning-curator, preview-deployer, regression-test-writer)
+- 4 agentes faltantes adicionados (control-evidence-ledger, engineering-adversarial-verifier, engineering-loop-triage, loop-verifier)
+- 2 frontmatters corrigidos (control-evidence-ledger, loop-verifier)
+- Agentes totais: 36 → 39 (17 engineering)
+
+### Fase 2 — Desinflar Contexto
+- `CORE-DISCIPLINE.md` — 6 regras sempre-ativas (rotulagem, reexecução, gate de risco, não adivinhar, evidência, fechamento)
+- 8 skills on-demand em `~/.claude/skills/`: constitution, evidence-ledger, gcot-tot, security-checklist, backup-first, cognition-rules, turn-based-loop, risk-classification
+- Documentação pré-rebrand corrigida: README, PRODUCT_DECISIONS, schedule.json, START_HERE_PROMPT, SYSTEM.md
+- AGENTS.md atualizado com informações reais do sistema
+
+### Fase 3 — Loop e Risco
+- Loop baseado em turnos com 5 fases (Prompt → Context → Action → Check → Response)
+- Classificação de risco em 3 níveis (Trivial/Padrão/Arriscado)
+- TDD com red testemunhado obrigatório em tarefas Arriscadas
+- Evidence Ledger com níveis de confiança (🔵 Estática / 🟢 Runtime / 🟡 Diff / 🔴 Contradito)
+
+### Fase 4 — Arquitetura de Sub-Diretores
+- 3 sub-diretores criados: engineering-lead, growth-lead, product-lead
+- Director reduzido de 38 agentes diretos para 9 (6 control + 3 leads)
+- Sub-diretores gerenciam seus próprios pipelines com maxTurns:48
+- FCC nativo confirmado como API proxy, sem suporte a hooks/workflows
+- Agentes totais: 39 → 42
+
+### Prévio (2026-07-01)
 - Complemento operacional do 4.0.0.
 - UI do dashboard refeita em tema claro glassmorphism.
 - Instalação com merge, clean e dry-run.
 - Scripts de backup e restauração no WSL e Windows.
 - Logs com rotação automática (1.5MB, mantém 8).
-- Leads, ideias e relatórios com visualização melhorada.
-- Persistência da mensagem do melhor lead.
-- Base para permission prompt tool (gated).
-- Scripts de cápsula do tempo e rotação de logs.
 - `disableBypassPermissionsMode` no settings.json.
 
 ## 4.0.0 — 2026-06-30

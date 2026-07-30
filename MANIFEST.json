@@ -1,7 +1,9 @@
 {
   "name": "Vertexion Agent System",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "createdAt": "2026-06-30T21:27:18-03:00",
+  "updatedAt": "2026-07-15",
+  "description": "Phase 1-4 complete: dead refs fixed, context deflated, 8 on-demand skills, pre-rebrand docs updated, sub-director architecture (3 leads), agent count 39→42",
   "timezone": "America/Recife",
   "owner": "Arthur Araújo",
   "primaryEnvironment": "Claude Code/FCC no WSL acessando projetos no Windows",
@@ -9,8 +11,8 @@
   "teams": ["Vertexion Control", "Growth Engine", "Product Intelligence", "Engineering Assurance"],
   "dashboard": "http://localhost:3741",
   "containsSecrets": false,
-  "agents": 36,
-  "skills": 0,
+  "agents": 42,
+  "skills": 8,
   "sourcePackagesAudited": 7,
   "projects": ["ZapMenu", "Vertexion", "Vertexion Run", "Vertexion Radar", "Vertexion Collect"],
   "validation": {

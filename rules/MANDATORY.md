@@ -31,3 +31,4 @@
 | Prospecção e growth | `rules/growth.md` |
 | Pesquisa e fontes | `rules/research.md` |
 | LGPD e compliance | `rules/engineering.md` |
+| Ask Mode (ultra-cauteloso) | `rules/ask-mode.md` |

@@ -1,0 +1,8 @@
+Get-Process : NÆo ‚ poss¡vel localizar um processo com o nome "msedge". Verifique o nome do processo e chame o cmdlet 
+novamente.
+No linha:1 caractere:1
++ Get-Process msedge | Where-Object { try { $_.CommandLine -match 'remo ...
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (msedge:String) [Get-Process], ProcessCommandException
+    + FullyQualifiedErrorId : NoProcessFoundForGivenName,Microsoft.PowerShell.Commands.GetProcessCommand
+ 
