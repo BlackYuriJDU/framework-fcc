@@ -1,10 +1,10 @@
 # Vertexion Agent System — Architecture & Reference
 
-> **Versão:** 5.0.0 (42 agentes + 3 sub-diretores)
+> **Versão:** 7.0.0 (6 equipes + 6 leads + 8 control + 3 orquestradores)
 > **Proprietário:** Arthur Araújo
 > **Fuso:** America/Recife
-> **Ambiente:** Claude Code via FCC (DeepSeek v4 flash mapeado do alias `sonnet`)
-> **Atualizado em:** 2026-07-15
+> **Ambiente:** Claude Code multi-modelo (provedor varia por sessão; FCC/`/model`)
+> **Atualizado em:** 2026-08-05
 
 ---
 
@@ -24,7 +24,7 @@
 8. [Pipeline de Produto](#8-pipeline-de-produto)
 9. [Pipeline de Engenharia](#9-pipeline-de-engenharia)
 10. [Pipeline de Ações Externas](#10-pipeline-de-ações-externas)
-11. [Portfolio de Projetos (5)](#11-portfolio-de-projetos)
+11. [Portfolio de Projetos (2)](#11-portfolio-de-projetos)
 12. [Segurança e Restrições](#12-segurança-e-restrições)
 13. [Diagrama de Fluxo](#13-diagrama-de-fluxo)
 
@@ -32,7 +32,7 @@
 
 ## 1. Visão Geral
 
-O Vertexion Agent System é um meta-sistema de agentes de IA que opera dentro do Claude Code da Anthropic, roteado via FCC (Fallback Communication Channel) para DeepSeek v4 flash como provedor efetivo. O sistema funciona como um **orquestrador de times virtuais**, cada um com agentes especializados para cobrir todas as etapas de desenvolvimento de software e negócios.
+O Vertexion Agent System é um meta-sistema de agentes de IA que opera dentro do Claude Code da Anthropic. É **agnóstico a provedor**: o modelo efetivo varia por sessão (via `/model` ou fallback do FCC), com perfis de comportamento conforme a capacidade do modelo em uso. O sistema funciona como um **orquestrador de times virtuais**, cada um com agentes especializados para cobrir todas as etapas de desenvolvimento de software e negócios.
 
 ### Filosofia Operacional
 
@@ -55,17 +55,17 @@ O Vertexion Agent System é um meta-sistema de agentes de IA que opera dentro do
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Claude Code (FCC)                         │
-│                   DeepSeek v4 flash                          │
+│              Claude Code (multi-modelo)                       │
+│        provedor varia por sessão (/model | FCC)               │
 ├─────────────────────────────────────────────────────────────┤
-│               Vertexion Director (Coordenador)                │
+│        Vertexion Director (Coordenador, v7)                   │
 ├──────────┬──────────┬──────────┬────────────────────────────┤
-│ Control  │ Engineer │  Growth  │ Product                     │
-│ (6 agts) │ (14 agts)│ (5 agts) │ (11 agts)                   │
+│   DEV    │  Design  │  Mkt     │   Fin / Jur / Ops           │
+│ 6 leads  │ 8 control│ 3 orq.   │   (6 equipes)               │
 ├──────────┴──────────┴──────────┴────────────────────────────┤
 │               MCP Servers (Perplexity, Playwright, Firecrawl) │
-│               Trail of Bits Plugins (11)                      │
-│               Rules & Protocols (14+ arquivos)                │
+│               Plugins (Vercel, Trail of Bits, superpowers)    │
+│               Rules & Protocols (rules/)                      │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -92,7 +92,7 @@ control-vertexion-director
   └── product-lead (11 agentes)
 ```
 
-Cada sub-director tem seu próprio `maxTurns: 48`, `model: sonnet`, e conhece o pipeline específico de sua equipe. O director só precisa conhecer 9 agentes (6 control + 3 leads).
+Cada sub-director tem seu próprio `maxTurns: 48`, `model: opus`, e conhece o pipeline específico de sua equipe. O director só precisa conhecer 9 agentes (6 control + 3 leads).
 
 ---
 
@@ -105,7 +105,7 @@ Agentes de governança, coordenação e qualidade do sistema.
 | Agente | Descrição | Permissão |
 |--------|-----------|-----------|
 | **control-vertexion-director** | Diretor geral: roteia, delega, exige evidência, decide conflitos | total |
-| **control-portfolio-analyst** | Analisa prioridades ZapMenu, Toveli, Vertexion, Tenvyr, Signalys | leitura |
+| **control-portfolio-analyst** | Analisa prioridades ZapMenu e Firmis | leitura |
 | **control-auditor** | Fiscal independente. Verifica conclusões antes de ações externas | leitura |
 | **control-approval-preparer** | Prepara pedidos de aprovação: ação, impacto, risco, rollback | leitura |
 | **control-evidence-ledger** | Auditor independente de evidência. Verifica alegações vs. ferramentas | leitura |
@@ -178,9 +178,9 @@ Servidores MCP (Model Context Protocol) configurados em `~/.claude.json` → `mc
 | Servidor | Comando | Finalidade |
 |----------|---------|------------|
 | **composio** | `composio` (global) | Integração com ferramentas externas via Composio |
-| **perplexity** | `/home/arthur/.nvm/versions/node/v24.17.0/bin/perplexity-mcp` | Busca web com fontes (API key: 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) |
+| **perplexity** | `/home/arthur/.nvm/versions/node/v24.17.0/bin/perplexity-mcp` | Busca web com fontes (chave: PERPLEXITY_API_KEY — ver ~/.claude/.env) |
 | **playwright** | `/home/arthur/.nvm/versions/node/v24.17.0/bin/playwright-mcp` | Automação de navegador (Chromium headless) |
-| **firecrawl** | `/home/arthur/.nvm/versions/node/v24.17.0/bin/firecrawl-mcp-server` | Scraping de páginas web (API key: fc-6515febf4ef041c0851e0f60965f5ad9) |
+| **firecrawl** | `/home/arthur/.nvm/versions/node/v24.17.0/bin/firecrawl-mcp-server` | Scraping de páginas web (chave: FIRECRAWL_API_KEY — ver ~/.claude/.env) |
 
 **Nota:** Node.js via nvm em `/home/arthur/.nvm/versions/node/v24.17.0/bin/`. Playwright Chromium instalado em `~/.cache/ms-playwright/chromium-1228/` com dependências de sistema parcialmente disponíveis (sem sudo para libnspr4 etc., mas headless funciona).
 
@@ -221,7 +221,7 @@ Servidores MCP (Model Context Protocol) configurados em `~/.claude.json` → `mc
 | `design.md` | Decisões de UI/UX (aponta para `design/` sub-arquivos) |
 | `design/checklist.md` | Checklist pré-delivery (SVG, cursor, contraste, focus, reduced-motion, breakpoints) |
 | `design/anti-patterns.md` | Anti-patterns por indústria (tech, finanças, saúde, e-commerce, beleza, restaurantes) |
-| `design/palette.md` | Paletas por projeto (Vertexion, Signalys, Toveli, Tenvyr) e regras |
+| `design/palette.md` | Paletas por projeto (ZapMenu, Firmis) e regras |
 | `design/typography.md` | Fontes (Space Grotesk, Manrope, JetBrains Mono) |
 | `design/system.md` | Design system: grid 8px, dark mode, touch targets, contextos |
 | `security.md` | Segurança: secrets, RLS, pricing, webhooks |
@@ -383,22 +383,16 @@ Execução (somente se autorizado)
 
 ## 11. Portfolio de Projetos
 
-5 projetos ativos, ordenados por prioridade:
+2 projetos ativos, ordenados por prioridade:
 
 | # | Projeto | Status | Stack | Receita |
 |---|---------|--------|-------|---------|
 | 1 | **ZapMenu** | ✅ Lançado (zapmenu.org) | Lovable + Supabase + AppMax | R$34,99-79,99/mês |
-| 1 | **Vertexion** | 🔄 Em rebrand ~8/10 | Lovable + Supabase | — |
-| 3 | **Vertexion Run** | 💡 Ideação (ex-Toveli) | Expo/React Native | — |
-| 4 | **Vertexion Radar** | 💡 Ideação (ex-Tenvyr) | Indefinido | — |
-| 4 | **Vertexion Collect** | 💡 Ideação (ex-Signalys) | Indefinido | — |
+| 2 | **Firmis** | 🔍 Validação de mercado | Vercel + Supabase | — |
 
 **Guardrails por projeto:**
 - **ZapMenu:** Pedidos não bloqueiam launch. Analytics só Movimento/Escala. AppMax atual. Tratar como produção.
-- **Vertexion:** Não virar chatbot genérico. Equilibrar cliente e Dev. ChatVD não é o produto inteiro. Pass permanece.
-- **Vertexion Run:** Manter identidade Vertexion (não Toveli). Mobile-first e Expo Router.
-- **Vertexion Radar:** Foco em change intelligence.
-- **Vertexion Collect:** Produto em inglês. Foco em follow-up de invoices.
+- **Firmis:** Engenheiro assume 100% da responsabilidade na ART. Risco LGPD ao usar IA pública com fotos de clientes.
 
 ---
 
@@ -415,12 +409,13 @@ Execução (somente se autorizado)
 7. **Preço nunca confiado do frontend** — validar sempre no backend
 8. **Fail-open rate limiting:** default bloquear (negar serviço), não permitir
 
-### Modelo e Routing
+### Modelos e Routing (multi-modelo)
 
-- Modelo solicitado: `sonnet` (alias)
-- Modelo efetivo: DeepSeek v4 flash (free tier via FCC)
-- Implicação: modelos menores seguem checklists melhor que prosa abstrata
-- DeepSeek safety classifier pode bloquear comandos intermitentemente
+- Framework agnóstico a provedor; modelo efetivo varia por sessão (`/model` ou FCC). Nenhum provedor é fixo.
+- Perfis: **fronteira** (Opus 5, Fable 5, Kimi 2.7, GPT-5.6 — seguem prosa/princípios); **padrão** (Sonnet 5, Haiku 4.5 — seguem bem instruções estruturadas); **compacto/free tier** (DeepSeek v4, Qwen — literais, propensos a pular etapas implícitas; exigem checklist explícito + verificação final declarada).
+- Prefira checklists explícitos sobre prosa abstrata em qualquer perfil; no compacto é obrigatório.
+- Alguns provedores têm safety classifier que pode bloquear comandos intermitentemente — trate como restrição de runtime, não como comportamento do framework.
+- Registre o **modelo solicitado** no rodapé de respostas técnicas longas.
 
 ### Tarefas que Exigem Análise Profunda
 
@@ -520,7 +515,7 @@ Reportar
 │   ├── README.md
 │   ├── START_HERE_PROMPT.md
 │   ├── CHANGELOG.md
-│   ├── portfolio/ (5 projetos + checklists)
+│   ├── portfolio/ (2 projetos + checklists)
 │   ├── scripts/
 │   │   ├── backup.sh
 │   │   ├── tavily-search.mjs

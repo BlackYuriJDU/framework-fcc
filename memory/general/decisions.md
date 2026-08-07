@@ -26,6 +26,7 @@ Registro cronológico de decisões importantes. Formato obrigatório:
 **Alternativas:** Mudar todos os agentes para `model: deepseek` (quebraria se FCC trocar de provedor).
 **Consequências:** Transparência sem quebrar compatibilidade com futuro provider swap.
 **Decidiu:** Arthur
+> **⚠️ SUPERADO (2026-08-05, Fase 3 multi-modelo):** O framework agora é agnóstico a provedor. Nenhum provedor é "o efetivo" fixo; o modelo varia por sessão (`/model` ou FCC). Manter `model:` no frontmatter continua válido como intenção de perfil; o comportamento é definido pelo perfil real em uso. Ver seção "Modelos e Provedores (multi-modelo)" do CLAUDE.md.
 
 ## 2026-07-06 Migração V1→V2 AppMax no ZapMenu
 **Contexto:** Pagamentos V1 deprecated pela AppMax.

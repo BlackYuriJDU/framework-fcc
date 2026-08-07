@@ -50,10 +50,7 @@ Buscar leads, validar ideias, marketing, compliance, documentação, incidentes 
 | Prioridade | Projeto | Estado | Direção |
 |---:|---|---|---|
 | 1 | ZapMenu | lançado (zapmenu.org) | obter 3 clientes pagantes, reter 2 |
-| 1 | Vertexion | em rebrand ~8/10 | equilibrar cliente, Dev e ecossistema |
-| 3 | Vertexion Run | ideação (reiniciado do zero) | app mobile-first para pequenos negócios |
-| 4 | Vertexion Radar | ideação (reiniciado do zero) | change intelligence internacional |
-| 4 | Vertexion Collect | ideação (reiniciado do zero) | SaaS de follow-up de invoices |
+| 2 | Firmis | validação de mercado | laudos técnicos de engenharia com IA |
 
 Detalhes ficam em `portfolio/` e `project-plans/`.
 
@@ -149,7 +146,7 @@ vertexion-secret-scan "/mnt/c/caminho/projeto"
 
 ### Semanal
 
-- compliance de ZapMenu e Vertexion;
+- compliance de ZapMenu e Firmis;
 - saúde dos produtos;
 - marketing review;
 - documentação;
@@ -166,7 +163,7 @@ O scheduler fica dentro do Control Center. O Agendador do Windows apenas inicia 
 
 ## FCC
 
-Todos os agentes solicitam `sonnet`, mas FCC pode redirecionar esse alias para outro modelo/provedor. O sistema diferencia `requestedModel` de `effectiveModel` quando o CLI fornece essa informação. Não afirme que Anthropic Sonnet foi usado sem confirmação.
+Todos os agentes solicitam `opus`, mas FCC pode redirecionar esse alias para outro modelo/provedor. O sistema diferencia `requestedModel` de `effectiveModel` quando o CLI fornece essa informação. Não afirme que Anthropic Opus foi usado sem confirmação.
 
 A pesquisa tenta usar ferramentas disponíveis no Claude Code; quando WebSearch não estiver disponível, o diretor pode usar o script Tavily se `TAVILY_API_KEY` estiver configurada localmente.
 
@@ -207,7 +204,7 @@ Vertexion-Agent-System/
 ├── control-center/         dashboard localhost
 ├── teams/                  Growth, Product e Engineering
 ├── portfolio/              projetos, equipe, plataformas e métricas
-├── project-plans/          planos específicos dos cinco produtos
+├── project-plans/          planos específicos dos produtos ativos
 ├── project-template/       memória técnica por repositório
 ├── marketing/brands/       baselines das marcas
 ├── memory/                 aprendizado geral

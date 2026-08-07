@@ -140,7 +140,7 @@ A manutenção é manual: ao identificar novo problema, adicione aqui. Ao resolv
 
 **O quê:** O protocolo mestre (engineer-method.md) tem uma seção "Múltiplos Repositórios" que orienta tratar o ecossistema como sistema distribuído. Mas nenhum teste ou validação cross-repo foi configurada.
 
-**Origem:** Adicionado na Rodada 1 como parte do engineer-method.md, baseado no padrão de trabalho com ZapMenu, Toveli, Vertexion.
+**Origem:** Adicionado na Rodada 1 como parte do engineer-method.md, baseado no padrão de trabalho com ZapMenu.
 
 **Risco:** Médio. O protocolo orienta verificar contratos entre repositórios, mas sem testes concretos, mudanças em um repo podem quebrar outro silenciosamente.
 
@@ -201,7 +201,7 @@ A manutenção é manual: ao identificar novo problema, adicione aqui. Ao resolv
 ### P009 — Multi-repo thinking sem testes cross-repo
 
 **Resolvido em:** 2026-07-10
-**Correção:** `docs/internal/CROSS-REPO.md` criado com contratos conhecidos entre ZapMenu, Toveli, Vertexion. Evolui conforme surgem novas integrações.
+**Correção:** `docs/internal/CROSS-REPO.md` criado com contratos conhecidos do ZapMenu. Evolui conforme surgem novas integrações.
 
 ### P010 — Sem verificação de consistência entre agentes
 

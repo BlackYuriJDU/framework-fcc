@@ -19,25 +19,13 @@ Sua tarefa inicial é **planejar e diagnosticar**, não aplicar tudo.
 
 ## Diagnóstico por projeto
 
-### Vertexion Run
-
-Confirme `package.json`, entrada do Expo Router, `index.ts`, `App.tsx`, `app.json`, `app.config.*`, assets, SDK, plugins, `eas.json`, workflows e causa provável do APK não abrir (reiniciado do zero — confirmar estado atual).
-
 ### ZapMenu
 
-Trate como possível produção. Confirme AppMax, assinatura/idempotência, eventos, inadimplência, planos, integração Vertexion, onboarding, menu público, testes e ambiente. Não execute teste destrutivo.
+Trate como possível produção. Confirme AppMax, assinatura/idempotência, eventos, inadimplência, planos, integração de login, onboarding, menu público, testes e ambiente. Não execute teste destrutivo.
 
-### Vertexion
+### Firmis
 
-Confirme cliente, Dev, ChatVD, Pass/Dev Pass, tokens, OIDC, integrações, AppMax, IA real/mocks, i18n e equilíbrio de valor.
-
-### Vertexion Radar
-
-Confirme que ainda é template/ideação e que nenhuma implementação deve começar antes de validação do primeiro nicho de change intelligence.
-
-### Vertexion Collect
-
-Confirme follow-up real, invoices, workspace/RLS, envio, promise-to-pay, disputes, rate limiting, integrações e mocks (reiniciado do zero — confirmar estado atual).
+Confirme status de validação de mercado: laudos técnicos de engenharia com IA (inspeção predial, laudo estrutural, ART/RRT). Verifique stack (Vercel + Supabase), responsabilidade do engenheiro na ART e riscos LGPD ao usar IA pública com fotos de clientes.
 
 ## Plano obrigatório
 
@@ -64,7 +52,7 @@ Use esta ordem como base:
 0. segurança e backup;
 1. configuração global em sessão somente análise;
 2. Control Center sem rotinas externas;
-3. Engineering Assurance em branch/cópia do Vertexion Run;
+3. Engineering Assurance em branch/cópia do ZapMenu;
 4. Growth Engine em `SCOUT_MODE=test`, depois dry-run;
 5. Product Intelligence com evals artificiais;
 6. roteamento completo do Vertexion Control;

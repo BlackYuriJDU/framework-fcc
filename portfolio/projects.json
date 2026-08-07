@@ -38,128 +38,26 @@
       ]
     },
     {
-      "id": "vertexion",
-      "name": "Vertexion",
-      "abbr": "vtx",
-      "priority": 1,
-      "status": "em rebrand, aproximadamente 8/10",
-      "description": "Ecossistema de produtos digitais, startups e ferramentas para clientes, fundadores e desenvolvedores.",
-      "market": "Internacional",
-      "languages": [
-        "pt-BR",
-        "en-US",
-        "en-GB"
-      ],
-      "audience": "Fundadores, desenvolvedores e usuários dos produtos Vertexion",
-      "publicUrl": "https://vertexion.org",
-      "originUrl": "https://vertexion.lovable.app",
-      "provider": "Lovable",
-      "repository": "vertexion-principal",
-      "path": "/mnt/c/Users/Arthur Araújo/Downloads/vertexion-completo",
-      "database": "Supabase rsfhmrhnbrzxgwclqtrz",
-      "guardrails": [
-        "Não virar chatbot genérico",
-        "Equilibrar cliente e Dev",
-        "ChatVD não é o produto inteiro",
-        "Vertexion Pass e Vertexion Dev Pass permanecem"
-      ]
-    },
-    {
-      "id": "vertexion-run",
-      "name": "Vertexion Run",
-      "abbr": "vtx-run",
-      "priority": 3,
-      "status": "ideação, reiniciado do zero",
-      "description": "App mobile-first para pequenos negócios organizarem clientes, tarefas, rotina, cobranças e pagamentos. Antigo Toveli.",
+      "id": "firmis",
+      "name": "Firmis",
+      "abbr": "firmis",
+      "priority": 2,
+      "status": "validação de mercado",
+      "description": "SaaS de laudos técnicos de engenharia com IA (inspeção predial, laudo estrutural, ART/RRT).",
       "market": "Brasil",
       "languages": [
         "pt-BR"
       ],
-      "audience": "Pequenos empreendedores, equipes e startups",
-      "publicUrl": "",
-      "originUrl": "https://tovelii.lovable.app",
-      "provider": "Expo/React Native",
-      "repository": "",
-      "path": "",
-      "database": "indefinido (ideação)",
-      "guardrails": [
-        "Manter identidade Vertexion (não Toveli)",
-        "Mobile-first e Expo Router"
-      ]
-    },
-    {
-      "id": "vertexion-radar",
-      "name": "Vertexion Radar",
-      "abbr": "vtx-radar",
-      "priority": 4,
-      "status": "ideação, reiniciado do zero",
-      "description": "Change intelligence: monitorar fontes, identificar mudanças verificáveis e orientar ações. Antigo Tenvyr.",
-      "market": "Internacional",
-      "languages": [
-        "en-US",
-        "en-GB"
-      ],
-      "audience": "Times de produto, agências, desenvolvedores, fundadores e marketing",
-      "publicUrl": "",
-      "originUrl": "https://tenvyrr.lovable.app",
-      "provider": "Lovable",
-      "repository": "",
-      "path": "",
-      "database": "indefinido (ideação)",
-      "guardrails": [
-        "Manter identidade Vertexion (não Tenvyr)",
-        "Foco em change intelligence"
-      ]
-    },
-    {
-      "id": "vertexion-collect",
-      "name": "Vertexion Collect",
-      "abbr": "vtx-collect",
-      "priority": 4,
-      "status": "ideação, reiniciado do zero",
-      "description": "SaaS internacional para organizar contas a receber e automatizar follow-up de invoices não pagas. Antigo Signalys.",
-      "market": "EUA, Canadá e Reino Unido",
-      "languages": [
-        "en-US",
-        "en-GB"
-      ],
-      "audience": "Agências, consultores, freelancers, contractors e pequenos negócios de serviço",
-      "publicUrl": "",
-      "originUrl": "https://signalyss.lovable.app",
-      "provider": "Lovable",
-      "repository": "",
-      "path": "",
-      "database": "indefinido (ideação)",
-      "guardrails": [
-        "Manter identidade Vertexion (não Signalys)",
-        "Produto em inglês",
-        "Foco em follow-up de invoices"
-      ]
-    },
-    {
-      "id": "zapbot",
-      "name": "ZapBot",
-      "abbr": "zapbot",
-      "priority": 3,
-      "status": "landing page criada, pré-lançamento",
-      "description": "SaaS de atendimento automatizado via WhatsApp para PMEs brasileiras.",
-      "market": "Brasil",
-      "languages": [
-        "pt-BR"
-      ],
-      "audience": "Pequenas e médias empresas que usam WhatsApp para atender clientes",
-      "publicUrl": "",
+      "audience": "Engenheiros civis e arquitetos",
+      "publicUrl": "https://firmis.vercel.app",
       "originUrl": "",
       "provider": "Vercel + Supabase",
       "repository": "",
-      "path": "/home/arthur/zapbot",
-      "database": "Supabase rsfhmrhnbrzxgwclqtrz (mesmo do Vertexion, com wipe autorizado)",
-      "revenue": "R$49,99 / R$149,99 / R$179,99",
+      "path": "/home/arthur/novo-projeto-construcao-civil",
+      "database": "Supabase (remoto)",
       "guardrails": [
-        "Standalone (fora do ecossistema Vertexion)",
-        "Landing page criada, backend pendente",
-        "Wipe total do Supabase autorizado antes de aplicar migrations",
-        "Deploy preview pendente de aprovação"
+        "Engenheiro assume 100% da responsabilidade na ART",
+        "Risco LGPD ao usar IA pública com fotos de clientes"
       ]
     }
   ]

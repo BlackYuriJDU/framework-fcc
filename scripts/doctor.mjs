@@ -34,7 +34,7 @@ add('visible-skills', skills.length === 3 && ['revisar', 'validar', 'preview'].e
 try {
   const settings = JSON.parse(fs.readFileSync(path.join(home, 'settings.json'), 'utf8'));
   add('settings-agent', settings.agent === 'control-vertexion-director', settings.agent || 'não configurado');
-  add('settings-model', settings.model === 'sonnet', settings.model || 'não configurado', 'recommended');
+  add('settings-model', settings.model === 'opus', settings.model || 'não configurado', 'recommended');
 } catch (error) { add('settings-json', false, error.message); }
 add('tavily-env', Boolean(process.env.TAVILY_API_KEY), process.env.TAVILY_API_KEY ? 'configurada' : 'não configurada; pesquisa usará outras ferramentas', 'optional');
 add('groq-env', Boolean(process.env.GROQ_API_KEY), process.env.GROQ_API_KEY ? 'configurada' : 'não configurada; Growth Engine real ficará desativado', 'optional');

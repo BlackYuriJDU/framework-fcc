@@ -4,7 +4,7 @@
 
 | Pattern | Cadence | Level | Comando |
 |---------|---------|-------|---------|
-| Daily Triage | 1d | L1 (report-only) | `claude -p "Run loop triage" --agent engineering-loop-triage --bg` |
+| Daily Triage | 1d | L1 (report-only) | `claude -p "Run loop triage" --agent operacoes-lead --bg` |
 
 ## Human Gates
 - Nenhuma ação automática de escrita em produção
@@ -15,7 +15,7 @@
 | Projeto | URL | Check |
 |---------|-----|-------|
 | ZapMenu | zapmenu.org | Site no ar + SSL + status code |
-| Vertexion | vertexion.org | Site no ar |
+| Firmis | firmis.vercel.app | Site no ar + status code |
 | Telegram | — | Report canal autorizado |
 
 ## Budget

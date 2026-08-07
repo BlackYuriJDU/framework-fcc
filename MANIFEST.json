@@ -14,7 +14,7 @@
   "agents": 42,
   "skills": 8,
   "sourcePackagesAudited": 7,
-  "projects": ["ZapMenu", "Vertexion", "Vertexion Run", "Vertexion Radar", "Vertexion Collect"],
+  "projects": ["ZapMenu", "Firmis"],
   "validation": {
     "packageValidator": "passed",
     "growthAssertions": 90,

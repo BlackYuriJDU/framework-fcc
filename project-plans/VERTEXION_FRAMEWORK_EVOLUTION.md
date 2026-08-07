@@ -2,7 +2,7 @@
 
 **Data:** 2026-07-10
 **Autor:** Vertexion Director (após análise de ~30 sugestões ChatGPT + auto-auditoria)
-**Modelo:** DeepSeek v4 flash via FCC (alias opus)
+**Modelo:** DeepSeek v4 flash via FCC (alias opus) — *[SUPERADO 2026-08-05: framework agora multi-modelo/agnóstico a provedor; este registro é histórico]*
 
 ---
 

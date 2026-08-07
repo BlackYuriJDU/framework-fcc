@@ -75,7 +75,7 @@
 - Pipeline v3 migrado para agentes prefixados e roteamento condicional.
 - Toolkit de escopo, fingerprint, scanner e avaliações preservado.
 - Correções de permission mode para build, runtime, regressão, memória e preview.
-- Planos específicos para ZapMenu, Toveli, Vertexion, Tenvyr e Signalys.
+- Planos específicos para ZapMenu e Firmis.
 
 ### Segurança e instalação
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "active": "vertexion-director",
+  "active": "da-vinci",
   "orchestrators": [
     {
       "id": "vertexion-director",
@@ -12,10 +12,7 @@
       "focus": "full-stack",
       "projects": [
         "ZapMenu",
-        "Vertexion",
-        "Vertexion Run",
-        "Vertexion Radar",
-        "Vertexion Collect"
+        "Firmis"
       ],
       "updated": "2026-07-20"
     },
@@ -42,10 +39,7 @@
       "focus": "design-frontend",
       "projects": [
         "ZapMenu",
-        "Vertexion",
-        "Vertexion Run",
-        "Vertexion Radar",
-        "Vertexion Collect"
+        "Firmis"
       ],
       "updated": "2026-07-20"
     }

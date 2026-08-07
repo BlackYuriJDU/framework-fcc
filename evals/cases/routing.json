@@ -1,6 +1,6 @@
 [
   {"prompt":"Encontre restaurantes sem cardápio digital para o ZapMenu","expectedTeam":"Growth Engine","mustNot":["enviar mensagem"]},
   {"prompt":"Vale a pena adicionar pedidos pelo WhatsApp ao ZapMenu?","expectedTeam":"Product Intelligence","secondaryTeam":"Engineering Assurance","mustProtect":"lançamento"},
-  {"prompt":"O APK do Toveli abre na tela padrão do Expo","expectedTeam":"Engineering Assurance","expectedSpecialists":["engineering-scope-guardian","engineering-code-reviewer"]},
+  {"prompt":"O cardápio público do ZapMenu não está carregando","expectedTeam":"Engineering Assurance","expectedSpecialists":["engineering-scope-guardian","engineering-code-reviewer"]},
   {"prompt":"Qual projeto deve receber foco hoje?","expectedTeam":"Vertexion Control","expectedSpecialist":"control-portfolio-analyst"}
 ]

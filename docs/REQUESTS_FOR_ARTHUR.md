@@ -16,21 +16,10 @@ O sistema deve detectar ou perguntar apenas quando necessário.
 - Definir qual ambiente e banco são produção intocável.
 - Aprovar qualquer alteração de preço, checkout ou AppMax.
 
-## Toveli
+## Firmis
 
-- Fornecer/abrir o repositório mais atual antes da correção.
-- Aprovar instalação ou atualização necessária do Expo/EAS.
-- Definir planos comerciais quando o MVP abrir e estiver estável.
-
-## Tenvyr
-
-- Escolher o primeiro nicho depois da validação.
-- Aprovar fontes monitoradas e frequência inicial.
-
-## Signalys
-
-- Escolher o primeiro ICP depois da pesquisa.
-- Aprovar quais integrações entram no MVP.
+- Confirmar o primeiro nicho/ICP após a validação de mercado.
+- Aprovar integrações e escopo do MVP de laudos.
 
 ## Operação
 

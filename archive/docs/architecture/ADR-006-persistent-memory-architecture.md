@@ -1,6 +1,8 @@
 # ADR-006: Arquitetura de Memória Persistente (Obsidian + agentmemory + Graphiti)
 
-**Status:** Proposed
+> **⚠️ SUPERSEDED (2026-08-05):** Arthur desistiu do Obsidian. A Camada 1 (Obsidian Vault) foi abandonada — MCP `obsidian-vault`, plugin `obsidian@obsidian-skills`, `~/vertexion-brain` e `claude-obsidian` foram removidos. A memória persistente agora é **arquivos locais** (`~/.claude/agent-memory/control-vertexion-director/`) + agentmemory MCP + auto-memória do usuário. Ver ADR-007 (se criado) ou o memory system descrito em `skills/vertexion-director/SKILL.md`. Este documento fica arquivado para histórico.
+
+**Status:** Superseded
 **Date:** 2026-07-16
 **Deciders:** Arthur Araújo (Owner), Vertexion Director (Executor)
 
@@ -99,15 +101,7 @@ Implementar **arquitetura de 3 camadas** com progressive disclosure real:
 
 ## Implementation Plan
 
-### Fase 0 (Imediata — Compaction, sem infra nova)
-Antes de qualquer MCP/Obsidian/Graphiti, aplicar técnica de *compaction* para reduzir sobrecarga de contexto imediatamente:
-
-- [ ] **Monitorar uso de contexto:** ao atingir ~80% do context window, gerar resumo do estado atual da sessão
-- [ ] **Arquivar em `state/time-capsules/`** o resumo com timestamp
-- [ ] **Instruir restart** em nova sessão com contexto limpo + link para time capsule anterior
-- [ ] **Critério de sucesso:** contexto da sessão reduzido em ~60% sem perda de continuidade
-
-### Fase 1 (Obsidian Vault — `~/vertexion-brain/`)
+### Fase 1 (Hoje — Concluída Parcial)
 - [x] Skills Director com progressive disclosure (`~/.claude/skills/vertexion-director/`)
 - [x] Design-lead skill criado
 - [x] Vault structure criada (`~/vertexion-brain/wiki/resources/` com symlinks)
@@ -117,13 +111,12 @@ Antes de qualquer MCP/Obsidian/Graphiti, aplicar técnica de *compaction* para r
 - [ ] **Arthur:** `claude plugin install obsidian@obsidian-skills` (kepano)
 - [ ] **Eu:** Popular vault via MCP (projects.json → wiki/projects/, PRODUCT_DECISIONS.md, memory/, rules/)
 
-### Fase 2 (agentmemory MCP — Recall Automático)
+### Fase 2 (Esta Semana)
 - [ ] **Arthur:** Instalar `agentmemory` MCP (`claude mcp add-json agentmemory ...`)
 - [ ] **Eu:** Testar recall cross-session (nova sessão → carrega hot.md + contexto relevante)
 - [ ] **Eu:** Implementar `session_end` hook → atualiza `hot.md` + grava agentmemory
 
-### Fase 3 (Futuro — Graphiti, só quando necessário)
-- [ ] **Gate:** Só iniciar quando houver volume de decisões temporais que justifique (5+ projetos ativos, 100+ decisões)
+### Fase 3 (Próximas Semanas — Graphiti)
 - [ ] Infra: Docker Compose (Neo4j 5.x + Graphiti service)
 - [ ] MCP bridge Graphiti (custom ou wrapper)
 - [ ] Popular KG a partir do vault + agentmemory

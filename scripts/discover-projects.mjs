@@ -10,7 +10,7 @@ const requestedRoots = process.argv.slice(2).filter(x => !x.startsWith('--'));
 const roots = requestedRoots.length ? requestedRoots : portfolio.workspaceRoots;
 const ignored = new Set(['node_modules', '.git', 'dist', 'build', '.expo', '.next', '.cache', '.turbo', '.vite', 'coverage', 'backups']);
 const nameTokens = {
-  zapmenu: ['zapmenu'], toveli: ['toveli'], vertexion: ['vertexion'], tenvyr: ['tenvyr'], signalys: ['signalys', 'signaly'],
+  zapmenu: ['zapmenu'], firmis: ['firmis', 'novo-projeto-construcao-civil', 'construcao-civil'],
 };
 const candidates = [];
 
@@ -44,8 +44,8 @@ for (const project of portfolio.projects) {
       if (lower.includes(token)) score += 4;
       if (candidate.packageName.includes(token)) score += 10;
     }
-    if (candidate.files.has('supabase')) score += project.id === 'toveli' || project.id === 'tenvyr' ? 0 : 1;
-    if (candidate.files.has('app.json') || candidate.files.has('app.config.ts')) score += project.id === 'toveli' ? 4 : 0;
+    if (candidate.files.has('supabase')) score += 1;
+    if (candidate.files.has('app.json') || candidate.files.has('app.config.ts')) score += 4;
     return { path: candidate.dir, score, packageName: candidate.packageName };
   }).filter(x => x.score > 0).sort((a, b) => b.score - a.score || a.path.length - b.path.length);
   const best = ranked[0];
