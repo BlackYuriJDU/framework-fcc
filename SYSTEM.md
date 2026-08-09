@@ -1,22 +1,23 @@
 # Vertexion Agent System — Architecture & Reference
 
-> **Versão:** 7.0.0 (6 equipes + 6 leads + 8 control + 3 orquestradores)
+> **Versão:** 7.1.0 (6 leads + 9 control + 3 orquestradores de domínio)
 > **Proprietário:** Arthur Araújo
 > **Fuso:** America/Recife
 > **Ambiente:** Claude Code multi-modelo (provedor varia por sessão; FCC/`/model`)
-> **Atualizado em:** 2026-08-05
+> **Atualizado em:** 2026-08-08
+> **Orquestradores:** Tesla 🔵 (engenharia) · Einstein 🟡 (growth/jurídico/marketing) · Da Vinci 🔴 (design) · Merge (`/orq all`)
 
 ---
 
 ## Sumário
 
 1. [Visão Geral](#1-visão-geral)
-2. [Equipes e Agentes (42)](#2-equipes-e-agentes-42)
-3. [Agentes por Equipe](#3-equipes-e-agentes-detalhados)
-   - [Control (6)](#31-control-vertexion-control)
-   - [Engineering (14)](#32-engineering-engineering-assurance)
-   - [Growth (5)](#33-growth-growth-engine)
-   - [Product (11)](#34-product-product-intelligence)
+2. [Agentes Reais (15)](#2-agentes-reais-15)
+3. [Orquestradores de Domínio](#3-orquestradores-de-domínio)
+   - [Tesla (engenharia + auto-melhoria)](#31-tesla-engenharia--auto-melhoria)
+   - [Einstein (growth + jurídico + marketing)](#32-einstein-growth--jurídico--marketing)
+   - [Da Vinci (design)](#33-da-vinci-design)
+   - [Modo Merge](#34-modo-merge)
 4. [Servidores MCP (4)](#4-servidores-mcp)
 5. [Plugins Trail of Bits (11)](#5-plugins-trail-of-bits)
 6. [Regras e Protocolos](#6-regras-e-protocolos)
@@ -58,10 +59,14 @@ O Vertexion Agent System é um meta-sistema de agentes de IA que opera dentro do
 │              Claude Code (multi-modelo)                       │
 │        provedor varia por sessão (/model | FCC)               │
 ├─────────────────────────────────────────────────────────────┤
-│        Vertexion Director (Coordenador, v7)                   │
+│    Orquestradores de domínio (via /orq)                       │
+│    ┌────────┐ ┌────────┐ ┌────────┐  ┌────────────────┐      │
+│    │ Tesla  │ │Einstein│ │Da Vinci│  │  MERGE /orq all│      │
+│    │ 🔵 eng │ │🟡 growth│ │🔴 des │  │  3 orqs juntos │      │
+│    │auto-mel│ │jur/mkt │ │  sign  │  │  (protocolo)   │      │
+│    └────────┘ └────────┘ └────────┘  └────────────────┘      │
 ├──────────┬──────────┬──────────┬────────────────────────────┤
-│   DEV    │  Design  │  Mkt     │   Fin / Jur / Ops           │
-│ 6 leads  │ 8 control│ 3 orq.   │   (6 equipes)               │
+│ 6 leads  │ 9 control│ plugins  │  (nenhum agente sem orq)    │
 ├──────────┴──────────┴──────────┴────────────────────────────┤
 │               MCP Servers (Perplexity, Playwright, Firecrawl) │
 │               Plugins (Vercel, Trail of Bits, superpowers)    │
@@ -71,103 +76,67 @@ O Vertexion Agent System é um meta-sistema de agentes de IA que opera dentro do
 
 ---
 
-## 2. Equipes e Agentes (42)
+## 2. Agentes Reais (15)
 
-| Equipe | Sigla | Agentes | Função |
-|--------|-------|---------|--------|
-| **Vertexion Control** | CTRL | 6 + 3 leads | Coordenação, prioridades, aprovações, auditoria, evolução |
-| **Engineering Assurance** | ENGR | 17 + lead | Código, segurança, revisão, testes, deploy, runtime |
-| **Growth Engine** | GRTH | 5 + lead | Leads, prospecção, marketing, análise de funil |
-| **Product Intelligence** | PROD | 11 + lead | Produto, preço, concorrência, experimentos, riscos |
-| **Total** | | **42** | (39 agentes especializados + 3 sub-diretores) |
+Inventário real no disco (6 leads + 9 control agents). Os agentes de equipe v5/v6 (engineering-*, growth-*, product-*) **não existem como arquivos** — foram arquivados em `archive/agents-v5/`. Os orquestradores delegam exclusivamente aos leads e control agents listados abaixo.
 
-### Arquitetura de Sub-Diretores (NOVO v5.0)
+### 2.1 Leads (equipes) — `~/.claude/agents/`
 
-O director roteia tarefas para 3 sub-diretores de equipe, que gerenciam seus próprios pipelines:
+| Lead | Equipe | Escopo |
+|------|--------|--------|
+| `dev-lead` | DEV | Código, arquitetura, segurança, deploy, QA, Supabase, pagamentos |
+| `design-lead` | Design | UI/UX, design system, branding, acessibilidade, protótipos |
+| `marketing-lead` | Marketing | Prospecção, conteúdo, campanhas, growth, funil |
+| `financas-lead` | Finanças | Pricing, custos, receita, modelo financeiro, evidência |
+| `juridico-lead` | Jurídico | Compliance, contratos, LGPD, riscos legais |
+| `operacoes-lead` | Operações | Portfólio, prioridades, aprovações, auditoria, evolução |
 
-```
-control-vertexion-director
-  ├── engineering-lead (17 agentes)
-  ├── growth-lead (5 agentes)
-  └── product-lead (11 agentes)
-```
-
-Cada sub-director tem seu próprio `maxTurns: 48`, `model: opus`, e conhece o pipeline específico de sua equipe. O director só precisa conhecer 9 agentes (6 control + 3 leads).
-
----
-
-## 3. Equipes e Agentes Detalhados
-
-### 3.1 Control — Vertexion Control (6)
-
-Agentes de governança, coordenação e qualidade do sistema.
+### 2.2 Control — `agents/control/`
 
 | Agente | Descrição | Permissão |
 |--------|-----------|-----------|
-| **control-vertexion-director** | Diretor geral: roteia, delega, exige evidência, decide conflitos | total |
+| **control-tesla** | Orquestrador Tesla: engenharia de código + auto-melhoria (sempre ultrathink2) | total |
+| **control-einstein** | Orquestrador Einstein: growth + jurídico + marketing | total |
+| **da-vinci** | Orquestrador Da Vinci: design front-end | total |
 | **control-portfolio-analyst** | Analisa prioridades ZapMenu e Firmis | leitura |
 | **control-auditor** | Fiscal independente. Verifica conclusões antes de ações externas | leitura |
 | **control-approval-preparer** | Prepara pedidos de aprovação: ação, impacto, risco, rollback | leitura |
 | **control-evidence-ledger** | Auditor independente de evidência. Verifica alegações vs. ferramentas | leitura |
 | **control-agent-evolution-advisor** | Meta-agente que sugere melhorias baseadas em padrões de erro | escrita |
+| **loop-verifier** | Verificador de ações do loop (autoloop) — confirmador independente (CHECKER) | leitura |
 
-### 3.2 Engineering — Engineering Assurance (17)
+> **v7.1:** `loop-verifier` foi movido para `agents/control/` (antes em `vertexion-agent-system/.claude/agents/`) — era a única exceção de agente sem orq. Agora é propriedade primária do Tesla via `/autoloop`.
 
-Engenharia: código, arquitetura, segurança, testes, deploy, runtime.
-> **Nota:** Consolidado de 23 para 14 agentes em 2026-07-13 (9 agentes fundidos em 5 sobreviventes). +3 novos agentes adicionados pós-consolidação (adversarial-verifier, loop-triage, loop-verifier). Total atual: 17.
+---
 
-| Agente | Descrição | Permissão |
-|--------|-----------|-----------|
-| **engineering-implementation-planner** | Planeja escopo, arquivos, riscos, testes, rollback. **Inclui:** design de arquitetura (ADRs, system-design) e design de banco (normalização, índices, migrações) | plano |
-| **engineering-adversarial-verifier** | Verificador adversarial fresco: re-executa comandos, compara outputs, não confia no builder | plano (read-only) |
-| **engineering-code-reviewer** | Revisa diff em 3 modos: Padrão (4 dimensões), Adversarial (3 personas: Saboteur/New Hire/Security), API Design (endpoints, breaking changes) | plano |
-| **engineering-security-auditor** | Audita auth, secrets, validação, APIs, dados, fail-open. **Inclui:** compliance LGPD (consentimento, exclusão, exportação, retenção, dados sensíveis) | plano |
-| **engineering-supabase-auditor** | Audita RLS, RPC, storage, service role Supabase | plano |
-| **engineering-payment-flow-auditor** | Audita AppMax, PIX, assinatura, webhook, idempotência | plano |
-| **engineering-dependency-auditor** | Audita lockfile, pacotes, licenças, vulnerabilidades | leitura |
-| **engineering-loop-triage** | Triage agent: verifica saúde do projeto, CI, issues e produz relatório acionável | leitura |
-| **loop-verifier** | Verificador de ações do loop — confirma resultados antes de reportar | leitura |
-| **engineering-instruction-auditor** | Detecta instruções maliciosas em CLAUDE.md/README/scripts | leitura |
-| **engineering-migration-guardian** | Classifica migrations como SAFE, BLOCKED ou REVIEW | plano |
-| **engineering-qa-validator** | Executa typecheck, lint, testes, build, reporta causa raiz. **Inclui:** drift check de documentação e criação de teste de regressão | default |
-| **engineering-runtime-ui-validator** | Valida app em execução: rotas, console, rede, fluxos | leitura |
-| **engineering-requirements-checker** | Confere requisitos: atendido, parcial, ausente | leitura |
-| **engineering-scope-guardian** | Detecta mudanças fora do pedido. Classifica autorizadas ou suspeitas | leitura |
-| **engineering-uxui-reviewer** | Avalia UX/UI, acessibilidade, responsividade, microcopy | leitura |
-| **engineering-release-judge** | Gate final: APROVADO, REPROVADO ou REVISÃO. **Inclui:** preview deploy | plano |
+## 3. Orquestradores de Domínio
 
-**Agentes arquivados** (capacidades fundidas nos sobreviventes):
-`adversarial-reviewer`, `api-design-reviewer`, `compliance-auditor`, `database-designer`, `docs-drift-checker`, `learning-curator` (→ passivo), `preview-deployer`, `regression-test-writer`, `senior-architect`
+Switch via `/orq <id> [nivel]`; ativação mid-chat por menção ao nome no texto; nível default `médio`. Detalhe: `docs/levels.md`, `skills/orq/`.
 
-### 3.3 Growth — Growth Engine (5)
+### 3.1 Tesla — engenharia + auto-melhoria
 
-Prospecção, marketing, análise comercial.
+- **Cor:** 🔵 azul. **ID/skill/agent:** `tesla` / `tesla` / `control-tesla`.
+- **Substitui** `vertexion-director`. Foco: engenharia de código, segurança, revisão, QA, deploy, Supabase, pagamentos **e auto-melhoria** (Karpathy Loop via `/autoloop`).
+- **Opera SEMPRE em ultrathink2** (`~/.claude/rules/ultrathink2.md`).
+- Delegáveis: `dev-lead`, `operacoes-lead`, `control-agent-evolution-advisor`, `control-approval-preparer`, `control-auditor`, `control-evidence-ledger`, `control-portfolio-analyst`, `loop-verifier`.
 
-| Agente | Descrição | Permissão |
-|--------|-----------|-----------|
-| **growth-lead-researcher** | Pesquisa leads públicos ZapMenu com evidência e sem duplicidade | leitura |
-| **growth-lead-qualifier** | Pontua leads ZapMenu 0-100: alta/média/baixa/descarte | leitura |
-| **growth-outreach-strategist** | Cria abordagem personalizada, roteiro Loom, follow-ups | leitura |
-| **growth-marketing-reviewer** | Audita landing pages, anúncios, SEO, CTA, posicionamento | leitura |
-| **growth-performance-analyst** | Analisa funil, canais, conversão, custo, qualidade leads | leitura |
+### 3.2 Einstein — growth + jurídico + marketing
 
-### 3.4 Product — Product Intelligence (11)
+- **Cor:** 🟡 amarelo. **ID/skill/agent:** `einstein` / `einstein` / `control-einstein`.
+- **Substitui** `zapmenu-activity`. Foco: prospecção (pipeline ZapMenu RESEARCH→QUALIFY→CRAFT→SEND), marketing, jurídico (compliance, LGPD, contratos), finanças de produto (pricing).
+- Absorve o **Founder's Playbook** (Anthropic) + awesome-gtm-engineering.
+- Delegáveis: `marketing-lead`, `financas-lead`, `juridico-lead`, `operacoes-lead`, `dev-lead` + 5 control agents.
 
-Descoberta, validação, estratégia, precificação, riscos.
+### 3.3 Da Vinci — design
 
-| Agente | Descrição | Permissão |
-|--------|-----------|-----------|
-| **product-intake-analyst** | Classifica ideia: produto, feature, preço, integração ou estratégia | leitura |
-| **product-hypothesis-builder** | Transforma ideia em hipóteses verificáveis por dimensão | leitura |
-| **product-evidence-researcher** | Pesquisa evidências: mercado, avaliações, reclamações, concorrência | leitura |
-| **product-red-team** | Tenta destruir a ideia: premissas fracas, riscos, autoengano | leitura |
-| **product-decision-judge** | Consolida validação: nota, confiança, veredito, próximos passos | leitura |
-| **product-competitor-analyst** | Analisa concorrentes, battlecards, positioning, funding | leitura |
-| **product-pricing-strategist** | Projeta modelo de preço, tiers, Good/Better/Best | leitura |
-| **product-experiment-designer** | Transforma incertezas em experimento barato | leitura |
-| **product-feasibility-analyst** | Avalia viabilidade técnica, custo, prazo, manutenção | leitura |
-| **product-risk-regulatory-analyst** | Avalia riscos jurídicos, regulatórios, privacidade, pagamentos | leitura |
-| **product-user-journey-auditor** | Mapeia jornada: descoberta → ativação → uso → retenção | leitura |
+- **Cor:** 🔴 vermelho. **ID/skill/agent:** `da-vinci` / `da-vinci` / `da-vinci`.
+- **Mantido** da v7. Foco: UI/UX, animações, design systems, prototipação. Sem back-end, sem lógica de servidor.
+- Ganhou conhecimento: `superdesigndev/superdesign` + `VoltAgent/awesome-design-md` (passo REFERENCE).
+
+### 3.4 Modo Merge
+
+- **Ativação:** `/orq all`. **NÃO muda o active agent** — imprime o protocolo (`docs/merge.md` + `skills/orq/merge-mode.md`).
+- A sessão principal coordena: parseia o job em escopos por domínio (com métrica de sucesso por domínio) → despacha `Agent(control-tesla)`, `Agent(control-einstein)`, `Agent(da-vinci)` em paralelo → cada um escreve `reports/merge-<ts>/<dominio>/DELIVERABLE.md` → auditoria de costuras → integra em `INTEGRATED.md` → nada sai sem aprovação de Arthur.
 
 ---
 
@@ -231,6 +200,8 @@ Servidores MCP (Model Context Protocol) configurados em `~/.claude.json` → `mc
 | `reporting.md` | Relatórios em português, código em inglês |
 | `routing.md` | Roteamento de subagentes (prefira focados, não teams) |
 | `external-actions.md` | Ações externas: autorizações pré-aprovadas, proibições |
+| `ask-mode.md` | Protocolo `ultraask` — perguntas exaustivas antes de agir |
+| `ultrathink2.md` | Protocolo `ultrathink2` — raciocínio profundo (J-Space, GCOT expandido, verificação multi-camada) |
 
 ### 6.2 Protocolos Comportamentais
 
@@ -249,7 +220,7 @@ O sistema mantém 3 camadas de memória persistente:
 
 ### 7.1 Agente-Memória (Cross-Session)
 
-`~/.claude/agent-memory/control-vertexion-director/`
+`~/.claude/agent-memory/control-tesla/` (movido de `control-vertexion-director` na v7.1 — preserva linhagem)
 
 Memórias de longo prazo sobre Arthur e o projeto. Indexadas por `MEMORY.md`.
 
@@ -291,20 +262,17 @@ Memórias do escopo do projeto atual. Inclui migrações, resultados de prospec�
 
 ## 8. Pipeline de Produto
 
-Para **ideias, features novas ou validação de produto**:
+Para **ideias, features novas ou validação de produto** — orquestrado pelo **Einstein** (delega a `financas-lead` / `juridico-lead` / `marketing-lead`):
 
 ```
-product-intake-analyst
-    ↓  (classifica: produto, feature, preço, integração, estratégia)
-product-hypothesis-builder
-    ↓  (transforma em hipóteses verificáveis)
-product-evidence-researcher
-    ↓  (busca evidências de mercado, concorrência, reclamações)
-product-red-team
-    ↓  (tenta destruir a ideia — adversarial check)
-product-decision-judge
-    ↓  [APPROVED / REJECTED / ITERATE]
-Implementação (se APPROVED)
+Einstein (control-einstein)
+    ↓  (parseia o pedido; identifica natureza do produto)
+financas-lead (evidência de mercado, pricing, viabilidade)
+    ↓  (níveis de evidência 0–5)
+juridico-lead (riscos jurídicos, LGPD, compliance)
+    ↓
+marketing-lead (posicionamento, concorrência, funil)
+    ↓  [evidência + aprovação antes de qualquer ação]
 ```
 
 **Níveis de Evidência de Produto:**
@@ -319,25 +287,18 @@ Implementação (se APPROVED)
 
 ## 9. Pipeline de Engenharia
 
-Para **código novo, correções, refatoração**:
+Para **código novo, correções, refatoração** — orquestrado pelo **Tesla** (sempre ultrathink2; delega a `dev-lead`, verificação a `control-auditor`/`loop-verifier`):
 
 ```
-engineering-implementation-planner
-    ↓  (escopo, arquivos, riscos, arquitetura, banco)
-Execução (implementação)
+Tesla (control-tesla)  — ultrathink2
+    ↓  (define escopo, arquivos, riscos, testes, rollback)
+dev-lead  (implementação)
     ↓
-engineering-code-reviewer
-    ↓  (modo padrão, adversarial, ou API design)
-[SE alto risco: engineering-adversarial-verifier]
-    ↓  (re-execução fresca, não confia no builder)
-[SE risco: security-auditor + supabase-auditor]
-    ↓
-engineering-scope-guardian
-    ↓  (detecta mudanças fora do pedido)
-engineering-qa-validator
-    ↓  (typecheck, lint, testes, build, drift check, teste regressão)
-engineering-release-judge
-    ↓  [APROVADO / REPROVADO / REVISÃO]
+control-auditor / loop-verifier  (revisão fresca, não confia no builder)
+    ↓  [SE risco: security checklist + plugins ToB/semgrep]
+control-evidence-ledger  (evidência file:line)
+    ↓  [SE ação externa: control-approval-preparer + Arthur]
+Aprovação explícita → execução
 ```
 
 **Simulação pré-código (parte do planner):**
@@ -434,13 +395,14 @@ Produto novo, segurança, pagamento, migration, compliance, preço, arquitetura,
 ### Fluxo de Coordenação Padrão
 
 ```
-Arthur → control-vertexion-director
-    ├─ Identifica projeto e natureza
-    ├─ Seleciona equipe
+Arthur → Orquestrador de domínio (via /orq <id> [nivel] ou menção no texto)
+    ├─ Identifica domínio: engenharia (Tesla) | growth/jur/mkt (Einstein) | design (da-vinci)
+    ├─ [Multi-domínio → /orq all (modo merge)]
+    ├─ Seleciona leads/control agents dentro do domínio
     ├─ [Se ambiguidade: pergunta]
-    ├─ Roda agentes (máx 4, paralelo se independentes)
+    ├─ Roda agentes (máx conforme nível, paralelo se independentes)
     ├─ [Se conflito intra-equipe: reporta]
-    └─ Retorna decisão prática
+    └─ Retorna decisão prática com evidência file:line
 ```
 
 ### GCOT para Tarefas Complexas
@@ -479,52 +441,53 @@ Reportar
 
 ---
 
-## Apêndice A: Estrutura de Diretórios
+## Apêndice A: Estrutura de Diretórios (v7.1)
 
 ```
 ~/.claude/
-├── agents/
-│   ├── control/      # 6 agentes
-│   ├── engineering/  # 14 agentes
-│   ├── growth/       # 5 agentes
-│   └── product/      # 11 agentes
-├── rules/
-│   ├── constitution.md
-│   ├── engineer-method.md
-│   ├── engineer-method-reference.md
-│   ├── engineering.md
-│   ├── engineering-reference.md
-│   ├── evidence-ledger.md
-│   ├── design.md
-│   ├── design/ (5 arquivos)
-│   ├── security.md
-│   ├── research.md
-│   ├── product-evidence.md
-│   ├── growth.md
-│   ├── reporting.md
-│   ├── routing.md
-│   └── external-actions.md
-├── agent-memory/
-│   └── control-vertexion-director/  (17 arquivos + MEMORY.md)
-├── plugins/
-│   ├── installed_plugins.json
-│   └── cache/ (ToB + Vercel plugins)
+├── agents/                 # 6 leads reais (dev, design, marketing, financas, juridico, operacoes)
+├── agent-memory/           # memória histórica por agente
+│   ├── control-tesla/      # (renomeado de control-vertexion-director — preserva linhagem)
+│   └── ...                 # control-einstein, design-lead, control-evidence-ledger, leads
+├── rules/                  # protocolos sob demanda (MANDATORY, cognition, security, growth, ...)
+├── skills/                 # 8 skills de domínio
+│   ├── tesla/              # engenharia + auto-melhoria (SEMPRE ultrathink2)
+│   ├── einstein/           # growth + jurídico + marketing
+│   ├── da-vinci/           # design front-end
+│   ├── autoloop/           # Karpathy Loop (dono: Tesla)
+│   ├── orq/                # ativação de orquestradores (+ merge-mode.md)
+│   ├── zapmenu/            # pipeline de prospecção ZapMenu
+│   ├── design-lead/
+│   └── find-skills/
 ├── vertexion-agent-system/
 │   ├── SYSTEM.md (este arquivo)
-│   ├── MANIFEST.json
+│   ├── MANIFEST.json       # v7.1.0 (15 agents, 8 skills)
 │   ├── README.md
 │   ├── START_HERE_PROMPT.md
 │   ├── CHANGELOG.md
-│   ├── portfolio/ (2 projetos + checklists)
+│   ├── AGENTS.md
+│   ├── agents/control/     # 9 control agents (incl. loop-verifier movido)
+│   ├── orchestrators/
+│   │   └── registry.json   # version 3 (tesla/einstein/da-vinci + level)
+│   ├── knowledge/
+│   │   ├── tesla/          # repos curados + pointers.md
+│   │   ├── einstein/
+│   │   └── da-vinci/
+│   ├── docs/               # versoes.md (autoridade), levels.md, merge.md, ...
+│   ├── reports/merge-*/    # artefatos do modo merge (DELIVERABLE/INTEGRATED)
 │   ├── scripts/
 │   │   ├── backup.sh
-│   │   ├── tavily-search.mjs
+│   │   ├── orq.sh          # ativação + níveis + `all` + `--focus`
+│   │   ├── sync-knowledge.sh  # clone curado (--check = dry-run R$0)
 │   │   └── ...
-│   ├── memory/general/ (mistakes, patterns, false-positives, decisions)
-│   ├── archive/ (agentes fundidos, skills removidas)
+│   ├── memory/general/     # mistakes, patterns, false-positives, decisions
+│   ├── portfolio/          # ZapMenu + Firmis
 │   ├── patterns/
 │   ├── teams/
-│   └── ...
+│   └── archive/            # agentes fundidos, skills removidas
+├── plugins/
+│   ├── installed_plugins.json
+│   └── cache/ (ToB + Vercel plugins)
 ├── .claude.json  (MCP servers: composio, perplexity, playwright, firecrawl)
 └── CLAUDE.md     (instruções globais)
 ```

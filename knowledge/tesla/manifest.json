@@ -1,0 +1,51 @@
+{
+  "orchestrator": "tesla",
+  "description": "Repositórios curados para engenharia de código e auto-melhoria (clonados shallow --depth 1).",
+  "repos": [
+    {
+      "url": "https://github.com/coderabbitai/ai-pr-reviewer",
+      "dir": "repos/ai-pr-reviewer",
+      "note": "Revisão de PR automatizada por IA"
+    },
+    {
+      "url": "https://github.com/ast-grep/ast-grep",
+      "dir": "repos/ast-grep",
+      "note": "Busca/reescrita estrutural em AST"
+    },
+    {
+      "url": "https://github.com/dsherret/ts-morph",
+      "dir": "repos/ts-morph",
+      "note": "AST TypeScript programático"
+    },
+    {
+      "url": "https://github.com/sverweij/dependency-cruiser",
+      "dir": "repos/dependency-cruiser",
+      "note": "Validação de arquitetura/dependências"
+    },
+    {
+      "url": "https://github.com/webpro-nl/knip",
+      "dir": "repos/knip",
+      "note": "Detecção de código morto"
+    },
+    {
+      "url": "https://github.com/typescript-eslint/typescript-eslint",
+      "dir": "repos/typescript-eslint",
+      "note": "Lint TS semântico"
+    },
+    {
+      "url": "https://github.com/MaximeRobeyns/self_improving_coding_agent",
+      "dir": "repos/self_improving_coding_agent",
+      "note": "Referência autoloop (Karpathy Loop)"
+    },
+    {
+      "url": "https://github.com/armgabrielyan/autoloop",
+      "dir": "repos/autoloop-ref",
+      "note": "Implementação de referência autoloop"
+    },
+    {
+      "url": "https://github.com/A-EVO-Lab/a-evolve",
+      "dir": "repos/a-evolve",
+      "note": "Auto-evolução de agentes"
+    }
+  ]
+}

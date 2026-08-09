@@ -1,0 +1,16 @@
+{
+  "orchestrator": "da-vinci",
+  "description": "Repositórios curados para design front-end (clonados shallow --depth 1).",
+  "repos": [
+    {
+      "url": "https://github.com/superdesigndev/superdesign",
+      "dir": "repos/superdesign",
+      "note": "Design de sistemas e componentes"
+    },
+    {
+      "url": "https://github.com/VoltAgent/awesome-design-md",
+      "dir": "repos/awesome-design-md",
+      "note": "Coleção de design markdown"
+    }
+  ]
+}

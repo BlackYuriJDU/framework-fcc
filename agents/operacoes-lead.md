@@ -1,6 +1,6 @@
 ---
 name: operacoes-lead
-description: "Sub-director da equipe Operações. Coordena portfólio, prioridades, aprovações, auditoria, evolução. Recebe objetivo do control-vertexion-director, coordena os agentes de controle (v5/v6) e reporta resultado."
+description: "Sub-director da equipe Operações. Coordena portfólio, prioridades, aprovações, auditoria, evolução. Recebe objetivo do control-tesla (orquestrador Tesla), coordena os agentes de controle (v5/v6) e reporta resultado."
 tools: Agent(control-auditor, control-approval-preparer, control-evidence-ledger, control-portfolio-analyst, control-agent-evolution-advisor), Read, Grep, Glob, Bash, Write, Edit, WebSearch, WebFetch
 model: sonnet
 effort: high

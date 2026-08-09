@@ -4,7 +4,9 @@ Todos os agentes de análise declaram `model: opus` e `effort: high`. Com FCC, o
 
 ## Vertexion Control
 
-- `control-vertexion-director`: sessão principal, roteamento natural, perguntas, delegação, prioridades e consolidação.
+- `control-tesla`: orquestrador Tesla — engenharia + auto-melhoria (sessão principal, roteamento, delegação, ultrathink2).
+- `control-einstein`: orquestrador Einstein — growth, jurídico, marketing, finanças.
+- `da-vinci`: orquestrador Da Vinci — design front-end.
 - `control-auditor`: revisão independente antes de ação externa e em conflitos.
 - `control-portfolio-analyst`: portfólio, metas, bloqueios, receita e prioridade diária.
 - `control-approval-preparer`: transforma uma ação de risco em pedido claro, delimitado e reversível.

@@ -1,7 +1,38 @@
 # Versões do Framework FCC
 
-> Histórico de versões do framework `~/.claude/` — o que mudou entre v5, v6 e v7.
-> Este arquivo é a fonte de verdade do contexto de versão. **Versão atual: v7.**
+> Histórico de versões do framework `~/.claude/` — o que mudou entre v5, v6, v7 e v7.1.
+> Este arquivo é a fonte de verdade do contexto de versão. **Versão atual: v7.1.**
+
+---
+
+## v7.1 — Três orquestradores de domínio (2026-08-08)
+
+**Cabeçalho SYSTEM.md:** `7.1.0 (6 leads + 9 control + 3 orquestradores de domínio)`. Repositório oficial: `BlackYuriJDU/framework-fcc`.
+
+### Arquitetura
+- **3 orquestradores de domínio** (nomes de inventores + cores + níveis de uso):
+  - `vertexion-director` → **Tesla** (🔵 azul, agent `control-tesla`) — engenharia de código + auto-melhoria; opera SEMPRE em ultrathink2; dono do `/autoloop` (Karpathy Loop).
+  - `zapmenu-activity` → **Einstein** (🟡 amarelo, agent `control-einstein`) — growth + jurídico + marketing; absorve pipeline de prospecção ZapMenu + Founder's Playbook (Anthropic).
+  - `da-vinci` (🔴 vermelho) — mantido, design front-end; ganhou conhecimento (superdesign, awesome-design-md).
+- **Modo merge** (`/orq all`): protocolo no chat principal coordenando os 3 orqs em `reports/merge-<ts>/<dominio>/DELIVERABLE.md` + `INTEGRATED.md`; nada sai sem aprovação.
+- **Níveis de uso** (baixo/médio/alto/máximo, default médio) por orq em `registry.json` (version 3); semântica em `docs/levels.md`.
+- **Ativação mid-chat por nome** (tags Tesla/Einstein/Da Vinci no texto) + invocação direta `/tesla`, `/einstein`, `/da-vinci`, `/autoloop`.
+- **Nenhum agente sem orq**: `loop-verifier` movido de `vertexion-agent-system/.claude/agents/` para `agents/control/` (dono: Tesla).
+- Skills: dirs `skills/vertexion-director`→`tesla`, `skills/zapmenu-activity`→`einstein`; nova `skills/autoloop/`; subpipelines remapeados por domínio.
+
+### Conhecimento
+- `knowledge/{tesla,einstein,da-vinci}/` com repos curados (shallow clone) + `pointers.md` por URL para repositórios grandes (semgrep, codeql, biome, oxc) e já-downloadados (superpowers, claude-audit, minimal-diff).
+- `scripts/sync-knowledge.sh` — idempotente, `--check` (dry-run R$0); clone real requer aprovação.
+
+### Registry e wiring
+- `orchestrators/registry.json` version 3 com schema por orq (`level` incluso).
+- `scripts/orq.sh` estendido: `<id> [nivel]`, `all`, `--focus <id> [nivel]`.
+- `agent-memory/control-vertexion-director/` → `agent-memory/control-tesla/` (preserva linhagem).
+- `~/.claude/agents/*.md` (6 leads) atualizados para apontar ao orq correto.
+- `CLAUDE.md` ≤ 60 linhas com skills tesla/einstein/autoloop + keywords mid-chat.
+
+### Invariante de identidade (4 pontos de sincronia)
+`registry.json` id ↔ dir da skill ↔ stem do control agent file ↔ campo `agent` do settings.json. Após cada mudança, os 4 devem concordar.
 
 ---
 

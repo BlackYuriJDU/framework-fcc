@@ -1,6 +1,6 @@
 ---
 name: marketing-lead
-description: "Sub-director da equipe Marketing. Coordena prospecção, conteúdo, campanhas, growth, funil. Recebe objetivo do control-vertexion-director, executa os pipelines de growth (v5) + funil de prospecção e reporta resultado."
+description: "Sub-director da equipe Marketing. Coordena prospecção, conteúdo, campanhas, growth, funil. Recebe objetivo do control-einstein (orquestrador Einstein), executa os pipelines de growth (v5) + funil de prospecção e reporta resultado."
 tools: Agent(control-auditor, control-approval-preparer, control-evidence-ledger), Read, Grep, Glob, Bash, Write, Edit, WebSearch, WebFetch
 model: sonnet
 effort: high

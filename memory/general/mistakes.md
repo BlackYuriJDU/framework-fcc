@@ -1,5 +1,15 @@
 # Erros confirmados
 
+### [2026-08-09] Build em background: passei `npm run build` para segundo plano e perdi o resultado
+- Contexto: Durante tarefa de push do framework v7.1, executei `npm run build` em background achando que poderia continuar trabalhando enquanto compilava.
+- O que eu assumi errado: que build podia rodar em background sem consequências. Build é verificação crítica de integridade — se falhar, o erro precisa ser visto imediatamente para corrigir antes de prosseguir. Em background, o resultado se perde ou chega tarde demais.
+- Como verificar da próxima vez: **NUNCA** passar build para background (`run_in_background: true`). Build (`npm run build`, `tsc --noEmit`, `vite build`, `cargo build`, etc.) é etapa síncrona e bloqueante — sempre rodar em foreground com timeout adequado e verificar o exit code antes do próximo passo.
+
+### [2026-08-07] A11y heading order: converti `<h3>`→`<h2>` sem atualizar a tag de fechamento
+- Contexto: Correção de heading order (HubInicio/HubCardapio/HubAnalytics). Em `HubInicio.tsx:175-177` o `<h2>` abriu mas fechou com `</h3>`, quebrando o build com "Expected corresponding JSX closing tag for <h2>". O erro só apareceu na verificação final do plano (npm run build), não em edição isolada.
+- O que eu assumi errado: que trocar só a tag de abertura bastava. Na conversão de heading, a tag de fechamento também precisa ser atualizada.
+- Como verificar da próxima vez: ao converter tags de heading em múltiplos arquivos, (1) listar todas as tags do arquivo com grep após as edições (`grep -nE '<h[23]' arquivo.tsx`) para conferir pares abertos/fechados, e (2) nunca pular o build final do plano — foi ele que capturou a regressão.
+
 ### [2026-08-06] Validação i18n com falso positivo (ZapMenu 1C)
 - Contexto: validei legal.json após trocar emails hardcoded por `SITE_CONFIG.contact.*`. Meu script marcou `terms.section2Body`/`terms.section6Body`/`refund.section6Body` como "resíduo" em en/es/fr.
 - O que eu assumi errado: que toda chave `sectionXBody` deveria existir em todos os locales.

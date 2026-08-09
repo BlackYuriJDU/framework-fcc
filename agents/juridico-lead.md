@@ -1,6 +1,6 @@
 ---
 name: juridico-lead
-description: "Sub-director da equipe Jurídico. Coordena compliance, contratos, LGPD, riscos legais. Recebe objetivo do control-vertexion-director, executa análise de conformidade/risco e reporta resultado."
+description: "Sub-director da equipe Jurídico. Coordena compliance, contratos, LGPD, riscos legais. Recebe objetivo do control-einstein (orquestrador Einstein), executa análise de conformidade/risco e reporta resultado."
 tools: Agent(control-auditor, control-evidence-ledger, control-approval-preparer), Read, Grep, Glob, Bash, Write, Edit, WebSearch, WebFetch
 model: sonnet
 effort: high

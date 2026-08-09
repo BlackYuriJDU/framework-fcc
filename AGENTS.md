@@ -1,7 +1,7 @@
-# Vertexion Agent System v7
+# Vertexion Agent System v7.1
 
 ## Visão geral
-Meta-sistema de agentes com **6 leads (equipes) + 8 agentes de controle + 3 orquestradores**. O `control-vertexion-director` é o orquestrador principal que roteia tarefas por linguagem natural para os leads. Portfólio: **ZapMenu** e **Firmis** apenas.
+Meta-sistema de agentes com **6 leads (equipes) + 9 agentes de controle + 3 orquestradores de domínio** (Tesla, Einstein, Da Vinci). Portfólio: **ZapMenu** e **Firmis** apenas. **Nenhum agente sem orq responsável** — matriz de propriedade em `SYSTEM.md` §4.
 
 ## Leads (equipes) — `~/.claude/agents/`
 
@@ -16,6 +16,10 @@ Meta-sistema de agentes com **6 leads (equipes) + 8 agentes de controle + 3 orqu
 
 ## Agentes de controle — `agents/control/`
 
+- `control-tesla` — orquestrador Tesla (engenharia + auto-melhoria; SEMPRE ultrathink2)
+- `control-einstein` — orquestrador Einstein (growth + jurídico + marketing)
+- `da-vinci` — orquestrador Da Vinci (design front-end)
+- `loop-verifier` — verificador independente do `/autoloop` (dono: Tesla)
 - `control-portfolio-analyst` — prioridades ZapMenu e Firmis
 - `control-auditor` — fiscal independente de conclusões antes de ações externas
 - `control-approval-preparer` — prepara pedidos de aprovação (ação, impacto, risco, rollback, validade)
@@ -24,14 +28,17 @@ Meta-sistema de agentes com **6 leads (equipes) + 8 agentes de controle + 3 orqu
 
 ## Orquestradores (switch via `/orq`)
 
-| Orquestrador | Foco | Cor |
-|--------------|------|-----|
-| `control-vertexion-director` | Diretor do ecossistema — roteia para os 6 leads | 🔵 azul |
-| `zapmenu-activity` | Prospecção e growth ZapMenu | 🟡 amarelo |
-| `da-vinci` | Design front-end (UI/UX, animações, design systems) | 🔴 vermelho |
+| Orquestrador | Foco | Cor | Agent |
+|--------------|------|-----|-------|
+| `tesla` | Engenharia de código + auto-melhoria | 🔵 azul | `control-tesla` |
+| `einstein` | Growth, jurídico, marketing | 🟡 amarelo | `control-einstein` |
+| `da-vinci` | Design front-end (UI/UX, animações, design systems) | 🔴 vermelho | `da-vinci` |
+| `all` | Modo merge — coordena os 3 num job único | — | chat principal |
+
+Níveis de uso (`baixo|médio|alto|máximo`, default `médio`): semântica em `docs/levels.md`. Ativação mid-chat por nome (Tesla/Einstein/Da Vinci no texto) + invocação direta `/tesla`, `/einstein`, `/da-vinci`, `/autoloop`.
 
 ## Skills principais
-`vertexion-director`, `orq`, `zapmenu`, `zapmenu-activity`, `da-vinci`, `design-lead` (+ plugins instalados).
+`tesla`, `einstein`, `da-vinci`, `autoloop`, `orq`, `zapmenu`, `design-lead`, `find-skills` (+ plugins instalados).
 
 ## Keywords de protocolo (tags no texto — NÃO são skills)
 - `ultraask` — perguntas exaustivas antes de agir (`rules/ask-mode.md`)
@@ -48,7 +55,8 @@ Meta-sistema de agentes com **6 leads (equipes) + 8 agentes de controle + 3 orqu
 ## Histórico
 - **v5** → 3 leads (engineering/growth/product) + 33 agentes em dirs; arquivado em `archive/agents-v5/`
 - **v6** → 6 leads stub; agentes de equipe não existiam como arquivos
-- **v7 (atual)** → 6 leads enriquecidos, 3 orquestradores reescritos, `.env` centralizado. Contexto completo em `docs/versoes.md`
+- **v7** → 6 leads enriquecidos, 3 orquestradores reescritos, `.env` centralizado, multi-modelo, keywords ultrathink2/ultraask
+- **v7.1 (atual)** → 3 orquestradores de domínio: `vertexion-director`→**Tesla**, `zapmenu-activity`→**Einstein**, Da Vinci mantido; `/autoloop` (Karpathy Loop); modo merge (`/orq all`); níveis de uso; `loop-verifier` movido para `agents/control/`; conhecimento curado em `knowledge/{tesla,einstein,da-vinci}/`. Contexto completo em `docs/versoes.md`
 
 ## Test commands
 N/A — sistema de agentes, não biblioteca de código.

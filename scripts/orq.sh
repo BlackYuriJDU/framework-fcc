@@ -27,9 +27,63 @@ if [ ${#NAMES[@]} -eq 0 ]; then
   exit 1
 fi
 
+# --- Modo 0: casos especiais (NÃO tocam settings/registry) ---
+if [ "${1:-}" = "all" ]; then
+  ORQ_DIR="$HOME/.claude/skills/orq"
+  if [ -f "$ORQ_DIR/docs/merge.md" ]; then
+    cat "$ORQ_DIR/docs/merge.md"
+  else
+    echo "❌ docs/merge.md não encontrado em $ORQ_DIR/docs/merge.md"
+    exit 1
+  fi
+  if [ -f "$ORQ_DIR/merge-mode.md" ]; then
+    echo ""
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "  companion do coordenador: skills/orq/merge-mode.md"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  fi
+  echo ""
+  echo "ℹ️  /orq all NÃO mudou o active agent nem o settings.json."
+  exit 0
+fi
+
+if [ "${1:-}" = "--focus" ]; then
+  FOCUS_ID="${2:-}"
+  FOCUS_LEVEL="${3:-}"
+  if [ -z "$FOCUS_ID" ]; then
+    echo "❌ Uso: orq.sh --focus <id> [nivel]"
+    exit 1
+  fi
+  FOUND=""
+  for entry in "${NAMES[@]}"; do
+    id=$(echo "$entry" | cut -d"|" -f2)
+    if [ "$id" = "$FOCUS_ID" ]; then FOUND=1; break; fi
+  done
+  if [ -z "${FOUND:-}" ]; then
+    echo "❌ Orquestrador não encontrado: '$FOCUS_ID'"
+    exit 1
+  fi
+  if [ -n "$FOCUS_LEVEL" ]; then
+    case "$FOCUS_LEVEL" in
+      baixo|médio|alto|máximo) ;;
+      *) echo "❌ Nível inválido: '$FOCUS_LEVEL' (use baixo|médio|alto|máximo)"; exit 1 ;;
+    esac
+  fi
+  if [ -f "$SKILLS_DIR/$FOCUS_ID/SKILL.md" ]; then
+    echo "📄 Skill de $FOCUS_ID (--focus, nada foi gravado)..."
+    echo ""
+    awk 'BEGIN{count=0} /^---$/{count++;next} count>=2' "$SKILLS_DIR/$FOCUS_ID/SKILL.md" | head -80
+    exit 0
+  else
+    echo "❌ SKILL.md não encontrado para '$FOCUS_ID'."
+    exit 1
+  fi
+fi
+
 # --- Modo 1: argumento direto (non-interactive) ---
 if [ $# -ge 1 ]; then
   TARGET_ID="$1"
+  TARGET_LEVEL="${2:-}"
   FOUND=""
   FOUND_NAME=""
   FOUND_AGENT=""
@@ -56,6 +110,13 @@ if [ $# -ge 1 ]; then
       echo "  $id  — $name  ($desc)"
     done
     exit 1
+  fi
+
+  if [ -n "$TARGET_LEVEL" ]; then
+    case "$TARGET_LEVEL" in
+      baixo|médio|alto|máximo) ;;
+      *) echo "❌ Nível inválido: '$TARGET_LEVEL' (use baixo|médio|alto|máximo)"; exit 1 ;;
+    esac
   fi
 
   ORCH_ID="$TARGET_ID"
@@ -118,19 +179,28 @@ else
       echo "            $desc"
       echo ""
     done
-    echo "💡 Para ativar: /orq <id>  (ex: /orq vertexion-director)"
+    echo "💡 Para ativar: /orq <id>  (ex: /orq tesla)"
     echo "💡 Ou no terminal: bash orq.sh  (menu interativo com ↑↓ setas)"
     exit 0
   fi
 fi
 
-# Backup settings.json antes de modificar
+# Backup settings.json e registry.json antes de modificar
 if [ -f "$SETTINGS" ]; then
   cp "$SETTINGS" "$SETTINGS.bak.$(date +%s)"
 fi
+if [ -f "$REGISTRY" ]; then
+  cp "$REGISTRY" "$REGISTRY.bak.$(date +%s)"
+fi
 
-# Atualizar active no registry
-jq --arg id "$ORCH_ID" '.active = $id' "$REGISTRY" > "$REGISTRY.tmp" && mv "$REGISTRY.tmp" "$REGISTRY"
+# Atualizar active (e level, se informado) no registry
+if [ -n "${TARGET_LEVEL:-}" ]; then
+  jq --arg id "$ORCH_ID" --arg lvl "$TARGET_LEVEL" \
+    '(.orchestrators[] | select(.id == $id) | .level) = $lvl | .active = $id' \
+    "$REGISTRY" > "$REGISTRY.tmp" && mv "$REGISTRY.tmp" "$REGISTRY"
+else
+  jq --arg id "$ORCH_ID" '.active = $id' "$REGISTRY" > "$REGISTRY.tmp" && mv "$REGISTRY.tmp" "$REGISTRY"
+fi
 
 # Atualizar agent no settings.json (para refletir nome/cor na próxima sessão)
 if [ -n "${ORCH_AGENT:-}" ]; then
@@ -142,6 +212,9 @@ echo ""
 echo "╔══════════════════════════════════════════════╗"
 echo "║  ✅ Orquestrador ativado: $ORCH_NAME"
 echo "║  📌 Agente: ${ORCH_AGENT:-$ORCH_ID}"
+if [ -n "${TARGET_LEVEL:-}" ]; then
+  echo "║  🎚️  Nível: $TARGET_LEVEL"
+fi
 echo "║  💡 Efeito visível na PRÓXIMA sessão"
 echo "╚══════════════════════════════════════════════╝"
 echo ""

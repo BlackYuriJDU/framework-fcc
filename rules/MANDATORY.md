@@ -18,6 +18,17 @@
 - **Backup first** antes de ação destrutiva: `bash ~/.claude/vertexion-agent-system/scripts/backup.sh <arquivo>`
 - **Aprovação explícita** para: deploy, push, PR, migration remota, gasto, dados reais, produção.
 
-## Índice de Referência (protocolos sob demanda)
+## Índice de Referência
 
-`cognition.md` (raciocínio) · `evidence-ledger.md` (evidência) · `engineer-method.md` (Protocolo Mestre) · `security.md` · `external-actions.md` · `design/checklist.md` · `growth.md` · `research.md` · `engineering.md` (LGPD) · `ask-mode.md` — todos sob `rules/`.
+| Pra isso | Leia |
+|----------|------|
+| Como pensar (raciocínio, decisão, ética) | `rules/cognition.md` |
+| Protocolo completo de evidência | `rules/evidence-ledger.md` |
+| Protocolo Mestre (GCOT, ToT, 10 passos) | `rules/engineer-method.md` |
+| Segurança checklist completo | `rules/security.md` |
+| Ações externas (o que é autorizado) | `rules/external-actions.md` |
+| Design checklist pré-delivery | `rules/design/checklist.md` |
+| Prospecção e growth | `rules/growth.md` |
+| Pesquisa e fontes | `rules/research.md` |
+| LGPD e compliance | `rules/engineering.md` |
+| Ask Mode (ultra-cauteloso) | `rules/ask-mode.md` |

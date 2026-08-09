@@ -1,5 +1,40 @@
 # Changelog
 
+## 7.1.0 — 2026-08-08
+
+### Três orquestradores de domínio
+- **Tesla** (azul) substitui `vertexion-director` — engenharia de código + auto-melhoria; opera SEMPRE em ultrathink2; dono do `/autoloop` (Karpathy Loop).
+- **Einstein** (amarelo) substitui `zapmenu-activity` — growth + jurídico + marketing; absorve pipeline de prospecção ZapMenu + Founder's Playbook.
+- **Da Vinci** (vermelho) mantido — design front-end; só ganhou conhecimento (superdesign, awesome-design-md).
+- **Modo merge** (`/orq all`): protocolo no chat principal coordenando os 3 orqs em `reports/merge-<ts>/<dominio>/DELIVERABLE.md` + `INTEGRATED.md`; nada sai sem aprovação.
+- **Níveis de uso** (baixo/médio/alto/máximo, default médio) por orq em `registry.json`.
+- **Ativação mid-chat por nome** (tags Tesla/Einstein/Da Vinci no texto) + invocação direta `/tesla`, `/einstein`, `/da-vinci`, `/autoloop`.
+- **Nenhum agente sem orq**: `loop-verifier` movido para `agents/control/` (dono: Tesla).
+
+### Conhecimento
+- `knowledge/{tesla,einstein,da-vinci}/` com repos curados (shallow clone) + `pointers.md` por URL para repositórios grandes (semgrep, codeql, biome, oxc) e já-downloadados.
+- `scripts/sync-knowledge.sh` — idempotente, `--check` (dry-run R$0); clone real requer aprovação.
+
+### Registry
+- `registry.json` version 3 com schema por orq (`level` incluso).
+
+## 7.0.0 — 2026-08-05
+
+### Limpeza v5→v7
+- Portfólio reduzido a **ZapMenu + Firmis** (remove Vertexion produto, Run, Radar, Collect, ZapBot).
+- Framework **multi-modelo**, agnóstico a provedor (perfis fronteira/padrão/compacto).
+- Credenciais movidas para `~/.claude/.env` exclusivo do framework (chmod 600); chaves removidas de SYSTEM.md/zapmenu-activity.md.
+- 6 leads v6 enriquecidos (somar antes de excluir); 3 orquestradores reescritos delegando aos leads v6.
+- Keywords de protocolo `ultraask` (ask-mode) + `ultrathink2` (tags no texto, NÃO skills).
+- CLAUDE.md 111 → 48 linhas (< 60); escopos de 4 orqs planejados fundidos nos 3 ativos.
+
+## 6.0.0 — 2026-07-20
+
+### Transição
+- 6 leads stub em `~/.claude/agents/` (dev, design, marketing, financas, juridico, operacoes).
+- 8 control agents em `agents/control/` + `additionalAgentDirectories`.
+- 3 orquestradores: `vertexion-director`, `zapmenu-activity`, `da-vinci` (registry v2).
+
 ## 5.0.0 — 2026-07-15
 
 ### Fase 1 — Correções Críticas

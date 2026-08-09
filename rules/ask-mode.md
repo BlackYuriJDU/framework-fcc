@@ -1,6 +1,6 @@
 # Ask Mode Protocol 🔴
 
-> Modo de interação ultra-cauteloso. **Ativado por tag no texto do usuário** — keyword `ultraask` (case-insensitive, como palavra ou substring). Estilo `ultrathink`/`ultracode` nativos: detecção no input, **NÃO é skill invocável** (não aparece como `/ultraask`).
+> Modo de interação ultra-cauteloso. Ativado pela keyword `ultraask` no input do usuário.
 >
 > Quando ativo, VOCÊ NUNCA AGE POR CONTA PRÓPRIA. Toda ação requer confirmação explícita.
 
@@ -33,25 +33,16 @@ Pense em voz alta no seu raciocínio (bloco de pensamento). Separe analiticament
 
 ### Fase 2 — Questionamento Exaustivo
 
-NUNCA pule esta fase. Faça **8–15 perguntas**, organizadas por categoria. Cada categoria entra quando relevante para o pedido:
-
-| Categoria | Exemplos de pergunta |
-|---|---|
-| **Objetivo** | "É exatamente isso ou tem mais?", "Qual o resultado esperado?", "Como saberemos que ficou pronto?" |
-| **Público** | "Quem usa isso?", "Qual o nível técnico?", "Há restrição de idioma/região?" |
-| **Design** | "Prefere abordagem X ou Y?", "Há identidade visual existente?", "Mobile-first ou desktop-first?" |
-| **Estrutura** | "Qual arquivo devo modificar?", "Onde isso vive no sistema?", "Há dependências entre módulos?" |
-| **Tecnologia** | "Qual stack?", "Versão atual?", "Há padrão existente a seguir?" |
-| **Funcionalidade** | "Quais fluxos cobrir?", "Há casos de borda?", "O que NÃO deve ser feito?" |
-| **Entrega** | "Prazo?", "Qual o mínimo viável?", "Há critério de aceite?" |
-
-Perguntas adicionais sempre relevantes:
+NUNCA pule esta fase. Pergunte TUDO que for ambíguo:
+- Escopo: "É exatamente isso ou tem mais?"
+- Arquivos: "Qual arquivo devo modificar?"
 - Risco: "Isso afeta produção/dados/pagamento?"
+- Preferência: "Prefere abordagem X ou Y?"
 - Dependências: "Isso depende de algo mais?"
 
 **Regra:** Se você está 99% certo, ainda pergunte os 1% restantes. A certeza não elimina a ambiguidade.
 
-**Formato:** Agrupe perguntas por categoria. Use bullet points. Seja específico.
+**Formato:** Agrupe perguntas relacionadas. Use bullet points. Seja específico.
 
 ### Fase 3 — Confirmação
 
@@ -81,11 +72,8 @@ Quando NÃO houver mais perguntas:
 
 ## Rollback
 ```
-2. **Salve o plano** em `~/.claude/plans/plano-<data>-<hora>-<nome>-<contexto>.md` (ex: `plano-2026-08-05-1910-checkout-migracao.md`) para rastreabilidade
-3. Use a instrução **exata** `EnterPlanMode` ao final para entrar em Plan Mode automaticamente
-4. Avise: "Plano criado. Revise e confirme para eu executar."
-
-**Nada é executado antes da aprovação explícita do plano.**
+2. Use a instrução **exata** `EnterPlanMode` ao final para entrar em Plan Mode automaticamente
+3. Avise: "Plano criado. Revise e confirme para eu executar."
 
 ### Regras de Ouro
 

@@ -72,7 +72,7 @@ A manutenção é manual: ao identificar novo problema, adicione aqui. Ao resolv
 4. ✅ `engineering-adversarial-reviewer`: Revisou commit e3ddeee. Verdict: CLEAN (apenas sugestões cosméticas)
 5. ✅ `product-pricing-strategist`: Analisou pricing ZapMenu (R$34,99-79,99). 4 recomendações com trade-offs
 
-**Resultados registrados em:** `agent-memory/control-vertexion-director/test-p004-*.md`
+**Resultados registrados em:** `agent-memory/control-tesla/test-p004-*.md`
 **Padrão registrado em:** `memory/general/successful-patterns.md`
 
 ---
@@ -118,7 +118,7 @@ A manutenção é manual: ao identificar novo problema, adicione aqui. Ao resolv
 **Sugestão de correção:**
 1. Manter como referência para quando o sistema evoluir
 2. Ou remover e só reintroduzir quando houver implementação concreta
-3. Ou converter em protocolo ativo no `control-vertexion-director.md` para escolher topologia baseada no escopo da tarefa (mais útil)
+3. Ou converter em protocolo ativo no `control-tesla.md` para escolher topologia baseada no escopo da tarefa (mais útil)
 
 ---
 
@@ -162,7 +162,7 @@ A manutenção é manual: ao identificar novo problema, adicione aqui. Ao resolv
 **Sugestão de correção:**
 1. Criar script de validação que extrai `description` e `disallowedTools` de todos os agentes e identifica sobreposições
 2. Revisão manual trimestral dos agentes
-3. Ou adicionar no `control-vertexion-director.md` a instrução: "quando 2 agentes discordarem, reporte o conflito e peça decisão de Arthur"
+3. Ou adicionar no `control-tesla.md` a instrução: "quando 2 agentes discordarem, reporte o conflito e peça decisão de Arthur"
 
 ---
 
@@ -206,7 +206,7 @@ A manutenção é manual: ao identificar novo problema, adicione aqui. Ao resolv
 ### P010 — Sem verificação de consistência entre agentes
 
 **Resolvido em:** 2026-07-10
-**Correção:** `control-vertexion-director.md` atualizado: "Quando 2 agentes da MESMA equipe discordarem, pare e reporte o conflito para Arthur decidir — nunca escolha silenciosamente um dos dois."
+**Correção:** `control-tesla.md` atualizado: "Quando 2 agentes da MESMA equipe discordarem, pare e reporte o conflito para Arthur decidir — nunca escolha silenciosamente um dos dois."
 
 ### P006 — learning-curator sem integração
 

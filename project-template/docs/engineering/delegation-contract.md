@@ -1,6 +1,6 @@
 # Delegation Contract
 
-> Template obrigatório para toda chamada `Agent()` do control-vertexion-director.
+> Template obrigatório para toda chamada `Agent()` do control-tesla (orquestrador Tesla).
 > Garante que o subagente receba contexto completo e escopo explícito.
 
 ## Goal

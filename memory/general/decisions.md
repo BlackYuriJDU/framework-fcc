@@ -13,6 +13,13 @@ Registro cronológico de decisões importantes. Formato obrigatório:
 
 ---
 
+## 2026-08-08 Vertexion v7.1 — Três orquestradores de domínio
+**Contexto:** Framework v7 tinha 3 orquestradores com identidade difusa (vertexion-director, zapmenu-activity, da-vinci) e agentes sem orq responsável (loop-verifier era a exceção).
+**Decisão:** Adotar orquestradores de domínio com nomes de inventores: **Tesla** 🔵 (engenharia + auto-melhoria, substitui vertexion-director; opera SEMPRE em ultrathink2; dono do `/autoloop`), **Einstein** 🟡 (growth + jurídico + marketing, substitui zapmenu-activity), **Da Vinci** 🔴 (design, mantido). Níveis de uso (baixo/médio/alto/máximo) em registry.json. Modo merge `/orq all` coordena os 3 no chat principal. Invariante de identidade (4 pontos de sincronia). Conhecimento foldado em `knowledge/{tesla,einstein,da-vinci}` com manifest + sync-knowledge.sh. Autoloop: commits locais + tags pré-autorizados por run, zero push/PR/deploy.
+**Alternativas:** Manter identidade difusa (risco: sobreposição), criar agentes coordenadores dedicados (Arthur escolheu protocolo no chat principal).
+**Consequências:** Zero agentes sem orq responsável. Roteamento por nome mid-chat (Tesla/Einstein/Da Vinci). Repositórios de referência curados (não clonar gigantes semgrep/codeql/biome/oxc/matomo). 9 control agents (não 10 como estimado). `.credentials.json` e `framework-creds` adicionados ao `.gitignore` (estavam untracked NÃO ignorados).
+**Decidiu:** Arthur
+
 ## 2026-07-10 Estrutura do Vertexion Agent System
 **Contexto:** Integração de ~30 sugestões do ChatGPT + auto-auditoria.
 **Decisão:** Adotar modelo de Fases (0-4) em vez de implementar tudo de uma vez. Priorizar Foundation → Pipeline → Fortalecimento de Agentes → Organização.

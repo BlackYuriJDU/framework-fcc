@@ -1,6 +1,6 @@
 ---
 name: financas-lead
-description: "Sub-director da equipe Finanças. Coordena pricing, custos, receita, modelo financeiro, evidência de mercado. Recebe objetivo do control-vertexion-director, executa análise de pricing/competição e reporta resultado."
+description: "Sub-director da equipe Finanças. Coordena pricing, custos, receita, modelo financeiro, evidência de mercado. Recebe objetivo do control-einstein (orquestrador Einstein), executa análise de pricing/competição e reporta resultado."
 tools: Agent(control-auditor, control-evidence-ledger, control-approval-preparer), Read, Grep, Glob, Bash, Write, Edit, WebSearch, WebFetch
 model: sonnet
 effort: high

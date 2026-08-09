@@ -1,0 +1,50 @@
+{
+  "version": 3,
+  "active": "einstein",
+  "orchestrators": [
+    {
+      "id": "tesla",
+      "name": "Tesla",
+      "description": "Orquestrador de engenharia de código e auto-melhoria — a parte mecânica (o auge da engenharia de código e raciocínio lógico). Opera SEMPRE em ultrathink2. Dono do /autoloop (Karpathy Loop). Todo conteúdo de growth passa para Einstein.",
+      "skill": "tesla",
+      "agent": "control-tesla",
+      "color": "blue",
+      "focus": "engineering-self-improvement",
+      "level": "alto",
+      "projects": [
+        "ZapMenu",
+        "Firmis"
+      ],
+      "updated": "2026-08-08"
+    },
+    {
+      "id": "einstein",
+      "name": "Einstein",
+      "description": "Orquestrador de growth, jurídico e marketing — pipeline de prospecção ZapMenu (RESEARCH→QUALIFY→CRAFT→[aprovação]→SEND→LOG→FOLLOW-UP) + Founder's Playbook. Absorve todo conteúdo de growth dos outros orquestradores.",
+      "skill": "einstein",
+      "agent": "control-einstein",
+      "color": "yellow",
+      "focus": "growth-legal-marketing",
+      "level": "médio",
+      "projects": [
+        "ZapMenu"
+      ],
+      "updated": "2026-08-08"
+    },
+    {
+      "id": "da-vinci",
+      "name": "Da Vinci",
+      "description": "Orquestrador de design front-end — UI/UX, animações, design systems, prototipação. Sem back-end, sem lógica de servidor.",
+      "skill": "da-vinci",
+      "agent": "da-vinci",
+      "color": "red",
+      "focus": "design-frontend",
+      "level": "médio",
+      "projects": [
+        "ZapMenu",
+        "Firmis"
+      ],
+      "updated": "2026-08-08"
+    }
+  ]
+}

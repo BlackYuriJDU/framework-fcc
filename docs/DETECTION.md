@@ -1,7 +1,7 @@
 # Detection System
 
 > Sistema de detecção automática de equipes por Tag Explícita + Palavra-chave.
-> Executado pelo `control-vertexion-director` antes de qualquer processamento.
+> Executado pelo `control-tesla` (orquestrador Tesla) antes de qualquer processamento.
 
 ---
 

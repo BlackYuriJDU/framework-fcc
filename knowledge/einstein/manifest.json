@@ -1,0 +1,26 @@
+{
+  "orchestrator": "einstein",
+  "description": "Repositórios curados para growth, jurídico e marketing (clonados shallow --depth 1).",
+  "repos": [
+    {
+      "url": "https://github.com/marketinguys/awesome-gtm-engineering",
+      "dir": "repos/awesome-gtm-engineering",
+      "note": "PRINCIPAL — Google Tag Manager engineering"
+    },
+    {
+      "url": "https://github.com/MackDing/ai-native-founder-playbook-skill",
+      "dir": "repos/ai-native-founder-playbook-skill",
+      "note": "Founder's Playbook (Anthropic) — stage gates, workflows, templates"
+    },
+    {
+      "url": "https://github.com/marketingtoolslist/awesome-marketing",
+      "dir": "repos/awesome-marketing",
+      "note": "Ferramentas de marketing"
+    },
+    {
+      "url": "https://github.com/bekatom/awesome-growth-hacking",
+      "dir": "repos/awesome-growth-hacking",
+      "note": "Growth hacking"
+    }
+  ]
+}

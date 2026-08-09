@@ -1,6 +1,6 @@
 ---
 name: design-lead
-description: "Sub-director da equipe Design. Coordena UI/UX, design system, branding, acessibilidade, protótipos. Recebe objetivo do control-vertexion-director, executa os pipelines de design (v6) + avaliação UX/UI (v5) e reporta resultado."
+description: "Sub-director da equipe Design. Coordena UI/UX, design system, branding, acessibilidade, protótipos. Recebe objetivo do da-vinci (orquestrador Da Vinci), executa os pipelines de design (v6) + avaliação UX/UI (v5) e reporta resultado."
 tools: Agent(control-auditor, control-evidence-ledger), Read, Grep, Glob, Bash, Write, Edit, WebFetch
 model: sonnet
 effort: high

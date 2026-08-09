@@ -21,18 +21,10 @@ Literal → Estrutural → Comportamental (runtime, dados reais) → Risco → S
 Sintoma → Escopo → Hipóteses → Evidência no código → Correção → Validação
 Classifique: lógica • estado • integração • contrato • configuração • ambiente • dados • concorrência • auth • cache • UI/UX • regressão
 
-## GCOT — Raciocínio Estruturado (opt-in por risco)
+## GCOT — Raciocínio Estruturado (para tarefas complexas)
 
-⚠️ **Ativar SOMENTE** quando a tarefa envolver UM OU MAIS destes critérios:
-- Arquitetura, migration, pagamento ou segurança
-- Modo `deep` solicitado explicitamente
-- Mais de 3 arquivos OU arquivos de boundary (API, DB schema, auth)
-- Análise profunda conforme `control-vertexion-director` (produto novo, compliance, preço)
-
-Para tarefas simples (1-2 arquivos, mudança local): **Chain of Draft** — resposta direta com verificação única, sem fases GCOT.
-
-### Fases (quando ativado)
 Alternar entre fases usando tags conceituais:
+
 1. **`<plan>`** — Planeje o próximo passo. State approach, arquivos alvo, riscos previstos.
 2. **`<execute>`** — Execute exatamente o que foi planejado. Se algo desviar, volte ao `<plan>`.
 3. **`<verify>`** — Valide contra evidência real. Se falhar, revise o plano.
