@@ -30,8 +30,8 @@ echo "[$TIMESTAMP] Iniciando loop triagem (usando: $CLD_CMD)..."
 
 # Executa Claude Code em modo não-interativo com o agente de triagem
 # NOTA: Requer ANTHROPIC_API_KEY ou FCC configurado para non-interactive
-OUTPUT=$($CLD_CMD -p "Run operacoes-lead daily triage (L1, report-only). Leia LOOP.md e STATE.md primeiro. Produza relatório." \
-  --agent operacoes-lead \
+OUTPUT=$($CLD_CMD -p "Run the Einstein daily triage (L1, report-only). Delegate operations work to operacoes-lead as needed. Leia LOOP.md e STATE.md primeiro. Produza relatório." \
+  --agent control-einstein \
   --allowedTools "Read,Grep,Glob,Bash,WebFetch" \
   --print 2>&1) || true
 

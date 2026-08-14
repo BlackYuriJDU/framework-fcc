@@ -22,5 +22,8 @@ try {
 const detected = spawnSync('bash', ['-c', 'command -v fcc-claude || command -v claude || true'], { encoding: 'utf8' }).stdout.trim();
 if (!detected) { console.error('Claude Code/FCC não encontrado.'); process.exit(3); }
 const systemHome = path.join(os.homedir(), '.claude', 'vertexion-agent-system');
+const registry = JSON.parse(fs.readFileSync(path.join(systemHome,'orchestrators','registry.json'),'utf8'));
+const routineAgent = routineId === 'daily' || routineId === 'weekly' ? registry.orchestrators.find(x=>x.id==='einstein')?.agent : registry.orchestrators.find(x=>x.id==='tesla')?.agent;
+if (!routineAgent) throw new Error('Orchestrator registry missing required routine agent');
 const child = spawn(detected, ['-p', defaults[routineId] + '\nCreate/update the Task Contract and persist STATE.yaml before substantial work.', '--agent', 'control-tesla', '--model', 'opus', '--effort', 'high', '--permission-mode', 'default', '--output-format', 'stream-json', '--verbose', '--max-turns', '64'], { cwd: systemHome, stdio: 'inherit', env: { ...process.env, TZ: 'America/Recife' } });
 child.on('close', code => process.exit(code ?? 1));

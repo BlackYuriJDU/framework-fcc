@@ -1,8 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
-import yaml from 'node:fs';
-
 const systemHome = process.env.VERTEXION_SYSTEM_HOME || path.join(os.homedir(), '.claude', 'vertexion-agent-system');
 const tasksRoot = path.join(systemHome, 'tasks');
 fs.mkdirSync(tasksRoot, { recursive: true });
