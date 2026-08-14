@@ -1,6 +1,6 @@
 # Vertexion Agent System — Architecture & Reference
 
-> **Versão:** 8.0.0 (migration branch; v7.1 compatibility retained) (6 leads + 9 control + 3 orquestradores de domínio)
+> **Versão:** 8.0.0 (migration branch; v7.1 compatibility retained) (6 leads + 10 control + 3 orquestradores de domínio)
 > **Proprietário:** Arthur Araújo
 > **Fuso:** America/Recife
 > **Ambiente:** Claude Code multi-modelo (provedor varia por sessão; FCC/`/model`)
@@ -12,7 +12,7 @@
 ## Sumário
 
 1. [Visão Geral](#1-visão-geral)
-2. [Agentes Reais (15)](#2-agentes-reais-15)
+2. [Agentes Reais (16)](#2-agentes-reais-15)
 3. [Orquestradores de Domínio](#3-orquestradores-de-domínio)
    - [Tesla (engenharia + auto-melhoria)](#31-tesla-engenharia--auto-melhoria)
    - [Einstein (growth + jurídico + marketing)](#32-einstein-growth--jurídico--marketing)
@@ -76,7 +76,7 @@ O Vertexion Agent System é um meta-sistema de agentes de IA que opera dentro do
 
 ---
 
-## 2. Agentes Reais (15)
+## 2. Agentes Reais (16)
 
 Inventário real no disco (6 leads + 9 control agents). Os agentes de equipe v5/v6 (engineering-*, growth-*, product-*) **não existem como arquivos** — foram arquivados em `archive/agents-v5/`. Os orquestradores delegam exclusivamente aos leads e control agents listados abaixo.
 
@@ -104,6 +104,7 @@ Inventário real no disco (6 leads + 9 control agents). Os agentes de equipe v5/
 | **control-evidence-ledger** | Auditor independente de evidência. Verifica alegações vs. ferramentas | leitura |
 | **control-agent-evolution-advisor** | Meta-agente que sugere melhorias baseadas em padrões de erro | escrita |
 | **loop-verifier** | Verificador de ações do loop (autoloop) — confirmador independente (CHECKER) | leitura |
+| **control-evaluator** | Avalia o resultado final contra o Task Contract; não implementa | leitura |
 
 > **v7.1:** `loop-verifier` foi movido para `agents/control/` (antes em `vertexion-agent-system/.claude/agents/`) — era a única exceção de agente sem orq. Agora é propriedade primária do Tesla via `/autoloop`.
 
@@ -299,6 +300,10 @@ control-auditor / loop-verifier  (revisão fresca, não confia no builder)
 control-evidence-ledger  (evidência file:line)
     ↓  [SE ação externa: control-approval-preparer + Arthur]
 Aprovação explícita → execução
+
+### v8 Evaluation Gate
+
+Após uma execução bem-sucedida, o runtime cria/atualiza `tasks/<task-id>/STATE.json`, registra eventos e dispara o `control-evaluator` em contexto separado. Resultado: PASS → FINALIZE; PARTIAL/FAIL → REVIEW.
 ```
 
 **Simulação pré-código (parte do planner):**

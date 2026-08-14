@@ -8,5 +8,7 @@ const routing=JSON.parse(fs.readFileSync(path.join(root,'evals','cases','routing
 for(const c of routing) if(!['tesla','einstein','da-vinci'].includes(c.expectedOrchestrator)) failures.push(`invalid routing target: ${c.expectedOrchestrator}`);
 const routine=fs.readFileSync(path.join(root,'scripts','run-routine.mjs'),'utf8'); if(routine.includes('control-vertexion-director')) failures.push('legacy runtime reference remains');
 const runner=fs.readFileSync(path.join(root,'control-center','lib','claude-runner.mjs'),'utf8'); if(!runner.includes('resolveOrchestrator')||!runner.includes('assertTaskPermission')) failures.push('policy not wired');
+if(runner.includes('control-vertexion-director')) failures.push('legacy agent hardcoded in runner');
+if(!runner.includes('runEvaluator')) failures.push('evaluator not wired in runner');
 if(!fs.existsSync(path.join(root,'agents','control','control-evaluator.md'))) failures.push('evaluator missing');
 console.log(JSON.stringify({ok:failures.length===0,failures,routingCases:routing.length},null,2)); process.exit(failures.length?1:0);

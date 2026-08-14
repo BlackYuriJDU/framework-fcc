@@ -2,6 +2,8 @@ import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
 import { appendJsonl, id, systemHome } from './store.mjs';
 import { resolveOrchestrator, assertTaskPermission } from './policy.mjs';
+import { createTask, updateTask, appendTaskEvent } from './task-store.mjs';
+import { runEvaluator } from './evaluator-runner.mjs';
 
 function resolveCommand() {
   if (process.env.VERTEXION_CLAUDE_COMMAND) return process.env.VERTEXION_CLAUDE_COMMAND;
@@ -10,11 +12,18 @@ function resolveCommand() {
 }
 
 function safeMode(mode) {
-  return ['analyze', 'deep', 'implement', 'routine'].includes(mode) ? mode : 'analyze';
+  const allowed = ['research','deep','fix','feature','implement','incident','review','routine','audit','experiment','visual-qa','analyze'];
+  return allowed.includes(mode) ? mode : 'analyze';
 }
 
-export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general', domain = 'engineering', orchestratorId = null, action = '', approval = false, onEvent, onComplete }) {
+function getOrchestratorAgent(id) {
+  const r = resolveOrchestrator(id === 'tesla' ? 'engineering' : id === 'einstein' ? 'growth' : 'design');
+  return r?.agent || 'control-tesla';
+}
+
+export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general', domain = 'engineering', orchestratorId = null, action = '', approval = false, taskIdInput = null, contract = null, evaluate = true, onEvent, onComplete }) {
   const executionId = id('run');
+  const taskId = taskIdInput || id('task');
   const command = resolveCommand();
   if (!command) throw new Error('Nem fcc-claude nem claude foram encontrados no PATH do WSL.');
 
@@ -23,6 +32,8 @@ export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general'
   assertTaskPermission({orchestratorId:orchestrator, action, approval});
   const turns = selectedMode === 'deep' || selectedMode === 'routine' ? 64 : selectedMode === 'implement' ? 48 : 32;
   const permissionMode = selectedMode === 'implement' ? 'acceptEdits' : selectedMode === 'routine' ? 'default' : 'plan';
+  const task = createTask({ taskId, projectId, domain, orchestratorId: orchestrator, mode: selectedMode, prompt, contract });
+  appendTaskEvent(taskId, { type: 'phase', phase: 'EXECUTE', executionId });
   const fullPrompt = [
     `Orquestrador v8: ${orchestrator}.`,
     'Você está sendo executado pelo Vertexion Control Center.',
@@ -38,7 +49,7 @@ export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general'
 
   const args = [
     '-p', fullPrompt,
-    '--agent', 'control-vertexion-director',
+    '--agent', getOrchestratorAgent(orchestrator),
     '--output-format', 'stream-json',
     '--verbose',
     '--model', 'opus',
@@ -51,7 +62,7 @@ export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general'
   }
 
   const startedAt = new Date().toISOString();
-  const meta = { executionId, projectId, mode: selectedMode, domain, orchestrator, action, approval, cwd, command, requestedModel: 'opus', startedAt, status: 'running' };
+  const meta = { executionId, taskId, projectId, mode: selectedMode, domain, orchestrator, action, approval, cwd, command, requestedModel: 'opus', startedAt, status: 'running' };
   appendJsonl('executions.jsonl', meta);
   onEvent?.({ type: 'execution-start', ...meta });
 
@@ -103,6 +114,7 @@ export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general'
     }
     const result = {
       executionId,
+      taskId,
       status,
       sessionId,
       requestedModel: 'opus',
@@ -112,7 +124,19 @@ export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general'
       ...extra,
     };
     appendJsonl('executions.jsonl', result);
+    updateTask(taskId, { status: status === 'completed' ? 'VERIFY' : 'FAILED', executionId, resultArtifact: result });
+    appendTaskEvent(taskId, { type: 'execution-end', status, result });
     onEvent?.({ type: 'execution-end', ...result });
+    if (status === 'completed') {
+      updateTask(taskId, { status: 'EVALUATE' });
+      if (evaluate) runEvaluator({ taskId, projectId, cwd, orchestrator, contract, result }).then(evaluation => {
+        updateTask(taskId, { status: evaluation?.status === 'PASS' ? 'FINALIZE' : 'REVIEW', evaluationArtifact: evaluation });
+        appendTaskEvent(taskId, { type: 'evaluation', evaluation });
+      }).catch(error => {
+        updateTask(taskId, { status: 'REVIEW', evaluationError: error.message });
+        appendTaskEvent(taskId, { type: 'evaluation-error', error: error.message });
+      });
+    }
     onComplete?.(result);
   }
 

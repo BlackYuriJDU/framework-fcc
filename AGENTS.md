@@ -1,7 +1,7 @@
 # Vertexion Agent System v8.0 — Contract-Driven Agent Operating System
 
 ## Visão geral
-Meta-sistema de agentes com **6 leads (equipes) + 9 agentes de controle + 3 orquestradores de domínio** (Tesla, Einstein, Da Vinci). Portfólio: **ZapMenu** e **Firmis** apenas. **Nenhum agente sem orq responsável** — matriz de propriedade em `SYSTEM.md` §4.
+Meta-sistema de agentes com **6 leads (equipes) + 10 agentes de controle + 3 orquestradores de domínio** (Tesla, Einstein, Da Vinci). Portfólio: **ZapMenu** e **Firmis** apenas. **Nenhum agente sem orq responsável** — matriz de propriedade em `SYSTEM.md` §4.
 
 ## Leads (equipes) — `~/.claude/agents/`
 
@@ -20,6 +20,7 @@ Meta-sistema de agentes com **6 leads (equipes) + 9 agentes de controle + 3 orqu
 - `control-einstein` — orquestrador Einstein (growth + jurídico + marketing)
 - `da-vinci` — orquestrador Da Vinci (design front-end)
 - `loop-verifier` — verificador independente do `/autoloop` (dono: Tesla)
+- `control-evaluator` — avaliador independente de resultado contra o Task Contract
 - `control-portfolio-analyst` — prioridades ZapMenu e Firmis
 - `control-auditor` — fiscal independente de conclusões antes de ações externas
 - `control-approval-preparer` — prepara pedidos de aprovação (ação, impacto, risco, rollback, validade)
