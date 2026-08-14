@@ -45,7 +45,7 @@ export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general'
     'Você está sendo executado pelo Vertexion Control Center.',
     `Projeto selecionado: ${projectId}.`,
     `Modo: ${selectedMode}.`,
-    'Siga o agente principal control-vertexion-director e as regras globais.',
+    'Siga o orquestrador ativo e as regras globais.',
     'Mostre equipe e agentes acionados. Não faça ação externa, deploy, push, PR, envio, migration remota, gasto, preço, checkout, pagamento ou alteração em produção sem aprovação explícita.',
     'Quando uma ação exigir aprovação, apenas prepare a solicitação e encerre antes de executá-la.',
     '',
