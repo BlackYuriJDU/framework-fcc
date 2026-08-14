@@ -1,4 +1,4 @@
-# Vertexion Agent System v7.1
+# Vertexion Agent System v8.0 — Contract-Driven Agent Operating System
 
 ## Visão geral
 Meta-sistema de agentes com **6 leads (equipes) + 9 agentes de controle + 3 orquestradores de domínio** (Tesla, Einstein, Da Vinci). Portfólio: **ZapMenu** e **Firmis** apenas. **Nenhum agente sem orq responsável** — matriz de propriedade em `SYSTEM.md` §4.
@@ -60,3 +60,12 @@ Níveis de uso (`baixo|médio|alto|máximo`, default `médio`): semântica em `d
 
 ## Test commands
 N/A — sistema de agentes, não biblioteca de código.
+
+
+## v8 runtime contract
+
+- Task Contract is the unit of work; lifecycle `INTAKE → CONTRACT → CONTEXT → PLAN → EXECUTE → VERIFY → EVALUATE → FINALIZE`.
+- Tesla = Engineering & Reliability; Einstein = Business Intelligence & Growth; Da Vinci = Product Experience.
+- Builder, Reviewer and Evaluator are distinct. `control-evaluator` validates outcome.
+- Task state belongs in `tasks/`; durable learning remains in `memory/`; runtime events remain in `state/control-center/`.
+- Active runtime resolves orchestration through `orchestrators/registry.json`; legacy `control-vertexion-director` must not be hardcoded in runtime paths.

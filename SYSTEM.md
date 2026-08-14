@@ -1,6 +1,6 @@
 # Vertexion Agent System — Architecture & Reference
 
-> **Versão:** 7.1.0 (6 leads + 9 control + 3 orquestradores de domínio)
+> **Versão:** 8.0.0 (migration branch; v7.1 compatibility retained) (6 leads + 9 control + 3 orquestradores de domínio)
 > **Proprietário:** Arthur Araújo
 > **Fuso:** America/Recife
 > **Ambiente:** Claude Code multi-modelo (provedor varia por sessão; FCC/`/model`)
@@ -512,3 +512,19 @@ Reportar
 - `learning-curator` → regra passiva no `engineer-method.md`
 
 **Economia:** ~9 agentes × ~120 chars de descrição = ~1.080 chars de contexto por sessão.
+
+
+---
+
+# FCC v8 — Contract-Driven Agent Operating System
+
+The v8 migration changes the operational unit from an agent prompt to a **Task Contract**. The v7.1 orchestrators remain the domain identity, while runtime state, evaluation and policy become first-class.
+
+`INTAKE → CONTRACT → CONTEXT → PLAN → EXECUTE → VERIFY → EVALUATE → FINALIZE`
+
+- Tesla: Engineering & Reliability.
+- Einstein: Business Intelligence & Growth.
+- Da Vinci: Product Experience.
+- Builder ≠ Reviewer ≠ Evaluator.
+- `tasks/` stores task state; `memory/` stores durable learning; `knowledge/` stores references; `state/control-center/` stores runtime events.
+- Active runtime must resolve orchestrators from `orchestrators/registry.json`, not hardcode legacy agents.

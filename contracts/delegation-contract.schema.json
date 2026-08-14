@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FCC Delegation Contract",
+  "type": "object",
+  "required": [
+    "task_id",
+    "goal",
+    "done_when",
+    "not_to_do",
+    "verification"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "goal": {
+      "type": "string"
+    },
+    "done_when": {
+      "type": "array"
+    },
+    "not_to_do": {
+      "type": "array"
+    },
+    "files": {
+      "type": "array"
+    },
+    "context": {
+      "type": "array"
+    },
+    "verification": {
+      "type": "array"
+    },
+    "expected_output": {
+      "type": "array"
+    }
+  }
+}

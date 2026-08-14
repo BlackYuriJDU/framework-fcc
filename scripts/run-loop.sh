@@ -40,12 +40,28 @@ if [ -z "$OUTPUT" ]; then
   exit 1
 fi
 
-# Atualiza STATE.md com o output
-echo "# Loop State — $(date '+%Y-%m-%d')" > "$STATE_FILE"
-echo "" >> "$STATE_FILE"
-echo "Last run: $TIMESTAMP" >> "$STATE_FILE"
-echo "" >> "$STATE_FILE"
-echo "$OUTPUT" >> "$STATE_FILE"
+# v8: persistir artefatos e manter STATE.md apenas como ponteiro operacional
+TASK_DIR="$LOOP_DIR/tasks/loop/$(( $(date '+%Y') ))/$((10#$(date '+%m')))"
+mkdir -p "$TASK_DIR"
+printf '%s\n' "$OUTPUT" > "$TASK_DIR/RESULT.md"
+cat > "$TASK_DIR/STATE.yaml" <<EOF
+task_id: loop-daily
+objective: daily-triage
+current_phase: EVALUATE
+updated_at: $TIMESTAMP
+orchestrator: einstein
+agent: operacoes-lead
+status: completed
+result_artifact: $TASK_DIR/RESULT.md
+next_action: review-result
+EOF
+cat > "$STATE_FILE" <<EOF
+# Loop State v8
+
+Last run: $TIMESTAMP
+State artifact: $TASK_DIR/STATE.yaml
+Result artifact: $TASK_DIR/RESULT.md
+EOF
 
 # Atualiza run log
 echo "## [$TIMESTAMP]" >> "$LOG_FILE"
