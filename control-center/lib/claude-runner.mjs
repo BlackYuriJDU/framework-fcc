@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
 import { appendJsonl, id, systemHome } from './store.mjs';
+import { resolveOrchestrator, assertTaskPermission } from './policy.mjs';
 
 function resolveCommand() {
   if (process.env.VERTEXION_CLAUDE_COMMAND) return process.env.VERTEXION_CLAUDE_COMMAND;
@@ -9,23 +10,25 @@ function resolveCommand() {
 }
 
 function safeMode(mode) {
-  return ['analyze', 'research', 'deep', 'fix', 'feature', 'incident', 'review', 'experiment', 'visual-qa', 'implement', 'routine'].includes(mode) ? mode : 'analyze';
+  return ['analyze', 'deep', 'implement', 'routine'].includes(mode) ? mode : 'analyze';
 }
 
-export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general', onEvent, onComplete }) {
+export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general', domain = 'engineering', orchestratorId = null, action = '', approval = false, onEvent, onComplete }) {
   const executionId = id('run');
   const command = resolveCommand();
   if (!command) throw new Error('Nem fcc-claude nem claude foram encontrados no PATH do WSL.');
 
   const selectedMode = safeMode(mode);
-  const turns = ['deep','routine','incident','experiment'].includes(selectedMode) ? 64 : ['implement','feature','fix','review','visual-qa'].includes(selectedMode) ? 48 : 32;
-  const permissionMode = ['implement','feature','fix','review','visual-qa'].includes(selectedMode) ? 'acceptEdits' : selectedMode === 'routine' ? 'default' : 'plan';
+  const orchestrator = orchestratorId || resolveOrchestrator(domain)?.id || 'tesla';
+  assertTaskPermission({orchestratorId:orchestrator, action, approval});
+  const turns = selectedMode === 'deep' || selectedMode === 'routine' ? 64 : selectedMode === 'implement' ? 48 : 32;
+  const permissionMode = selectedMode === 'implement' ? 'acceptEdits' : selectedMode === 'routine' ? 'default' : 'plan';
   const fullPrompt = [
+    `Orquestrador v8: ${orchestrator}.`,
     'Você está sendo executado pelo Vertexion Control Center.',
     `Projeto selecionado: ${projectId}.`,
     `Modo: ${selectedMode}.`,
-    'Crie/atualize um Task Contract antes de trabalho não trivial e persista artefatos de estado.',
-    'Resolva o domínio pelo orchestrators/registry.json; o runtime v8 usa Tesla, Einstein ou Da Vinci. Nunca dependa de control-vertexion-director.',
+    'Siga o agente principal control-vertexion-director e as regras globais.',
     'Mostre equipe e agentes acionados. Não faça ação externa, deploy, push, PR, envio, migration remota, gasto, preço, checkout, pagamento ou alteração em produção sem aprovação explícita.',
     'Quando uma ação exigir aprovação, apenas prepare a solicitação e encerre antes de executá-la.',
     '',
@@ -48,7 +51,7 @@ export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general'
   }
 
   const startedAt = new Date().toISOString();
-  const meta = { executionId, projectId, mode: selectedMode, cwd, command, requestedModel: 'opus', startedAt, status: 'running' };
+  const meta = { executionId, projectId, mode: selectedMode, domain, orchestrator, action, approval, cwd, command, requestedModel: 'opus', startedAt, status: 'running' };
   appendJsonl('executions.jsonl', meta);
   onEvent?.({ type: 'execution-start', ...meta });
 
