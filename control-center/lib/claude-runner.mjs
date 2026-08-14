@@ -4,6 +4,8 @@ import { appendJsonl, id, systemHome } from './store.mjs';
 import { resolveOrchestrator, assertTaskPermission } from './policy.mjs';
 import { createTask, updateTask, appendTaskEvent } from './task-store.mjs';
 import { runEvaluator } from './evaluator-runner.mjs';
+import { buildContext } from './context.mjs';
+import { startExperiment, finishExperiment } from './experiment-store.mjs';
 
 function resolveCommand() {
   if (process.env.VERTEXION_CLAUDE_COMMAND) return process.env.VERTEXION_CLAUDE_COMMAND;
@@ -33,7 +35,11 @@ export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general'
   const turns = selectedMode === 'deep' || selectedMode === 'routine' ? 64 : selectedMode === 'implement' ? 48 : 32;
   const permissionMode = selectedMode === 'implement' ? 'acceptEdits' : selectedMode === 'routine' ? 'default' : 'plan';
   const task = createTask({ taskId, projectId, domain, orchestratorId: orchestrator, mode: selectedMode, prompt, contract });
-  appendTaskEvent(taskId, { type: 'phase', phase: 'EXECUTE', executionId });
+  appendTaskEvent(taskId, { type: 'phase', phase: 'CONTEXT', executionId });
+  const context = buildContext({ systemHome, taskId, domain, projectId, mode: selectedMode });
+  let experiment = null;
+  if (['experiment','autonomous'].includes(selectedMode)) { experiment = startExperiment({ taskId, projectId, orchestrator, hypothesis: prompt, mode: selectedMode }); appendTaskEvent(taskId,{type:'experiment-start',experiment}); }
+  appendTaskEvent(taskId, { type: 'phase', phase: 'EXECUTE', executionId, context });
   const fullPrompt = [
     `Orquestrador v8: ${orchestrator}.`,
     'Você está sendo executado pelo Vertexion Control Center.',
@@ -43,6 +49,7 @@ export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general'
     'Mostre equipe e agentes acionados. Não faça ação externa, deploy, push, PR, envio, migration remota, gasto, preço, checkout, pagamento ou alteração em produção sem aprovação explícita.',
     'Quando uma ação exigir aprovação, apenas prepare a solicitação e encerre antes de executá-la.',
     '',
+    `Context manifest (JIT): ${JSON.stringify(context)}`,
     'Tarefa:',
     prompt,
   ].join('\n');
@@ -128,11 +135,13 @@ export function runClaude({ prompt, cwd, mode = 'analyze', projectId = 'general'
     appendTaskEvent(taskId, { type: 'execution-end', status, result });
     onEvent?.({ type: 'execution-end', ...result });
     if (status === 'completed') {
+      if (experiment) finishExperiment(experiment,{status:'COMPLETED',resultStatus:status});
       updateTask(taskId, { status: 'EVALUATE' });
       if (evaluate) runEvaluator({ taskId, projectId, cwd, orchestrator, contract, result }).then(evaluation => {
         updateTask(taskId, { status: evaluation?.status === 'PASS' ? 'FINALIZE' : 'REVIEW', evaluationArtifact: evaluation });
         appendTaskEvent(taskId, { type: 'evaluation', evaluation });
       }).catch(error => {
+        if (experiment) finishExperiment(experiment,{status:'ERROR',error:error.message});
         updateTask(taskId, { status: 'REVIEW', evaluationError: error.message });
         appendTaskEvent(taskId, { type: 'evaluation-error', error: error.message });
       });
