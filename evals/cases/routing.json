@@ -1,6 +1,37 @@
 [
-  {"prompt":"Encontre restaurantes sem cardápio digital para o ZapMenu","expectedTeam":"Growth Engine","mustNot":["enviar mensagem"]},
-  {"prompt":"Vale a pena adicionar pedidos pelo WhatsApp ao ZapMenu?","expectedTeam":"Product Intelligence","secondaryTeam":"Engineering Assurance","mustProtect":"lançamento"},
-  {"prompt":"O cardápio público do ZapMenu não está carregando","expectedTeam":"Engineering Assurance","expectedSpecialists":["engineering-scope-guardian","engineering-code-reviewer"]},
-  {"prompt":"Qual projeto deve receber foco hoje?","expectedTeam":"Vertexion Control","expectedSpecialist":"control-portfolio-analyst"}
+  {
+    "prompt": "Encontre restaurantes sem cardápio digital para o ZapMenu",
+    "expectedOrchestrator": "einstein",
+    "mode": "research",
+    "mustNot": [
+      "enviar mensagem"
+    ]
+  },
+  {
+    "prompt": "Vale a pena adicionar pedidos pelo WhatsApp ao ZapMenu?",
+    "expectedOrchestrator": "einstein",
+    "mode": "decision",
+    "secondaryOrchestrator": "tesla",
+    "mustProtect": "lançamento"
+  },
+  {
+    "prompt": "O cardápio público do ZapMenu não está carregando",
+    "expectedOrchestrator": "tesla",
+    "mode": "incident",
+    "expectedSpecialists": [
+      "dev-lead",
+      "control-evaluator"
+    ]
+  },
+  {
+    "prompt": "Como devemos redesenhar a tela de planos?",
+    "expectedOrchestrator": "da-vinci",
+    "mode": "design"
+  },
+  {
+    "prompt": "Qual projeto deve receber foco hoje?",
+    "expectedOrchestrator": "tesla",
+    "mode": "review",
+    "expectedSpecialist": "control-portfolio-analyst"
+  }
 ]
