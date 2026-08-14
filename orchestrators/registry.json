@@ -20,12 +20,12 @@
         "security"
       ],
       "modes": [
-        "fix",
-        "feature",
+        "autonomous",
         "debug",
+        "feature",
+        "fix",
         "incident",
-        "review",
-        "autonomous"
+        "review"
       ],
       "allowedWrite": true,
       "allowedExternalActions": false,
@@ -37,7 +37,12 @@
         "ZapMenu",
         "Firmis"
       ],
-      "updated": "2026-08-14"
+      "updated": "2026-08-14",
+      "capabilities": {
+        "council": true,
+        "experiment": true,
+        "visualQA": false
+      }
     },
     {
       "id": "einstein",
@@ -55,12 +60,13 @@
         "legal"
       ],
       "modes": [
-        "research",
+        "council",
+        "decision",
         "experiment",
         "gtm",
-        "pricing",
         "market-audit",
-        "decision"
+        "pricing",
+        "research"
       ],
       "allowedWrite": true,
       "allowedExternalActions": false,
@@ -71,7 +77,12 @@
       "projects": [
         "ZapMenu"
       ],
-      "updated": "2026-08-14"
+      "updated": "2026-08-14",
+      "capabilities": {
+        "council": true,
+        "experiment": true,
+        "visualQA": false
+      }
     },
     {
       "id": "da-vinci",
@@ -87,12 +98,13 @@
         "experience"
       ],
       "modes": [
-        "design",
-        "ux",
-        "ui",
-        "visual-qa",
         "conversion",
-        "design-system"
+        "council",
+        "design",
+        "design-system",
+        "ui",
+        "ux",
+        "visual-qa"
       ],
       "allowedWrite": true,
       "allowedExternalActions": false,
@@ -104,7 +116,20 @@
         "ZapMenu",
         "Firmis"
       ],
-      "updated": "2026-08-14"
+      "updated": "2026-08-14",
+      "capabilities": {
+        "council": true,
+        "experiment": false,
+        "visualQA": true
+      }
     }
-  ]
+  ],
+  "features": {
+    "council": true,
+    "crossReview": true,
+    "autoloopV2": true,
+    "knowledgeFreshness": true,
+    "fccScore": true,
+    "worktreePolicy": true
+  }
 }

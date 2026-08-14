@@ -2,6 +2,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const MAX_BUDGET = { system: 6000, task: 5000, memory: 4000, knowledge: 7000, tools: 5000, reserve: 5000 };
+function knowledgeFreshness(systemHome) {
+  const p=path.join(systemHome,'knowledge','index.json'); if(!fs.existsSync(p)) return [];
+  try { const now=Date.now(); return JSON.parse(fs.readFileSync(p,'utf8')).map(x=>{ const v=Date.parse(x.verifiedAt), e=Date.parse(x.expiresAt); const window=Math.max(1,e-v); return {...x,status:now<e?'fresh':now<v+2*window?'stale':'expired'}; }); } catch { return []; }
+}
 const pointers = {
   engineering: ['rules/engineering.md','rules/security.md','rules/evidence-ledger.md'],
   reliability: ['rules/engineering.md','rules/security-checklist.md','rules/evidence-ledger.md'],
@@ -25,6 +29,7 @@ export function buildContext({ systemHome, taskId, domain='engineering', project
     task: { taskId, projectId, domain, mode },
     memory: [path.relative(systemHome,memoryIndex)],
     knowledge: [`knowledge/${domain}/`],
+    knowledgeSources: knowledgeFreshness(systemHome).filter(x=>!x.domain || x.domain===domain),
     rules: relevant,
     taskArtifacts: taskFiles,
     retrieval: 'pointer-first; load full content only when directly relevant'

@@ -47,6 +47,12 @@ if [ "${1:-}" = "all" ]; then
   exit 0
 fi
 
+if [ "${1:-}" = "council" ]; then
+  QUESTION="${*:2}"
+  node "$HOME/.claude/vertexion-agent-system/scripts/orq-council.mjs" "$QUESTION"
+  exit 0
+fi
+
 if [ "${1:-}" = "--focus" ]; then
   FOCUS_ID="${2:-}"
   FOCUS_LEVEL="${3:-}"
