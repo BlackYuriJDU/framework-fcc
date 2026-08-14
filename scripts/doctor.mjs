@@ -27,7 +27,7 @@ const fcc = spawnSync('bash', ['-c', 'command -v fcc-claude || true'], { encodin
 add('claude', Boolean(claude), claude || 'não encontrado');
 add('fcc-claude', Boolean(fcc), fcc || 'não encontrado; o sistema usará claude', 'optional');
 add('system-home', fs.existsSync(systemHome), systemHome);
-add('default-agent', fs.existsSync(path.join(home, 'agents', 'control', 'control-tesla.md')), 'control-vertexion-director');
+add('default-agent', fs.existsSync(path.join(home, 'agents', 'control', 'control-tesla.md')), 'control-tesla');
 const skillsDir = path.join(home, 'skills');
 let skills = []; try { skills = fs.readdirSync(skillsDir).filter(name => fs.existsSync(path.join(skillsDir, name, 'SKILL.md'))); } catch {}
 add('visible-skills', skills.length === 3 && ['revisar', 'validar', 'preview'].every(x => skills.includes(x)), skills.join(', '));

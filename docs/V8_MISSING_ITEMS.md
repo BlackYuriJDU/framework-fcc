@@ -9,7 +9,11 @@ Implemented in this wave:
 - `/orq council` protocol
 - worktree policy
 - evaluator/experiment/state artifacts remain first-class
+- evaluator completion is synchronized with task finalization
+- context budgets are enforced when building runtime context
 
-Follow-up still requiring external browser/runtime tooling: actual screenshot capture and visual diffing, and full multi-worktree orchestration in the CLI.
+## Runtime status
 
-## Runtime status\nThe second wave now wires council, context freshness, experiment decisions, autoloop v2 entrypoint, FCC scoring, visual QA capture validation, and worktree checks. Browser screenshot capture/diff remains environment-dependent and is intentionally guarded by `scripts/visual-qa.mjs`.\n
+The second wave now wires council, context freshness, experiment decisions, autoloop v2 entrypoint, FCC scoring, visual QA capture validation, worktree checks, evaluator synchronization, and context-budget enforcement.
+
+Browser screenshot capture/diff and full multi-worktree orchestration remain environment-dependent and intentionally guarded by their respective scripts.
