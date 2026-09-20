@@ -18,12 +18,12 @@
 - Avaliações e contratos do pipeline v3.
 - Três Skills visíveis.
 - Conhecimento do portfólio.
-- Segurança RLS/AppMax/segredos.
+- Segurança RLS/seu-gateway-de-pagamento/segredos.
 - Roteamento natural por descrição.
 
 ## Transformado
 
-- `zapmenu-agents` → Growth Engine.
+- `seu-projeto-agents` → Growth Engine.
 - pipeline v3 → Engineering Assurance.
 - validação de ideias → Product Intelligence.
 - coordenação geral → Vertexion Control.

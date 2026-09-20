@@ -1,0 +1,24 @@
+task_id: FCC-YYYYMMDD-XXXX
+objective:
+  description: "..."
+  why: "..."
+domain: engineering
+mode: fix
+risk:
+  class: standard
+  score: 30
+  requires_approval: false
+scope:
+  allowed: []
+  forbidden: []
+success:
+  criteria: []
+  metric: "..."
+verification:
+  checks: []
+  fresh_reviewer: false
+artifacts:
+  required: [CONTRACT.yaml, STATE.yaml, EVIDENCE.md, RESULT.md, NEXT.md]
+budget:
+  max_turns: 40
+  max_subagents: 3

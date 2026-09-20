@@ -20,11 +20,11 @@
 
 ## Limitações honestas
 
-Este ambiente não é o Windows/WSL real de Arthur e não possui as contas/credenciais finais. Ainda precisam ser confirmados no computador:
+Este ambiente não é o Windows/WSL real de o proprietário e não possui as contas/credenciais finais. Ainda precisam ser confirmados no computador:
 
 - `install.ps1` e Task Scheduler reais;
 - modelo/provedor efetivo do FCC;
-- Tavily, Groq, Supabase, AppMax, Telegram, Lovable e EAS;
+- Tavily, Groq, Supabase, seu-gateway-de-pagamento, Telegram, Lovable e EAS;
 - paths reais e builds dos cinco projetos;
 - screenshot automatizado do dashboard, pois o Chromium do sandbox falhou por limitações do próprio ambiente.
 

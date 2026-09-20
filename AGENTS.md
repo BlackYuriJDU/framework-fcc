@@ -1,7 +1,7 @@
 # Vertexion Agent System v7.1
 
 ## Visão geral
-Meta-sistema de agentes com **6 leads (equipes) + 9 agentes de controle + 3 orquestradores de domínio** (Tesla, Einstein, Da Vinci). Portfólio: **ZapMenu** e **Firmis** apenas. **Nenhum agente sem orq responsável** — matriz de propriedade em `SYSTEM.md` §4.
+Meta-sistema de agentes com **6 leads (equipes) + control agents + 3 orquestradores de domínio** (Tesla, Einstein, Da Vinci). O portfólio de projetos é definido por você em `portfolio/projects.json`. **Nenhum agente sem orq responsável** — matriz de propriedade em `SYSTEM.md` §4.
 
 ## Leads (equipes) — `~/.claude/agents/`
 
@@ -20,7 +20,7 @@ Meta-sistema de agentes com **6 leads (equipes) + 9 agentes de controle + 3 orqu
 - `control-einstein` — orquestrador Einstein (growth + jurídico + marketing)
 - `da-vinci` — orquestrador Da Vinci (design front-end)
 - `loop-verifier` — verificador independente do `/autoloop` (dono: Tesla)
-- `control-portfolio-analyst` — prioridades ZapMenu e Firmis
+- `control-portfolio-analyst` — prioridades dos seus projetos (le portfolio/projects.json)
 - `control-auditor` — fiscal independente de conclusões antes de ações externas
 - `control-approval-preparer` — prepara pedidos de aprovação (ação, impacto, risco, rollback, validade)
 - `control-evidence-ledger` — auditor independente de evidência
@@ -38,7 +38,7 @@ Meta-sistema de agentes com **6 leads (equipes) + 9 agentes de controle + 3 orqu
 Níveis de uso (`baixo|médio|alto|máximo`, default `médio`): semântica em `docs/levels.md`. Ativação mid-chat por nome (Tesla/Einstein/Da Vinci no texto) + invocação direta `/tesla`, `/einstein`, `/da-vinci`, `/autoloop`.
 
 ## Skills principais
-`tesla`, `einstein`, `da-vinci`, `autoloop`, `orq`, `zapmenu`, `design-lead`, `find-skills` (+ plugins instalados).
+`tesla`, `einstein`, `da-vinci`, `autoloop`, `orq`, `design-lead`, `find-skills` (+ plugins instalados).
 
 ## Keywords de protocolo (tags no texto — NÃO são skills)
 - `ultraask` — perguntas exaustivas antes de agir (`rules/ask-mode.md`)
@@ -53,10 +53,11 @@ Níveis de uso (`baixo|médio|alto|máximo`, default `médio`): semântica em `d
 - Credenciais de API centralizadas em `~/.claude/.env` (chmod 600)
 
 ## Histórico
-- **v5** → 3 leads (engineering/growth/product) + 33 agentes em dirs; arquivado em `archive/agents-v5/`
-- **v6** → 6 leads stub; agentes de equipe não existiam como arquivos
-- **v7** → 6 leads enriquecidos, 3 orquestradores reescritos, `.env` centralizado, multi-modelo, keywords ultrathink2/ultraask
-- **v7.1 (atual)** → 3 orquestradores de domínio: `vertexion-director`→**Tesla**, `zapmenu-activity`→**Einstein**, Da Vinci mantido; `/autoloop` (Karpathy Loop); modo merge (`/orq all`); níveis de uso; `loop-verifier` movido para `agents/control/`; conhecimento curado em `knowledge/{tesla,einstein,da-vinci}/`. Contexto completo em `docs/versoes.md`
+- **v5** → 3 leads + 33 agentes em dirs (consolidado)
+- **v6** → 6 leads stub
+- **v7** → 6 leads enriquecidos, 3 orquestradores reescritos, .env centralizado, multi-modelo, keywords ultrathink2/ultraask
+- **v7.1** → 3 orquestradores de domínio (Tesla/Einstein/Da Vinci); /autoloop; modo merge; níveis de uso
+- **v8** → runtime dirigido por contrato (Task Contract, ciclo INTAKE-CONTRACT-CONTEXT-PLAN-EXECUTE-VERIFY-EVALUATE-FINALIZE, control-evaluator, autoloop v2, registry v4, FCC Score)
 
 ## Test commands
 N/A — sistema de agentes, não biblioteca de código.

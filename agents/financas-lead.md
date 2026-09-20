@@ -39,13 +39,13 @@ pricing-strategist → competitor-analyst → decision-judge
 ## Orçamento Autônomo
 
 - **R$ 0** — nenhum gasto automático.
-- Qualquer gasto/custo exige aprovação explícita de Arthur via `control-approval-preparer`.
+- Qualquer gasto/custo exige aprovação explícita de o proprietário via `control-approval-preparer`.
 - Quota gratuita acabou → pare e peça aprovação.
 
 ## Fontes de Custo a Monitorar
 
 - Provedores (Firecrawl, Perplexity, Tavily, Resend) — quotas gratuitas
-- Vercel (Firmis) e AppMax (ZapMenu)
+- Vercel (seu-projeto-2) e seu-gateway-de-pagamento (seu-projeto)
 - Qualquer cobrança recorrente deve ter dono e revisão
 
 ## Regras

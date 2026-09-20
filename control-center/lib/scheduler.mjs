@@ -7,7 +7,7 @@ const DEFAULTS = [
   },
   {
     id: 'weekly', name: 'Revisão semanal', enabled: true, frequency: 'weekly', weekday: 1, hour: 10, minute: 30,
-    prompt: 'Execute a revisão semanal: compliance de ZapMenu e Vertexion, disponibilidade, Marketing Review, documentação, reavaliação de leads, falsos positivos, bloqueios, riscos e resumo das equipes. Não aplique ação externa.'
+    prompt: 'Execute a revisão semanal: compliance de seu-projeto e Vertexion, disponibilidade, Marketing Review, documentação, reavaliação de leads, falsos positivos, bloqueios, riscos e resumo das equipes. Não aplique ação externa.'
   },
   {
     id: 'monthly', name: 'Cápsula do tempo', enabled: true, frequency: 'monthly', day: 1, hour: 11, minute: 0,

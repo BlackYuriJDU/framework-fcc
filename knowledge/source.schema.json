@@ -1,0 +1,11 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object",
+  "required":["id","title","url","domain","authority","verifiedAt","expiresAt"],
+  "properties":{
+    "id":{"type":"string"},"title":{"type":"string"},"url":{"type":"string"},
+    "domain":{"type":"string"},"authority":{"enum":["official","primary","reference","community","experimental"]},
+    "verifiedAt":{"type":"string","format":"date-time"},"expiresAt":{"type":"string","format":"date-time"},
+    "tags":{"type":"array","items":{"type":"string"}},"notes":{"type":"string"}
+  }
+}

@@ -16,7 +16,7 @@ async function start() {
   const page = await context.newPage();
 
   if (command === 'navigate') {
-    await page.goto(args[0] || 'https://zapmenu.org', { waitUntil: 'networkidle' });
+    await page.goto(args[0] || 'https://seudominio.com', { waitUntil: 'networkidle' });
     console.log(`Navegado para: ${page.url()}`);
   } else if (command === 'click') {
     const selector = args[0];
@@ -40,7 +40,7 @@ async function start() {
     console.log(`Result:`, result);
   } else {
     // Default: just open page
-    await page.goto('https://zapmenu.org', { waitUntil: 'networkidle' });
+    await page.goto('https://seudominio.com', { waitUntil: 'networkidle' });
     console.log(`Edge aberto em: ${page.url()}`);
     // Keep alive for 5min
     await page.waitForTimeout(300000);

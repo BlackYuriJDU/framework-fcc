@@ -1,7 +1,7 @@
-# AppMax Patterns (Vertexion Ecosystem)
+# seu-gateway-de-pagamento Patterns (Vertexion Ecosystem)
 
 ## Configuração
-- Single source of truth em `appmax/config.ts`
+- Single source of truth em `seu-gateway-de-pagamento/config.ts`
 - Amounts em centavos internamente, formatado no display
 - Plan limits em `PLAN_LIMITS` constant
 

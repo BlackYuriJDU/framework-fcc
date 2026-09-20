@@ -22,7 +22,7 @@ RESEARCH → QUALIFY → CRAFT → [aprovação] → SEND → LOG → FOLLOW-UP
 1. **RESEARCH** — fontes públicas: Instagram, WhatsApp, Google Maps, sites. Mínimo 2 fontes independentes por prospect.
 2. **QUALIFY** — aplicar critérios de qualificação (abaixo). Descartar com justificativa.
 3. **CRAFT** — preparar mensagem personalizada. **Não informar preço na primeira mensagem.**
-4. **[APROVAÇÃO]** — todo envio a terceiros requer aprovação explícita de Arthur (`control-approval-preparer` → aprovação).
+4. **[APROVAÇÃO]** — todo envio a terceiros requer aprovação explícita de o proprietário (`control-approval-preparer` → aprovação).
 5. **SEND** — só após aprovação.
 6. **LOG** — registrar resultado (aceito/rejeitado/duplicado/sem resposta).
 7. **FOLLOW-UP** — até 5 follow-ups adaptados ao contexto; recusa explícita encerra imediatamente.

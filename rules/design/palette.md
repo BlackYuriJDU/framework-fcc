@@ -8,5 +8,5 @@
 - **Text:** Contraste mínimo 4.5:1 para texto normal. Tamanho mínimo 14px corpo.
 
 ### Por projeto
-- **ZapMenu:** Gold #D9A441 (accent).
-- **Firmis:** a definir (validação de mercado).
+- **seu-projeto:** Gold #D9A441 (accent).
+- **seu-projeto-2:** a definir (validação de mercado).

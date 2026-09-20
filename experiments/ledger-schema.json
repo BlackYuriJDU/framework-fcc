@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "required": [
+    "experimentId",
+    "taskId",
+    "orchestrator",
+    "status"
+  ],
+  "properties": {
+    "experimentId": {
+      "type": "string"
+    },
+    "taskId": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "orchestrator": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "hypothesis": {
+      "type": "string"
+    },
+    "baseline": {},
+    "resultStatus": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "startedAt": {
+      "type": "string"
+    },
+    "finishedAt": {
+      "type": "string"
+    }
+  }
+}

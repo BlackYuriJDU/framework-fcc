@@ -14,7 +14,7 @@
 
 ## Semanal
 
-- compliance ZapMenu/Vertexion;
+- compliance seu-projeto/Vertexion;
 - disponibilidade e incidentes;
 - Marketing Review;
 - documentação desatualizada;

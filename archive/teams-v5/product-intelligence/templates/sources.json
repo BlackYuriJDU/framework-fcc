@@ -1,5 +1,0 @@
-{
-  "version": 1,
-  "sources": [],
-  "requiredFields": ["title", "url", "publisher", "publishedAt", "accessedAt", "sourceType", "supports"]
-}

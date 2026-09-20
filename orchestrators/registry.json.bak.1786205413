@@ -12,22 +12,22 @@
       "focus": "engineering-self-improvement",
       "level": "alto",
       "projects": [
-        "ZapMenu",
-        "Firmis"
+        "seu-projeto",
+        "seu-projeto-2"
       ],
       "updated": "2026-08-08"
     },
     {
       "id": "einstein",
       "name": "Einstein",
-      "description": "Orquestrador de growth, jurídico e marketing — pipeline de prospecção ZapMenu (RESEARCH→QUALIFY→CRAFT→[aprovação]→SEND→LOG→FOLLOW-UP) + Founder's Playbook. Absorve todo conteúdo de growth dos outros orquestradores.",
+      "description": "Orquestrador de growth, jurídico e marketing — pipeline de prospecção seu-projeto (RESEARCH→QUALIFY→CRAFT→[aprovação]→SEND→LOG→FOLLOW-UP) + Founder's Playbook. Absorve todo conteúdo de growth dos outros orquestradores.",
       "skill": "einstein",
       "agent": "control-einstein",
       "color": "yellow",
       "focus": "growth-legal-marketing",
       "level": "médio",
       "projects": [
-        "ZapMenu"
+        "seu-projeto"
       ],
       "updated": "2026-08-08"
     },
@@ -41,8 +41,8 @@
       "focus": "design-frontend",
       "level": "médio",
       "projects": [
-        "ZapMenu",
-        "Firmis"
+        "seu-projeto",
+        "seu-projeto-2"
       ],
       "updated": "2026-08-08"
     }

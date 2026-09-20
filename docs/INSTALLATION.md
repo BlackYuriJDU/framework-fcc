@@ -6,7 +6,7 @@
 - Node.js 20 ou superior no WSL.
 - Git.
 - Claude Code ou `fcc-claude` funcionando no WSL.
-- Projetos acessíveis em `/mnt/c/Users/Arthur Araújo/Downloads` ou caminho configurado.
+- Projetos acessíveis em `~/projetos` ou caminho configurado.
 
 ## Instalação recomendada
 

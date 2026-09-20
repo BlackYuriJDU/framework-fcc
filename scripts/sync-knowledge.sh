@@ -86,7 +86,7 @@ echo "  Resumo: $NEED repo(s) a clonar, $((${#URLS[@]}-NEED)) já presente(s)."
 
 # --- Modo --check: dry-run, sai aqui (R$0) ---
 if [ -n "$CHECK" ]; then
-  echo "  (dry-run R\$0 — nada foi clonado. Clone real = ação externa, requer aprovação de Arthur.)"
+  echo "  (dry-run R\$0 — nada foi clonado. Clone real = ação externa, requer aprovação de o proprietário.)"
   exit 0
 fi
 
@@ -97,7 +97,7 @@ if [ "$NEED" -eq 0 ]; then
 fi
 
 echo ""
-echo "⚠️  Clone real = ação externa. Requer aprovação explícita de Arthur."
+echo "⚠️  Clone real = ação externa. Requer aprovação explícita de o proprietário."
 if [ -t 0 ]; then
   read -r -p "Clonar $NEED repo(s)? [y/N] " ans
 else

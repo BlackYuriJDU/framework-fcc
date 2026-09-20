@@ -1,4 +1,4 @@
-# Webhook AppMax falhando
+# Webhook seu-gateway-de-pagamento falhando
 
 ## Sintoma
 
@@ -20,7 +20,7 @@ Verificar status HTTP, assinatura, segredo configurado, idempotência, eventos e
 - correção em branch;
 - testes e preview após aprovação.
 
-## Ações proibidas sem Arthur
+## Ações proibidas sem o proprietário
 
 - produção;
 - migration remota;

@@ -20,7 +20,7 @@ Verificar DNS, origem Lovable/Vercel, health, logs e última mudança. Não rede
 - correção em branch;
 - testes e preview após aprovação.
 
-## Ações proibidas sem Arthur
+## Ações proibidas sem o proprietário
 
 - produção;
 - migration remota;

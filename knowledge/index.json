@@ -1,0 +1,29 @@
+[
+  {
+    "id": "tesla-pointers",
+    "title": "Tesla knowledge pointers",
+    "url": "https://github.com/seu-usuario/framework-fcc/tree/main/knowledge/tesla",
+    "domain": "engineering",
+    "authority": "reference",
+    "verifiedAt": "2026-08-14T00:00:00Z",
+    "expiresAt": "2026-11-12T00:00:00Z"
+  },
+  {
+    "id": "einstein-pointers",
+    "title": "Einstein knowledge pointers",
+    "url": "https://github.com/seu-usuario/framework-fcc/tree/main/knowledge/einstein",
+    "domain": "growth",
+    "authority": "reference",
+    "verifiedAt": "2026-08-14T00:00:00Z",
+    "expiresAt": "2026-11-12T00:00:00Z"
+  },
+  {
+    "id": "davinci-pointers",
+    "title": "Da Vinci knowledge pointers",
+    "url": "https://github.com/seu-usuario/framework-fcc/tree/main/knowledge/da-vinci",
+    "domain": "design",
+    "authority": "reference",
+    "verifiedAt": "2026-08-14T00:00:00Z",
+    "expiresAt": "2026-11-12T00:00:00Z"
+  }
+]

@@ -33,6 +33,6 @@ wc -l ~/.claude/CLAUDE.md   # deve ser ≤ 60
 
 `settings.json` tem `"autoCompactEnabled": false` + `"useAutoModeDuringPlan": true`.
 
-- **Decisão consciente do usuário:** Arthur prefere compactação manual (`/compact`) a auto-compactação silenciosa — contexto não é perdido sem ele ver.
+- **Decisão consciente do usuário:** o proprietário prefere compactação manual (`/compact`) a auto-compactação silenciosa — contexto não é perdido sem ele ver.
 - **Efeito colateral:** em sessões longas com modelo compacto (janela de contexto menor), o contexto pode estourar se ninguém compactar manualmente.
 - **Reavaliar se:** aparecer "context window exceeded" recorrente. Nesse caso, considerar `autoCompactEnabled: true` ou trocar de modelo.

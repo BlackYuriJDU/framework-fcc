@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "budgets": {
+    "system": 6000,
+    "task": 5000,
+    "memory": 4000,
+    "knowledge": 7000,
+    "tools": 5000,
+    "reserve": 5000
+  },
+  "retrieval": "pointer-first",
+  "rule": "Do not preload full memory/knowledge; load only relevant sources after routing."
+}

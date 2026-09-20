@@ -8,7 +8,7 @@ import sys
 import urllib.request
 import urllib.error
 
-REPO = "BlackYuriJDU/framework-fcc"
+REPO = "seu-usuario/framework-fcc"
 BRANCH = "main"
 
 # Read token from credentials file
@@ -144,10 +144,10 @@ print("5. Creating commit...")
 new_commit = api_call("POST", f"/repos/{REPO}/git/commits", {
     "message": "Sync: estado atual do Vertexion Agent System em 2026-07-28\n\n"
                "- Sub-director architecture: engineering-lead, growth-lead, product-lead\n"
-               "- New agents: da-vinci, zapmenu-activity\n"
+               "- New agents: da-vinci, seu-projeto-activity\n"
                "- New scripts: edge-cdp, edge-control, edge-launch, edge-scroll, orq\n"
                "- Full agent bodies (replaces frontmatter-only shells)\n"
-               "- Portfolio: only ZapMenu and Firmis\n"
+               "- Portfolio: only seu-projeto and seu-projeto-2\n"
                "- New dirs: knowledge/, orchestrators/\n"
                "- All rules and config synced from local runtime",
     "tree": new_tree_sha,

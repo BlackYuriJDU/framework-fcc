@@ -24,7 +24,7 @@ if command -v claude &>/dev/null; then
 fi
 
 # 4. Common install paths as fallback
-for path in /home/arthur/.local/bin/claude /usr/local/bin/claude /usr/bin/claude; do
+for path in ~/.local/bin/claude /usr/local/bin/claude /usr/bin/claude; do
   if [ -x "$path" ]; then
     echo "$path"
     exit 0

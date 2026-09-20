@@ -113,10 +113,10 @@ function persistBestLeadMessage(payload) {
 function defaultLeadMessage(lead) {
   const name = lead?.name || lead?.nome || 'pessoal';
   const channel = lead?.whatsapp ? 'WhatsApp' : lead?.instagram ? 'Instagram' : 'contato';
-  return `Olá, ${name}! Tudo bem? Vi o seu negócio e percebi que vocês parecem ativos e com boa presença, mas ainda podem melhorar a experiência de cardápio e atendimento digital. Trabalho com o ZapMenu, uma solução para cardápio digital pensada para restaurantes no Brasil. Se fizer sentido, posso te mostrar rapidamente como isso poderia ficar no seu caso. Posso te mandar um exemplo por ${channel}?`;
+  return `Olá, ${name}! Tudo bem? Vi o seu negócio e percebi que vocês parecem ativos e com boa presença, mas ainda podem melhorar a experiência de cardápio e atendimento digital. Trabalho com o seu-projeto, uma solução para cardápio digital pensada para restaurantes no Brasil. Se fizer sentido, posso te mostrar rapidamente como isso poderia ficar no seu caso. Posso te mandar um exemplo por ${channel}?`;
 }
 function defaultLoomScript(lead) {
-  return `Roteiro Loom (até 2 min)\n1. Apresentação rápida e contextualizada para ${lead?.name || 'o lead'}.\n2. Mostrar a dor observada: ${lead?.observedProblem || 'ausência de cardápio digital/organização de informações'}.\n3. Mostrar como o ZapMenu resolveria isso de forma prática.\n4. Encerrar com convite simples para conversar.`;
+  return `Roteiro Loom (até 2 min)\n1. Apresentação rápida e contextualizada para ${lead?.name || 'o lead'}.\n2. Mostrar a dor observada: ${lead?.observedProblem || 'ausência de cardápio digital/organização de informações'}.\n3. Mostrar como o seu-projeto resolveria isso de forma prática.\n4. Encerrar com convite simples para conversar.`;
 }
 function metrics() {
   const leads = listLeads();

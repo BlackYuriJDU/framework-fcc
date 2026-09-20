@@ -27,7 +27,7 @@
   "notTestedHere": [
     "Execução real do install.ps1 no Windows e criação do Scheduled Task",
     "Autenticação real do FCC/Claude Code",
-    "Tavily, Groq, Supabase, AppMax, Telegram, Lovable e EAS com novas credenciais",
+    "Tavily, Groq, Supabase, seu-gateway-de-pagamento, Telegram, Lovable e EAS com novas credenciais",
     "Build dos cinco projetos nas máquinas e contas finais",
     "Screenshot headless do dashboard, pois o Chromium do sandbox não iniciou de forma confiável"
   ]

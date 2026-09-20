@@ -27,13 +27,13 @@ const fcc = spawnSync('bash', ['-c', 'command -v fcc-claude || true'], { encodin
 add('claude', Boolean(claude), claude || 'não encontrado');
 add('fcc-claude', Boolean(fcc), fcc || 'não encontrado; o sistema usará claude', 'optional');
 add('system-home', fs.existsSync(systemHome), systemHome);
-add('default-agent', fs.existsSync(path.join(home, 'agents', 'control', 'control-vertexion-director.md')), 'control-vertexion-director');
+add('default-agent', fs.existsSync(path.join(home, 'agents', 'control', 'control-tesla.md')), 'control-tesla');
 const skillsDir = path.join(home, 'skills');
 let skills = []; try { skills = fs.readdirSync(skillsDir).filter(name => fs.existsSync(path.join(skillsDir, name, 'SKILL.md'))); } catch {}
 add('visible-skills', skills.length === 3 && ['revisar', 'validar', 'preview'].every(x => skills.includes(x)), skills.join(', '));
 try {
   const settings = JSON.parse(fs.readFileSync(path.join(home, 'settings.json'), 'utf8'));
-  add('settings-agent', settings.agent === 'control-vertexion-director', settings.agent || 'não configurado');
+  add('settings-agent', settings.agent === 'control-tesla', settings.agent || 'não configurado');
   add('settings-model', settings.model === 'opus', settings.model || 'não configurado', 'recommended');
 } catch (error) { add('settings-json', false, error.message); }
 add('tavily-env', Boolean(process.env.TAVILY_API_KEY), process.env.TAVILY_API_KEY ? 'configurada' : 'não configurada; pesquisa usará outras ferramentas', 'optional');
@@ -47,6 +47,11 @@ const serverCheck = await new Promise(resolve => {
   socket.on('error', () => resolve(false));
 });
 add('control-center', serverCheck, serverCheck ? 'http://localhost:3741' : 'parado; use vertexion-start', 'optional');
+
+const registryFile = path.join(systemHome, 'orchestrators', 'registry.json');
+try { const registry = JSON.parse(fs.readFileSync(registryFile, 'utf8')); const ids = (registry.orchestrators || []).map(x => x.id); add('orchestrator-registry', registry.version >= 4 && ids.includes('tesla') && ids.includes('einstein') && ids.includes('da-vinci'), `v${registry.version} / ${ids.join(', ')}`); } catch (error) { add('orchestrator-registry', false, error.message); }
+add('task-contract-schema', fs.existsSync(path.join(systemHome, 'contracts', 'task-contract.schema.json')), 'contracts/task-contract.schema.json');
+add('control-evaluator', fs.existsSync(path.join(home, 'agents', 'control', 'control-evaluator.md')), 'control-evaluator');
 
 const failedRequired = checks.filter(x => !x.ok && x.severity === 'required');
 if (jsonMode) console.log(JSON.stringify({ ok: failedRequired.length === 0, checks }, null, 2));

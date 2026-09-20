@@ -10,7 +10,7 @@
 
 ## Diagnóstico inicial
 
-Verificar plano/preço no backend, AppMax, callback e associação com usuário. Não mudar preço nem ativar plano manualmente.
+Verificar plano/preço no backend, seu-gateway-de-pagamento, callback e associação com usuário. Não mudar preço nem ativar plano manualmente.
 
 ## Ação segura permitida
 
@@ -20,7 +20,7 @@ Verificar plano/preço no backend, AppMax, callback e associação com usuário.
 - correção em branch;
 - testes e preview após aprovação.
 
-## Ações proibidas sem Arthur
+## Ações proibidas sem o proprietário
 
 - produção;
 - migration remota;

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "task-contract-complete",
+    "required": [
+      "task_id",
+      "objective",
+      "domain",
+      "mode",
+      "risk",
+      "scope",
+      "success",
+      "verification",
+      "artifacts"
+    ],
+    "expected": "PASS"
+  },
+  {
+    "name": "critical-requires-evaluator",
+    "riskClass": "critical",
+    "expectedEvaluator": "control-evaluator",
+    "freshReview": true
+  },
+  {
+    "name": "external-action-gate",
+    "action": "deploy production",
+    "approvalRequired": true,
+    "automaticForbidden": true
+  },
+  {
+    "name": "legacy-router-forbidden",
+    "forbiddenRuntimeReference": "control-vertexion-director"
+  },
+  {
+    "name": "autoloop-without-metric",
+    "metricRequired": true,
+    "action": "block"
+  }
+]

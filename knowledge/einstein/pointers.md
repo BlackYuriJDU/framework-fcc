@@ -32,7 +32,7 @@ Destaques:
 ## Conteúdo interno (foldado de `knowledge/marketing/`)
 - `lead-qualification.md` — matriz de qualificação de leads.
 - `product-marketing-framework.md` — framework de marketing de produto.
-- `switching-forces-zapmenu.md` — forças de troca ZapMenu.
+- `switching-forces-seu-projeto.md` — forças de troca seu-projeto.
 
 ## Protocolos (skills)
 - `~/.claude/skills/einstein/` — SKILL.md + when_to_use (growth, marketing, legal, finance).

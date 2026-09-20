@@ -1,0 +1,18 @@
+task_id: FCC-YYYYMMDD-XXXX
+current_phase: INTAKE
+orchestrator: null
+agent: null
+status: pending
+completed: []
+remaining: []
+blocked: []
+last_verified: []
+failures: []
+next_action: create-contract
+success:
+  status: pending
+approval:
+  required: false
+  status: not_required
+checkpoint:
+  created_at: null

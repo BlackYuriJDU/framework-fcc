@@ -1,0 +1,37 @@
+[
+  {
+    "prompt": "Encontre restaurantes sem cardápio digital para o seu-projeto",
+    "expectedOrchestrator": "einstein",
+    "mode": "research",
+    "mustNot": [
+      "enviar mensagem"
+    ]
+  },
+  {
+    "prompt": "Vale a pena adicionar pedidos pelo WhatsApp ao seu-projeto?",
+    "expectedOrchestrator": "einstein",
+    "mode": "decision",
+    "secondaryOrchestrator": "tesla",
+    "mustProtect": "lançamento"
+  },
+  {
+    "prompt": "O cardápio público do seu-projeto não está carregando",
+    "expectedOrchestrator": "tesla",
+    "mode": "incident",
+    "expectedSpecialists": [
+      "dev-lead",
+      "control-evaluator"
+    ]
+  },
+  {
+    "prompt": "Como devemos redesenhar a tela de planos?",
+    "expectedOrchestrator": "da-vinci",
+    "mode": "design"
+  },
+  {
+    "prompt": "Qual projeto deve receber foco hoje?",
+    "expectedOrchestrator": "tesla",
+    "mode": "review",
+    "expectedSpecialist": "control-portfolio-analyst"
+  }
+]

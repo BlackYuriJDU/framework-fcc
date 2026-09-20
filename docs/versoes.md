@@ -7,18 +7,18 @@
 
 ## v7.1 — Três orquestradores de domínio (2026-08-08)
 
-**Cabeçalho SYSTEM.md:** `7.1.0 (6 leads + 9 control + 3 orquestradores de domínio)`. Repositório oficial: `BlackYuriJDU/framework-fcc`.
+**Cabeçalho SYSTEM.md:** `7.1.0 (6 leads + 9 control + 3 orquestradores de domínio)`. Repositório oficial: `seu-usuario/framework-fcc`.
 
 ### Arquitetura
 - **3 orquestradores de domínio** (nomes de inventores + cores + níveis de uso):
-  - `vertexion-director` → **Tesla** (🔵 azul, agent `control-tesla`) — engenharia de código + auto-melhoria; opera SEMPRE em ultrathink2; dono do `/autoloop` (Karpathy Loop).
-  - `zapmenu-activity` → **Einstein** (🟡 amarelo, agent `control-einstein`) — growth + jurídico + marketing; absorve pipeline de prospecção ZapMenu + Founder's Playbook (Anthropic).
+  - o orquestrador legado → **Tesla** (🔵 azul, agent `control-tesla`) — engenharia de código + auto-melhoria; opera SEMPRE em ultrathink2; dono do `/autoloop` (Karpathy Loop).
+  - `seu-projeto-activity` → **Einstein** (🟡 amarelo, agent `control-einstein`) — growth + jurídico + marketing; absorve pipeline de prospecção seu-projeto + Founder's Playbook (Anthropic).
   - `da-vinci` (🔴 vermelho) — mantido, design front-end; ganhou conhecimento (superdesign, awesome-design-md).
 - **Modo merge** (`/orq all`): protocolo no chat principal coordenando os 3 orqs em `reports/merge-<ts>/<dominio>/DELIVERABLE.md` + `INTEGRATED.md`; nada sai sem aprovação.
 - **Níveis de uso** (baixo/médio/alto/máximo, default médio) por orq em `registry.json` (version 3); semântica em `docs/levels.md`.
 - **Ativação mid-chat por nome** (tags Tesla/Einstein/Da Vinci no texto) + invocação direta `/tesla`, `/einstein`, `/da-vinci`, `/autoloop`.
 - **Nenhum agente sem orq**: `loop-verifier` movido de `vertexion-agent-system/.claude/agents/` para `agents/control/` (dono: Tesla).
-- Skills: dirs `skills/vertexion-director`→`tesla`, `skills/zapmenu-activity`→`einstein`; nova `skills/autoloop/`; subpipelines remapeados por domínio.
+- Skills: dirs `skills/tesla-legacy`→`tesla`, `skills/seu-projeto-activity`→`einstein`; nova `skills/autoloop/`; subpipelines remapeados por domínio.
 
 ### Conhecimento
 - `knowledge/{tesla,einstein,da-vinci}/` com repos curados (shallow clone) + `pointers.md` por URL para repositórios grandes (semgrep, codeql, biome, oxc) e já-downloadados (superpowers, claude-audit, minimal-diff).
@@ -27,7 +27,7 @@
 ### Registry e wiring
 - `orchestrators/registry.json` version 3 com schema por orq (`level` incluso).
 - `scripts/orq.sh` estendido: `<id> [nivel]`, `all`, `--focus <id> [nivel]`.
-- `agent-memory/control-vertexion-director/` → `agent-memory/control-tesla/` (preserva linhagem).
+- `agent-memory/control-tesla/` → `agent-memory/control-tesla/` (preserva linhagem).
 - `~/.claude/agents/*.md` (6 leads) atualizados para apontar ao orq correto.
 - `CLAUDE.md` ≤ 60 linhas com skills tesla/einstein/autoloop + keywords mid-chat.
 
@@ -51,7 +51,7 @@
 - Prioridade documentada: Run como desenvolvimento principal
 
 ### Problemas conhecidos (corrigidos na v7)
-- Chaves de API **hardcoded** em arquivos `.md` (Perplexity/Firecrawl no SYSTEM.md; Resend/Tavily no zapmenu-activity.md) — expostas no histórico git
+- Chaves de API **hardcoded** em arquivos `.md` (Perplexity/Firecrawl no SYSTEM.md; Resend/Tavily no seu-projeto-activity.md) — expostas no histórico git
 - Modelo efetivo declarado como **DeepSeek v4 flash exclusivo** (único provedor) → **superado na v7**: framework multi-modelo, agnóstico a provedor
 - Conflito: SYSTEM.md dizia `42 agentes` mas o sistema real já divergia
 - Apêndice A referenciava `teams/` (inconsistente)
@@ -66,7 +66,7 @@
 - **6 leads stub** em `~/.claude/agents/`: `dev-lead`, `design-lead`, `marketing-lead`, `financas-lead`, `juridico-lead`, `operacoes-lead`
 - **8 control agents** em `~/.claude/vertexion-agent-system/agents/control/` (control-auditor, control-approval-preparer, control-evidence-ledger, control-portfolio-analyst, control-agent-evolution-advisor + orquestradores)
 - `additionalAgentDirectories` no `settings.json` apontando para `agents/control/`
-- **3 orquestradores:** `vertexion-director`, `zapmenu-activity`, `da-vinci` (registry.json, version 2)
+- **3 orquestradores:** o orquestrador legado, `seu-projeto-activity`, `da-vinci` (registry.json, version 2)
 
 ### Problemas conhecidos
 - **Agentes de equipe v6** (dev-planner, dev-reviewer, mkt-researcher, etc.) **NÃO existem como arquivos** — os leads stub referenciavam agentes fantasmas
@@ -80,7 +80,7 @@
 **Plano:** `~/.claude/plans/vamos-trabalhar-no-framework-bubbly-kettle.md` — 8 fases de limpeza + correção + nova versão.
 
 ### Objetivos
-- Portfólio **só ZapMenu + Firmis** (remove Vertexion produto, Run, Radar, Collect, ZapBot e todos os nomes antigos)
+- Portfólio **só seu-projeto + seu-projeto-2** (remove Vertexion produto, Run, Radar, Collect, ZapBot e todos os nomes antigos)
 - Framework multi-modelo — agnóstico a provedor
 - Orquestradores enriquecidos absorvendo conhecimento das versões anteriores
 - Segurança de credenciais: `.env` exclusivo do framework
@@ -92,20 +92,20 @@
 - Backup do sistema em `~/.claude/backups/framework-pre-v2-20260805.tar.gz` (ou equivalente gerado pela Fase 0)
 
 **Fase 1 — Limpeza de portfólio:**
-- `portfolio/projects.json` — removidos vertexion, run, radar, collect, zapbot; adicionado **firmis**
-- `CLAUDE.md` — seção Portfólio/Produtos reescrita: só ZapMenu + Firmis
+- `portfolio/projects.json` — removidos vertexion, run, radar, collect, zapbot; adicionado **seu-projeto-2**
+- `CLAUDE.md` — seção Portfólio/Produtos reescrita: só seu-projeto + seu-projeto-2
 - `SYSTEM.md` — tabela de 5 projetos → tabela de 2
 - `portfolio/PRODUCT_DECISIONS.md` — removidas menções a Run/Radar/Collect/Vertexion/ZapBot
 - `scripts/sync-framework.py` — removido rebrand Toveli/Tenvyr/Signalys
-- `skills/vertexion-director/SKILL.md` — "ecossistema de 2 projetos"
-- `skills/zapmenu/SKILL.md` — removida seção de outros projetos
-- `orchestrators/registry.json` — só ZapMenu + Firmis
+- `skills/tesla-legacy/SKILL.md` — "ecossistema de 2 projetos"
+- `skills/seu-projeto/SKILL.md` — removida seção de outros projetos
+- `orchestrators/registry.json` — só seu-projeto + seu-projeto-2
 
 **Fase 2 — Correção de contradições (em andamento):**
 - **Segurança de credenciais:**
   - Criado `~/.claude/.env` **exclusivo do framework** (chmod 600) com: PERPLEXITY_API_KEY, FIRECRAWL_API_KEY, RESEND_API_KEY, TAVILY_API_KEY
   - `SYSTEM.md` linhas 181/183 — chaves hardcoded substituídas por referência `(chave: NOME — ver ~/.claude/.env)`
-  - `zapmenu-activity.md` — credenciais Resend/Tavily removidas do corpo do arquivo, agora referenciam `~/.claude/.env` por nome de variável
+  - `seu-projeto-activity.md` — credenciais Resend/Tavily removidas do corpo do arquivo, agora referenciam `~/.claude/.env` por nome de variável
   - `.gitignore` já excluía `*.env`
 - **6 leads v6 enriquecidos** (somar antes de excluir): cada lead stub agora herda o conhecimento do lead v5 correspondente:
   - `dev-lead` ← engineering-lead v5 (matriz de roteamento, critérios de risco)
@@ -115,21 +115,21 @@
   - `juridico-lead` ← product-lead v5 (guardrails) + compliance/LGPD v6
   - `operacoes-lead` ← Vertexion Control v5 (6 agentes de controle) + pipeline v6
 - **3 orquestradores reescritos** (conteúdo v5/v6 somado):
-  - `control-vertexion-director` — agora delega aos **6 leads v6** (antes v5); somou matriz de roteamento v5; pipelines por equipe
-  - `da-vinci` — removido produto "Vertexion" (#14151C) do design system (fora do portfólio); somou checklist UX/UI + anti-patterns v5; design system só ZapMenu + Firmis
-  - `zapmenu-activity` — credenciais → `.env`; somou growth v5 (matriz de qualificação, ofertas, canais) + marketing v6 (funil); passo APROVAÇÃO explícito antes de SEND
+  - `control-tesla` — agora delega aos **6 leads v6** (antes v5); somou matriz de roteamento v5; pipelines por equipe
+  - `da-vinci` — removido produto "Vertexion" (#14151C) do design system (fora do portfólio); somou checklist UX/UI + anti-patterns v5; design system só seu-projeto + seu-projeto-2
+  - `seu-projeto-activity` — credenciais → `.env`; somou growth v5 (matriz de qualificação, ofertas, canais) + marketing v6 (funil); passo APROVAÇÃO explícito antes de SEND
 - **Leads v6 e control agents: `tools:` corrigidos** — orquestradores não referenciam mais leads v5
 
 **Fase 3 — Multi-modelo (concluída):**
 - `CLAUDE.md` — seção `## Modelo` → `## Modelos e Provedores (multi-modelo)`: perfis (fronteira / padrão / compacto), regras por perfil, "registrar modelo solicitado" no lugar de "provedor efetivo fixo"
-- `skills/vertexion-director/SKILL.md` — seção `## Modelo Efetivo` → `## Modelos (multi-modelo)`
+- `skills/tesla-legacy/SKILL.md` — seção `## Modelo Efetivo` → `## Modelos (multi-modelo)`
 - `SYSTEM.md` — cabeçalho v7.0.0 multi-modelo, visão geral e diagrama ASCII atualizados; seção `### Modelo e Routing` → `### Modelos e Routing (multi-modelo)`
 - `memory/general/decisions.md` — decisão "Modelo efetivo DeepSeek v4 flash" marcada **SUPERADO**
 - `memory/general/successful-patterns.md` — nota de topo: entradas citando DeepSeek v4 flash são **históricas**
-- `settings.json` — `model` mantido conforme escolha de Arthur; **não** adicionado `modelFallbacks` (schema do harness não confirmado)
+- `settings.json` — `model` mantido conforme escolha de o proprietário; **não** adicionado `modelFallbacks` (schema do harness não confirmado)
 
 **Fase 4 — Keywords de protocolo `ultraask` + `ultrathink2` (concluída):**
-> **Correção de Arthur durante a fase:** as duas NÃO devem ser skills convencionais (`skills/*/SKILL.md`) e sim **tags detectadas no texto enviado**, estilo `ultrathink`/`ultracode` nativos.
+> **Correção de o proprietário durante a fase:** as duas NÃO devem ser skills convencionais (`skills/*/SKILL.md`) e sim **tags detectadas no texto enviado**, estilo `ultrathink`/`ultracode` nativos.
 - `rules/ask-mode.md` — expandido: ativação por tag no texto; **8–15 perguntas por categoria** (objetivo, público, design, estrutura, tecnologia, funcionalidade, entrega); plano salvo em `~/.claude/plans/plano-<data>-<hora>-<nome>-<contexto>.md`; nada executado antes de aprovação
 - `rules/ultrathink2.md` — **NOVO**: J-Space reasoning, Counterfactual Reflection, GCOT expandido (`<plan>→<think>→<execute>→<verify>→<reflect>`), ToT com 5 opções, verificação multi-camada (self/adversarial/evidence), log em `~/.claude/logs/ultrathink2-<timestamp>.md`, detecção combinada (`ultraask`+`ultrathink2`, `ultrathink`+`ultrathink2`, `ultracode`+`ultrathink2`)
 - `CLAUDE.md` — seção de skills: nota "Keywords de protocolo (tags, NÃO skills invocáveis)"; lista de regras: adicionado `ultrathink2.md`
@@ -144,7 +144,7 @@
 - [x] Fase 4: keywords `ultraask` + `ultrathink2` (tags no texto, NÃO skills convencionais)
 - [x] Fase 5: eficiência de tokens (CLAUDE.md 111 → 48 linhas, < 60)
 - [x] Fase 6: orquestrador (3 orquestradores resolvem; orq.sh lê registry)
-- [x] Fase 6.3: mantidos os 3 ativos; **escopos dos 4 planejados (sherlock/titan/muse/guardian) fundidos** nos atuais: director ← sherlock+titan+guardian (`control-vertexion-director.md:64-67`), da-vinci ← muse (`da-vinci.md:75-77`); keywords adicionadas ao `DETECTION.md:28,31,37`. Nenhum arquivo de orquestrador novo criado.
+- [x] Fase 6.3: mantidos os 3 ativos; **escopos dos 4 planejados (sherlock/titan/muse/guardian) fundidos** nos atuais: director ← sherlock+titan+guardian (`control-tesla.md:64-67`), da-vinci ← muse (`da-vinci.md:75-77`); keywords adicionadas ao `DETECTION.md:28,31,37`. Nenhum arquivo de orquestrador novo criado.
 - [x] Fase 7: CHANGELOG + revisão final (`CHANGELOG.md` v2.0.0; memória atualizada; MANDATORY.md 34→24 linhas; 4 dirs vazios v5 removidos de `~/.claude/agents/`; greps limpos)
 
 ### Riscos de segurança conhecidos (v7)

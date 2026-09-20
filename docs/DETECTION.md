@@ -18,14 +18,14 @@
 
 Tags podem aparecer em qualquer posição na mensagem. Se uma tag for detectada, a equipe é acionada **independente** das palavras-chave.
 
-**Uso:** `@DEV corrige o bug de login no ZapMenu`
+**Uso:** `@DEV corrige o bug de login no seu-projeto`
 
 ## 2. Palavras-chave (Fallback)
 
 Quando não há tag explícita, o director varre a mensagem contra o mapa de keywords de cada equipe.
 
 ### DEV
-`bug|codigo|código|implementar|refatorar|deploy|build|teste|api|rota|componente|migração|sql|servidor|performance|segurança|auth|supabase|appmax|pix|webhook|infra|infraestrutura|pipeline|backup`
+`bug|codigo|código|implementar|refatorar|deploy|build|teste|api|rota|componente|migração|sql|servidor|performance|segurança|auth|supabase|seu-gateway-de-pagamento|pix|webhook|infra|infraestrutura|pipeline|backup`
 
 ### Design
 `design|layout|ui|ux|aparecia|estilo|cor|fonte|tipografia|icone|logo|branding|prototipo|figma|responsivo|mobile|tela|página|pagina|visual|microcopy|tom de voz`
@@ -51,7 +51,7 @@ Quando não há tag explícita, o director varre a mensagem contra o mapa de key
    → Varrer mensagem contra keywords de cada equipe
    → Pontuar: cada keyword match = 1 ponto
    → Equipe com maior pontuação é selecionada
-   → Empate: perguntar a Arthur qual equipe
+   → Empate: perguntar a o proprietário qual equipe
 3. Se nenhuma tag nem keyword:
    → Modo padrão: director processa sem equipe específica
 ```

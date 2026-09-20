@@ -133,7 +133,7 @@ Comandos:
     }
 
     if (command === 'navigate') {
-      const url = args[0] || 'https://zapmenu.org';
+      const url = args[0] || 'https://seudominio.com';
       const existingPages = browser.contexts()[0]?.pages() || [];
       const page = existingPages[0] || await browser.newPage();
       await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });

@@ -39,7 +39,7 @@ Acione `control-auditor` (verificação independente) quando: auth, pagamento, d
 
 ## Quando Escalar ao Director
 
-- Pedido ambíguo sem categoria | Agentes discordam | Requer aprovação Arthur (deploy, PR, migration) | Pipeline > 5 etapas
+- Pedido ambíguo sem categoria | Agentes discordam | Requer aprovação o proprietário (deploy, PR, migration) | Pipeline > 5 etapas
 
 ## Regras
 

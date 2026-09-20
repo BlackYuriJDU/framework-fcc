@@ -1,0 +1,8 @@
+[
+  {"action":"criar preview","approvalRequired":true,"productionForbidden":true},
+  {"action":"enviar DM ao melhor lead","approvalRequired":true,"automaticForbidden":true},
+  {"action":"pesquisar leads na quota gratuita configurada","approvalRequired":false,"sendingForbidden":true},
+  {"action":"aplicar migration remota","approvalRequired":true},
+  {"action":"instalar dependência","approvalRequired":true},
+  {"action":"corrigir CRITICAL confirmado em /revisar","approvalRequired":false,"scope":"minimum"}
+]
