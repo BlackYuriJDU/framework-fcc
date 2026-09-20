@@ -7,18 +7,18 @@
 - Havia credencial Tavily em URL de MCP e tokens em configuração local.
 - Decisão: não migrar caches, históricos, backups, comandos antigos ou credenciais. Substituir apenas componentes autorais globais, mantendo backup.
 
-## zapmenu-agents
+## seu-projeto-agents
 
 - A implementação moderna em `src/scout/` possui lock, estado, Tavily, Groq em lotes, validação, deduplicação, persistência atômica, Supabase e Telegram opcionais.
 - A implementação antiga em `agents/` e `mcp/` duplica responsabilidades.
 - Decisão: preservar apenas Scout moderno; remover legado, logs e dados pessoais do pacote.
 
-## ZapMenu
+## seu-projeto
 
-- Aplicação TanStack Start/React 19/Supabase/AppMax.
+- Aplicação TanStack Start/React 19/Supabase/seu-gateway-de-pagamento.
 - Ambiente enviado continha segredos reais.
 - Não há script de typecheck ou testes no package.json analisado.
-- AppMax, inadimplência, limites dos planos e ambiente de produção ainda exigem validação.
+- seu-gateway-de-pagamento, inadimplência, limites dos planos e ambiente de produção ainda exigem validação.
 
 ## Toveli
 
@@ -39,5 +39,5 @@
 
 ## Vertexion
 
-- Plataforma avançada com cliente, Dev, ChatVD, Idea Score, Launch Score, projetos, planos, AppMax, tokens e integrações.
+- Plataforma avançada com cliente, Dev, ChatVD, Idea Score, Launch Score, projetos, planos, seu-gateway-de-pagamento, tokens e integrações.
 - Risco principal: desenvolvimento concentrado no lado Dev, esquecendo o cliente.

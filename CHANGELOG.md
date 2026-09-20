@@ -3,8 +3,8 @@
 ## 7.1.0 — 2026-08-08
 
 ### Três orquestradores de domínio
-- **Tesla** (azul) substitui `vertexion-director` — engenharia de código + auto-melhoria; opera SEMPRE em ultrathink2; dono do `/autoloop` (Karpathy Loop).
-- **Einstein** (amarelo) substitui `zapmenu-activity` — growth + jurídico + marketing; absorve pipeline de prospecção ZapMenu + Founder's Playbook.
+- **Tesla** (azul) substitui o orquestrador legado — engenharia de código + auto-melhoria; opera SEMPRE em ultrathink2; dono do `/autoloop` (Karpathy Loop).
+- **Einstein** (amarelo) substitui `seu-projeto-activity` — growth + jurídico + marketing; absorve pipeline de prospecção seu-projeto + Founder's Playbook.
 - **Da Vinci** (vermelho) mantido — design front-end; só ganhou conhecimento (superdesign, awesome-design-md).
 - **Modo merge** (`/orq all`): protocolo no chat principal coordenando os 3 orqs em `reports/merge-<ts>/<dominio>/DELIVERABLE.md` + `INTEGRATED.md`; nada sai sem aprovação.
 - **Níveis de uso** (baixo/médio/alto/máximo, default médio) por orq em `registry.json`.
@@ -21,9 +21,9 @@
 ## 7.0.0 — 2026-08-05
 
 ### Limpeza v5→v7
-- Portfólio reduzido a **ZapMenu + Firmis** (remove Vertexion produto, Run, Radar, Collect, ZapBot).
+- Portfólio reduzido a **seu-projeto + seu-projeto-2** (remove Vertexion produto, Run, Radar, Collect, ZapBot).
 - Framework **multi-modelo**, agnóstico a provedor (perfis fronteira/padrão/compacto).
-- Credenciais movidas para `~/.claude/.env` exclusivo do framework (chmod 600); chaves removidas de SYSTEM.md/zapmenu-activity.md.
+- Credenciais movidas para `~/.claude/.env` exclusivo do framework (chmod 600); chaves removidas de SYSTEM.md/seu-projeto-activity.md.
 - 6 leads v6 enriquecidos (somar antes de excluir); 3 orquestradores reescritos delegando aos leads v6.
 - Keywords de protocolo `ultraask` (ask-mode) + `ultrathink2` (tags no texto, NÃO skills).
 - CLAUDE.md 111 → 48 linhas (< 60); escopos de 4 orqs planejados fundidos nos 3 ativos.
@@ -33,7 +33,7 @@
 ### Transição
 - 6 leads stub em `~/.claude/agents/` (dev, design, marketing, financas, juridico, operacoes).
 - 8 control agents em `agents/control/` + `additionalAgentDirectories`.
-- 3 orquestradores: `vertexion-director`, `zapmenu-activity`, `da-vinci` (registry v2).
+- 3 orquestradores: o orquestrador legado, `seu-projeto-activity`, `da-vinci` (registry v2).
 
 ## 5.0.0 — 2026-07-15
 
@@ -110,7 +110,7 @@
 - Pipeline v3 migrado para agentes prefixados e roteamento condicional.
 - Toolkit de escopo, fingerprint, scanner e avaliações preservado.
 - Correções de permission mode para build, runtime, regressão, memória e preview.
-- Planos específicos para ZapMenu e Firmis.
+- Planos específicos para seu-projeto e seu-projeto-2.
 
 ### Segurança e instalação
 

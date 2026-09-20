@@ -1,30 +1,39 @@
 {
-  "name": "Vertexion Agent System",
-  "version": "7.1.0",
-  "createdAt": "2026-06-30T21:27:18-03:00",
-  "updatedAt": "2026-08-08",
-  "description": "v7.1: 3 orquestradores de domínio (Tesla/engenharia, Einstein/growth-juridico-marketing, Da Vinci/design), níveis de uso (baixo/médio/alto/máximo), modo merge, skill /autoloop (Karpathy Loop), repositórios de conhecimento curados + URLs",
-  "timezone": "America/Recife",
-  "owner": "Arthur Araújo",
-  "primaryEnvironment": "Claude Code/FCC no WSL acessando projetos no Windows",
-  "visibleSkills": [],
-  "teams": ["Tesla (engenharia)", "Einstein (growth-juridico-marketing)", "Da Vinci (design)", "Control (governança)"],
-  "dashboard": "http://localhost:3741",
-  "containsSecrets": false,
-  "agents": 15,
-  "skills": 8,
-  "sourcePackagesAudited": 7,
-  "projects": ["ZapMenu", "Firmis"],
-  "validation": {
-    "packageValidator": "passed",
-    "growthAssertions": 90,
-    "growthRepeatedLeadTest": "passed",
-    "isolatedWslInstall": "passed",
-    "projectDiscovery": "passed",
-    "productWorkspace": "passed",
-    "dashboardHealth": "passed",
-    "dashboardStreamingExecution": "passed",
-    "windowsTaskSchedulerRealMachine": "pending real Windows environment",
-    "fccRealProvider": "pending Arthur environment"
-  }
+    "name":  "Vertexion Agent System",
+    "version":  "7.1.0",
+    "createdAt":  "2026-06-30T21:27:18-03:00",
+    "updatedAt":  "2026-08-08",
+    "description":  "v7.1: 3 orquestradores de domínio (Tesla/engenharia, Einstein/growth-juridico-marketing, Da Vinci/design), níveis de uso (baixo/médio/alto/máximo), modo merge, skill /autoloop (Karpathy Loop), repositórios de conhecimento curados + URLs",
+    "timezone":  "",
+    "owner":  "",
+    "primaryEnvironment":  "Claude Code (provedor varia por sessao)",
+    "visibleSkills":  [
+
+                      ],
+    "teams":  [
+                  "Tesla (engenharia)",
+                  "Einstein (growth-juridico-marketing)",
+                  "Da Vinci (design)",
+                  "Control (governança)"
+              ],
+    "dashboard":  "http://localhost:3741",
+    "containsSecrets":  false,
+    "agents":  15,
+    "skills":  8,
+    "sourcePackagesAudited":  7,
+    "projects":  [
+
+                 ],
+    "validation":  {
+                       "packageValidator":  "passed",
+                       "growthAssertions":  90,
+                       "growthRepeatedLeadTest":  "passed",
+                       "isolatedWslInstall":  "passed",
+                       "projectDiscovery":  "passed",
+                       "productWorkspace":  "passed",
+                       "dashboardHealth":  "passed",
+                       "dashboardStreamingExecution":  "passed",
+                       "windowsTaskSchedulerRealMachine":  "pending real Windows environment",
+                       "fccRealProvider":  "pending local environment"
+                   }
 }

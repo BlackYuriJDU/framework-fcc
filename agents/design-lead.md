@@ -36,7 +36,7 @@ Avalie sempre: usabilidade, acessibilidade (WCAG 2.1 AA), responsividade, microc
 - **Grid 8px** — múltiplos de 4 ou 8; bordas 2px ênfase / 1px neutro; radius 2px (editorial) ou 4-6px (UI)
 - **Dark mode:** reduzir saturação, aumentar contraste de superfícies (não espelhar light)
 - **Tipografia:** Space Grotesk (display), Manrope (body), JetBrains Mono (código); hierarquia por peso + tamanho + cor
-- **Paletas:** ZapMenu gold `#D9A441`; Firmis a definir
+- **Paletas:** seu-projeto gold `#D9A441`; seu-projeto-2 a definir
 
 ## Anti-Patterns por Indústria
 

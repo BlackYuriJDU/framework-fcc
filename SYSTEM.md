@@ -1,8 +1,8 @@
 # Vertexion Agent System — Architecture & Reference
 
 > **Versão:** 7.1.0 (6 leads + 9 control + 3 orquestradores de domínio)
-> **Proprietário:** Arthur Araújo
-> **Fuso:** America/Recife
+> **Proprietário:** (defina em portfolio/projects.json)
+> **Fuso:** (defina o seu)
 > **Ambiente:** Claude Code multi-modelo (provedor varia por sessão; FCC/`/model`)
 > **Atualizado em:** 2026-08-08
 > **Orquestradores:** Tesla 🔵 (engenharia) · Einstein 🟡 (growth/jurídico/marketing) · Da Vinci 🔴 (design) · Merge (`/orq all`)
@@ -41,7 +41,7 @@ O Vertexion Agent System é um meta-sistema de agentes de IA que opera dentro do
 - **Cirurgia, não amputação** — menor alteração correta
 - **Simplicidade primeiro** — sem abstração especulativa
 - **Fato, não suposição** — tudo é verificado no código real
-- **Discordar ativamente** — Arthur não quer yes-man, exige opinião crítica
+- **Discordar ativamente** — o proprietário não quer yes-man, exige opinião crítica
 
 ### Princípios da Constituição
 
@@ -98,7 +98,7 @@ Inventário real no disco (6 leads + 9 control agents). Os agentes de equipe v5/
 | **control-tesla** | Orquestrador Tesla: engenharia de código + auto-melhoria (sempre ultrathink2) | total |
 | **control-einstein** | Orquestrador Einstein: growth + jurídico + marketing | total |
 | **da-vinci** | Orquestrador Da Vinci: design front-end | total |
-| **control-portfolio-analyst** | Analisa prioridades ZapMenu e Firmis | leitura |
+| **control-portfolio-analyst** | Analisa prioridades seu-projeto e seu-projeto-2 | leitura |
 | **control-auditor** | Fiscal independente. Verifica conclusões antes de ações externas | leitura |
 | **control-approval-preparer** | Prepara pedidos de aprovação: ação, impacto, risco, rollback | leitura |
 | **control-evidence-ledger** | Auditor independente de evidência. Verifica alegações vs. ferramentas | leitura |
@@ -116,14 +116,14 @@ Switch via `/orq <id> [nivel]`; ativação mid-chat por menção ao nome no text
 ### 3.1 Tesla — engenharia + auto-melhoria
 
 - **Cor:** 🔵 azul. **ID/skill/agent:** `tesla` / `tesla` / `control-tesla`.
-- **Substitui** `vertexion-director`. Foco: engenharia de código, segurança, revisão, QA, deploy, Supabase, pagamentos **e auto-melhoria** (Karpathy Loop via `/autoloop`).
+- **Substitui** o orquestrador legado. Foco: engenharia de código, segurança, revisão, QA, deploy, Supabase, pagamentos **e auto-melhoria** (Karpathy Loop via `/autoloop`).
 - **Opera SEMPRE em ultrathink2** (`~/.claude/rules/ultrathink2.md`).
 - Delegáveis: `dev-lead`, `operacoes-lead`, `control-agent-evolution-advisor`, `control-approval-preparer`, `control-auditor`, `control-evidence-ledger`, `control-portfolio-analyst`, `loop-verifier`.
 
 ### 3.2 Einstein — growth + jurídico + marketing
 
 - **Cor:** 🟡 amarelo. **ID/skill/agent:** `einstein` / `einstein` / `control-einstein`.
-- **Substitui** `zapmenu-activity`. Foco: prospecção (pipeline ZapMenu RESEARCH→QUALIFY→CRAFT→SEND), marketing, jurídico (compliance, LGPD, contratos), finanças de produto (pricing).
+- **Substitui** `seu-projeto-activity`. Foco: prospecção (pipeline seu-projeto RESEARCH→QUALIFY→CRAFT→SEND), marketing, jurídico (compliance, LGPD, contratos), finanças de produto (pricing).
 - Absorve o **Founder's Playbook** (Anthropic) + awesome-gtm-engineering.
 - Delegáveis: `marketing-lead`, `financas-lead`, `juridico-lead`, `operacoes-lead`, `dev-lead` + 5 control agents.
 
@@ -136,7 +136,7 @@ Switch via `/orq <id> [nivel]`; ativação mid-chat por menção ao nome no text
 ### 3.4 Modo Merge
 
 - **Ativação:** `/orq all`. **NÃO muda o active agent** — imprime o protocolo (`docs/merge.md` + `skills/orq/merge-mode.md`).
-- A sessão principal coordena: parseia o job em escopos por domínio (com métrica de sucesso por domínio) → despacha `Agent(control-tesla)`, `Agent(control-einstein)`, `Agent(da-vinci)` em paralelo → cada um escreve `reports/merge-<ts>/<dominio>/DELIVERABLE.md` → auditoria de costuras → integra em `INTEGRATED.md` → nada sai sem aprovação de Arthur.
+- A sessão principal coordena: parseia o job em escopos por domínio (com métrica de sucesso por domínio) → despacha `Agent(control-tesla)`, `Agent(control-einstein)`, `Agent(da-vinci)` em paralelo → cada um escreve `reports/merge-<ts>/<dominio>/DELIVERABLE.md` → auditoria de costuras → integra em `INTEGRATED.md` → nada sai sem aprovação de o proprietário.
 
 ---
 
@@ -147,11 +147,11 @@ Servidores MCP (Model Context Protocol) configurados em `~/.claude.json` → `mc
 | Servidor | Comando | Finalidade |
 |----------|---------|------------|
 | **composio** | `composio` (global) | Integração com ferramentas externas via Composio |
-| **perplexity** | `/home/arthur/.nvm/versions/node/v24.17.0/bin/perplexity-mcp` | Busca web com fontes (chave: PERPLEXITY_API_KEY — ver ~/.claude/.env) |
-| **playwright** | `/home/arthur/.nvm/versions/node/v24.17.0/bin/playwright-mcp` | Automação de navegador (Chromium headless) |
-| **firecrawl** | `/home/arthur/.nvm/versions/node/v24.17.0/bin/firecrawl-mcp-server` | Scraping de páginas web (chave: FIRECRAWL_API_KEY — ver ~/.claude/.env) |
+| **perplexity** | `~/.nvm/versions/node/v24.17.0/bin/perplexity-mcp` | Busca web com fontes (chave: PERPLEXITY_API_KEY — ver ~/.claude/.env) |
+| **playwright** | `~/.nvm/versions/node/v24.17.0/bin/playwright-mcp` | Automação de navegador (Chromium headless) |
+| **firecrawl** | `~/.nvm/versions/node/v24.17.0/bin/firecrawl-mcp-server` | Scraping de páginas web (chave: FIRECRAWL_API_KEY — ver ~/.claude/.env) |
 
-**Nota:** Node.js via nvm em `/home/arthur/.nvm/versions/node/v24.17.0/bin/`. Playwright Chromium instalado em `~/.cache/ms-playwright/chromium-1228/` com dependências de sistema parcialmente disponíveis (sem sudo para libnspr4 etc., mas headless funciona).
+**Nota:** Node.js via nvm em `~/.nvm/versions/node/v24.17.0/bin/`. Playwright Chromium instalado em `~/.cache/ms-playwright/chromium-1228/` com dependências de sistema parcialmente disponíveis (sem sudo para libnspr4 etc., mas headless funciona).
 
 ---
 
@@ -190,7 +190,7 @@ Servidores MCP (Model Context Protocol) configurados em `~/.claude.json` → `mc
 | `design.md` | Decisões de UI/UX (aponta para `design/` sub-arquivos) |
 | `design/checklist.md` | Checklist pré-delivery (SVG, cursor, contraste, focus, reduced-motion, breakpoints) |
 | `design/anti-patterns.md` | Anti-patterns por indústria (tech, finanças, saúde, e-commerce, beleza, restaurantes) |
-| `design/palette.md` | Paletas por projeto (ZapMenu, Firmis) e regras |
+| `design/palette.md` | Paletas por projeto (seu-projeto, seu-projeto-2) e regras |
 | `design/typography.md` | Fontes (Space Grotesk, Manrope, JetBrains Mono) |
 | `design/system.md` | Design system: grid 8px, dark mode, touch targets, contextos |
 | `security.md` | Segurança: secrets, RLS, pricing, webhooks |
@@ -220,18 +220,18 @@ O sistema mantém 3 camadas de memória persistente:
 
 ### 7.1 Agente-Memória (Cross-Session)
 
-`~/.claude/agent-memory/control-tesla/` (movido de `control-vertexion-director` na v7.1 — preserva linhagem)
+`~/.claude/agent-memory/control-tesla/` (movido de `control-tesla` na v7.1 — preserva linhagem)
 
-Memórias de longo prazo sobre Arthur e o projeto. Indexadas por `MEMORY.md`.
+Memórias de longo prazo sobre o proprietário e os projetos. Indexadas por `MEMORY.md`. Comece vazio e registre conforme usa.
 
 | Arquivo | Tipo | Conteúdo |
 |---------|------|----------|
-| `user-arthur-profile.md` | user | Perfil: 16 anos, PE, estilo direto, excepcional tecnicamente |
+| `user-profile.md` | user | Perfil do proprietário (preencha com os seus dados) |
 | `feedback_batch_execution_detailed_report.md` | feedback | Execução batch com relatório final |
 | `feedback_deepseek_strict_execution.md` | feedback | Protocolo obrigatório em pedidos grandes |
 | `feedback_disagree_and_push_back.md` | feedback | Discordar ativamente, não ser yes-man |
 | `feedback-skill-to-agent-conversion.md` | feedback | Converter skills em agentes ou regras passivas |
-| `project_zapmenu_mega_correcao_jul2026.md` | project | 29 arquivos, rede→escala, boleto removido |
+| `project_seu-projeto_mega_correcao_jul2026.md` | project | 29 arquivos, rede→escala, boleto removido |
 | `project_agent_system_expansion.md` | project | 5 novos agentes, coordination-patterns |
 | `project-evidence-ledger.md` | project | Evidence Ledger, constitution #6, GCOT, ToT |
 | `project-mcp-tob-setup.md` | project | Perplexity, Playwright, Firecrawl MCPs + 11 ToB plugins |
@@ -254,7 +254,7 @@ Erros, acertos e decisões técnicas.
 
 ### 7.3 Memória de Projeto (Contexto de Sessão)
 
-`~/.claude/projects/-mnt-c-Users-Arthur-Ara-jo/memory/`
+`~/.claude/projects/<seu-projeto>/memory/`
 
 Memórias do escopo do projeto atual. Inclui migrações, resultados de prospecção, planos.
 
@@ -297,7 +297,7 @@ dev-lead  (implementação)
 control-auditor / loop-verifier  (revisão fresca, não confia no builder)
     ↓  [SE risco: security checklist + plugins ToB/semgrep]
 control-evidence-ledger  (evidência file:line)
-    ↓  [SE ação externa: control-approval-preparer + Arthur]
+    ↓  [SE ação externa: control-approval-preparer + o proprietário]
 Aprovação explícita → execução
 ```
 
@@ -319,7 +319,7 @@ control-auditor
     ↓  (fiscal independente — verifica conclusões)
 control-approval-preparer
     ↓  (prepara: ação, impacto, risco, rollback, validade)
-← [Aprovação explícita de Arthur] →
+← [Aprovação explícita de o proprietário] →
     ↓
 Execução (somente se autorizado)
 ```
@@ -330,7 +330,7 @@ Execução (somente se autorizado)
 - Atualização local de métricas/relatórios/painel
 - Health checks públicos
 - Preparação de mensagem e Loom (sem envio)
-- Envio de resumo operacional ao Telegram do Arthur (se configurado)
+- Envio de resumo operacional ao Telegram do o proprietário (se configurado)
 
 ### Sempre Bloqueado
 - Deploy de produção automático
@@ -344,16 +344,13 @@ Execução (somente se autorizado)
 
 ## 11. Portfolio de Projetos
 
-2 projetos ativos, ordenados por prioridade:
+Cadastre os seus projetos em `portfolio/projects.json`. Exemplo de formato:
 
 | # | Projeto | Status | Stack | Receita |
 |---|---------|--------|-------|---------|
-| 1 | **ZapMenu** | ✅ Lançado (zapmenu.org) | Lovable + Supabase + AppMax | R$34,99-79,99/mês |
-| 2 | **Firmis** | 🔍 Validação de mercado | Vercel + Supabase | — |
+| 1 | **meu-projeto** | em desenvolvimento | (sua stack) | (sua receita) |
 
-**Guardrails por projeto:**
-- **ZapMenu:** Pedidos não bloqueiam launch. Analytics só Movimento/Escala. AppMax atual. Tratar como produção.
-- **Firmis:** Engenheiro assume 100% da responsabilidade na ART. Risco LGPD ao usar IA pública com fotos de clientes.
+**Guardrails por projeto:** defina um por projeto em `portfolio/projects.json` (ex.: tratar como produção, responsabilidade legal, limites de LGPD).
 
 ---
 
@@ -384,7 +381,7 @@ Produto novo, segurança, pagamento, migration, compliance, preço, arquitetura,
 
 ### Conflito entre Agentes
 
-- Agentes da MESMA equipe discordando → reportar para Arthur decidir
+- Agentes da MESMA equipe discordando → reportar para o proprietário decidir
 - Máximo 4 agentes por tarefa normal, 5 por análise profunda
 - Paralelismo apenas entre agentes independentes
 
@@ -395,7 +392,7 @@ Produto novo, segurança, pagamento, migration, compliance, preço, arquitetura,
 ### Fluxo de Coordenação Padrão
 
 ```
-Arthur → Orquestrador de domínio (via /orq <id> [nivel] ou menção no texto)
+o proprietário → Orquestrador de domínio (via /orq <id> [nivel] ou menção no texto)
     ├─ Identifica domínio: engenharia (Tesla) | growth/jur/mkt (Einstein) | design (da-vinci)
     ├─ [Multi-domínio → /orq all (modo merge)]
     ├─ Seleciona leads/control agents dentro do domínio
@@ -447,7 +444,7 @@ Reportar
 ~/.claude/
 ├── agents/                 # 6 leads reais (dev, design, marketing, financas, juridico, operacoes)
 ├── agent-memory/           # memória histórica por agente
-│   ├── control-tesla/      # (renomeado de control-vertexion-director — preserva linhagem)
+│   ├── control-tesla/      # (renomeado de control-tesla — preserva linhagem)
 │   └── ...                 # control-einstein, design-lead, control-evidence-ledger, leads
 ├── rules/                  # protocolos sob demanda (MANDATORY, cognition, security, growth, ...)
 ├── skills/                 # 8 skills de domínio
@@ -456,7 +453,7 @@ Reportar
 │   ├── da-vinci/           # design front-end
 │   ├── autoloop/           # Karpathy Loop (dono: Tesla)
 │   ├── orq/                # ativação de orquestradores (+ merge-mode.md)
-│   ├── zapmenu/            # pipeline de prospecção ZapMenu
+│   ├── seu-projeto/            # pipeline de prospecção seu-projeto
 │   ├── design-lead/
 │   └── find-skills/
 ├── vertexion-agent-system/
@@ -481,7 +478,7 @@ Reportar
 │   │   ├── sync-knowledge.sh  # clone curado (--check = dry-run R$0)
 │   │   └── ...
 │   ├── memory/general/     # mistakes, patterns, false-positives, decisions
-│   ├── portfolio/          # ZapMenu + Firmis
+│   ├── portfolio/          # seu-projeto + seu-projeto-2
 │   ├── patterns/
 │   ├── teams/
 │   └── archive/            # agentes fundidos, skills removidas

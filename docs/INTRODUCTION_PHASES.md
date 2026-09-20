@@ -14,7 +14,7 @@ Subir localhost, testar streaming, projetos, rotinas e persistência sem executa
 
 ## Fase 3 — Engineering Assurance
 
-Aplicar primeiro em cópia ou branch do ZapMenu. Validar `/revisar`, `/validar` e `/preview`.
+Aplicar primeiro em cópia ou branch do seu-projeto. Validar `/revisar`, `/validar` e `/preview`.
 
 ## Fase 4 — Growth Engine
 

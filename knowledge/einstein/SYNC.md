@@ -6,7 +6,7 @@ Sincronize os repositórios curados deste orquestrador:
 # Dry-run (R$0, lista o que seria clonado) — SEMPRE o primeiro passo
 bash ~/.claude/vertexion-agent-system/scripts/sync-knowledge.sh --check einstein
 
-# Clone real — ação externa → requer aprovação explícita de Arthur
+# Clone real — ação externa → requer aprovação explícita de o proprietário
 bash ~/.claude/vertexion-agent-system/scripts/sync-knowledge.sh einstein
 ```
 

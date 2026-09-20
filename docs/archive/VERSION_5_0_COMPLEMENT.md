@@ -19,4 +19,4 @@ Este pacote é um **complemento operacional** do pacote 4.0.0. Ele corrige lacun
 
 ## Escopo deste complemento
 
-O 5.0.0 **não sobrescreve automaticamente os seus projetos de produto**. Ele melhora o sistema de agentes, a camada de coordenação e o dashboard local. A aplicação das correções nos produtos (ZapMenu, Toveli, Vertexion, Signalys e Tenvyr) continua acontecendo por fases controladas.
+O 5.0.0 **não sobrescreve automaticamente os seus projetos de produto**. Ele melhora o sistema de agentes, a camada de coordenação e o dashboard local. A aplicação das correções nos produtos (seu-projeto, Toveli, Vertexion, Signalys e Tenvyr) continua acontecendo por fases controladas.

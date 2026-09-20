@@ -20,7 +20,7 @@ Verificar slug, consulta pública, RLS, cache, domínio e assets. Preservar admi
 - correção em branch;
 - testes e preview após aprovação.
 
-## Ações proibidas sem Arthur
+## Ações proibidas sem o proprietário
 
 - produção;
 - migration remota;

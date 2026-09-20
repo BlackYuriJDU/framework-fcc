@@ -20,7 +20,7 @@ Confirmar status, projeto, rede e logs. Não aplicar migration nem resetar banco
 - correção em branch;
 - testes e preview após aprovação.
 
-## Ações proibidas sem Arthur
+## Ações proibidas sem o proprietário
 
 - produção;
 - migration remota;

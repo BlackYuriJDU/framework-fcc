@@ -1,4 +1,4 @@
-# Lead Qualification — ZapMenu
+# Lead Qualification — seu-projeto
 
 ## Critérios de Qualificação
 

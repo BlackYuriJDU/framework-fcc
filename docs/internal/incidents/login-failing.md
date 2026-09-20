@@ -20,7 +20,7 @@ Verificar Supabase Auth, URLs de callback, cookies, sessão, RLS de profile e lo
 - correção em branch;
 - testes e preview após aprovação.
 
-## Ações proibidas sem Arthur
+## Ações proibidas sem o proprietário
 
 - produção;
 - migration remota;

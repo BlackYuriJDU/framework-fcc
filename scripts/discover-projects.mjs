@@ -10,7 +10,7 @@ const requestedRoots = process.argv.slice(2).filter(x => !x.startsWith('--'));
 const roots = requestedRoots.length ? requestedRoots : portfolio.workspaceRoots;
 const ignored = new Set(['node_modules', '.git', 'dist', 'build', '.expo', '.next', '.cache', '.turbo', '.vite', 'coverage', 'backups']);
 const nameTokens = {
-  zapmenu: ['zapmenu'], firmis: ['firmis', 'novo-projeto-construcao-civil', 'construcao-civil'],
+  seu-projeto: ['seu-projeto'], seu-projeto-2: ['seu-projeto-2', 'novo-projeto-construcao-civil', 'construcao-civil'],
 };
 const candidates = [];
 

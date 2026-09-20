@@ -1,30 +1,24 @@
-# Loop Configuration — Vertexion Agent System
+# Loop Configuration - Vertexion Agent System
 
 ## Active Loops
 
 | Pattern | Cadence | Level | Comando |
 |---------|---------|-------|---------|
-| Daily Triage | 1d | L1 (report-only) | `claude -p "Run loop triage" --agent operacoes-lead --bg` |
+| Daily Triage | 1d | L1 (report-only) | claude -p "Run loop triage" --agent operacoes-lead --bg |
 
 ## Human Gates
-- Nenhuma ação automática de escrita em produção
-- L1 = report-only. Apenas leitura e relatório
-- L2+ requer checklist de segurança aprovado por Arthur
+- Nenhuma acao automatica de escrita em producao
+- L1 = report-only. Apenas leitura e relatorio
+- L2+ requer checklist de seguranca aprovado pelo proprietario
 
 ## Projetos Monitorados
+> Cadastre os seus projetos em portfolio/projects.json e liste-os aqui.
+
 | Projeto | URL | Check |
 |---------|-----|-------|
-| ZapMenu | zapmenu.org | Site no ar + SSL + status code |
-| Firmis | firmis.vercel.app | Site no ar + status code |
-| Telegram | — | Report canal autorizado |
+| meu-projeto | https://exemplo.com | Site no ar + status code |
 
 ## Budget
 - Max tokens por run: 50K (L1)
 - Max subagent spawns: 0 (L1)
 - Review STATE.md a cada run
-
-## Constraints
-Arquivo: `loop-constraints.md`
-
-## Run Log
-Arquivo: `loop-run-log.md`

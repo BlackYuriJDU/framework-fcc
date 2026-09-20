@@ -70,7 +70,7 @@ A manutenção é manual: ao identificar novo problema, adicione aqui. Ao resolv
 2. ✅ `engineering-database-designer`: Analisou 17 migrações. Verdict: SAFE (schema sólido, recomendações são otimizações)
 3. ✅ `engineering-senior-architect`: Produziu ADR-001 (Monólito SSR vs Backend separado vs Edge Functions)
 4. ✅ `engineering-adversarial-reviewer`: Revisou commit e3ddeee. Verdict: CLEAN (apenas sugestões cosméticas)
-5. ✅ `product-pricing-strategist`: Analisou pricing ZapMenu (R$34,99-79,99). 4 recomendações com trade-offs
+5. ✅ `product-pricing-strategist`: Analisou pricing seu-projeto (R$34,99-79,99). 4 recomendações com trade-offs
 
 **Resultados registrados em:** `agent-memory/control-tesla/test-p004-*.md`
 **Padrão registrado em:** `memory/general/successful-patterns.md`
@@ -140,7 +140,7 @@ A manutenção é manual: ao identificar novo problema, adicione aqui. Ao resolv
 
 **O quê:** O protocolo mestre (engineer-method.md) tem uma seção "Múltiplos Repositórios" que orienta tratar o ecossistema como sistema distribuído. Mas nenhum teste ou validação cross-repo foi configurada.
 
-**Origem:** Adicionado na Rodada 1 como parte do engineer-method.md, baseado no padrão de trabalho com ZapMenu.
+**Origem:** Adicionado na Rodada 1 como parte do engineer-method.md, baseado no padrão de trabalho com seu-projeto.
 
 **Risco:** Médio. O protocolo orienta verificar contratos entre repositórios, mas sem testes concretos, mudanças em um repo podem quebrar outro silenciosamente.
 
@@ -162,7 +162,7 @@ A manutenção é manual: ao identificar novo problema, adicione aqui. Ao resolv
 **Sugestão de correção:**
 1. Criar script de validação que extrai `description` e `disallowedTools` de todos os agentes e identifica sobreposições
 2. Revisão manual trimestral dos agentes
-3. Ou adicionar no `control-tesla.md` a instrução: "quando 2 agentes discordarem, reporte o conflito e peça decisão de Arthur"
+3. Ou adicionar no `control-tesla.md` a instrução: "quando 2 agentes discordarem, reporte o conflito e peça decisão de o proprietário"
 
 ---
 
@@ -201,12 +201,12 @@ A manutenção é manual: ao identificar novo problema, adicione aqui. Ao resolv
 ### P009 — Multi-repo thinking sem testes cross-repo
 
 **Resolvido em:** 2026-07-10
-**Correção:** `docs/internal/CROSS-REPO.md` criado com contratos conhecidos do ZapMenu. Evolui conforme surgem novas integrações.
+**Correção:** `docs/internal/CROSS-REPO.md` criado com contratos conhecidos do seu-projeto. Evolui conforme surgem novas integrações.
 
 ### P010 — Sem verificação de consistência entre agentes
 
 **Resolvido em:** 2026-07-10
-**Correção:** `control-tesla.md` atualizado: "Quando 2 agentes da MESMA equipe discordarem, pare e reporte o conflito para Arthur decidir — nunca escolha silenciosamente um dos dois."
+**Correção:** `control-tesla.md` atualizado: "Quando 2 agentes da MESMA equipe discordarem, pare e reporte o conflito para o proprietário decidir — nunca escolha silenciosamente um dos dois."
 
 ### P006 — learning-curator sem integração
 

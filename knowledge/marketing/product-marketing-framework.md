@@ -38,10 +38,10 @@
 
 ---
 
-## Boilerplate — ZapMenu
+## Boilerplate — seu-projeto
 
 ```yaml
-product: ZapMenu
+product: seu-projeto
 value_proposition: "QR code multilíngue que transforma qualquer cardápio em pedidos via WhatsApp — sem app, sem complicação"
 target: donos de restaurante no Brasil, focados em turismo
 personas:

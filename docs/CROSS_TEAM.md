@@ -62,7 +62,7 @@ Input: "@Design @Dev cria tela de planos com checkout"
     3. Director spawns dev-lead com objetivo "implementar checkout" + layout do design
     4. dev-lead executa → entrega funcionalidade
                     ▼
-    Director coordena integração → reporta resultado a Arthur
+    Director coordena integração → reporta resultado a o proprietário
 ```
 
 ## Regras de Coordenação
@@ -77,7 +77,7 @@ O director recebe output de uma equipe e passa como contexto para a próxima.
 
 ### 3. Resolução de Conflitos
 - Se equipes discordam: director decide baseado no escopo total do pedido
-- Se o conflito é técnico e afecta o resultado: reportar a Arthur com ambas posições
+- Se o conflito é técnico e afecta o resultado: reportar a o proprietário com ambas posições
 - Cross-team nunca bloqueia por mais de 1 ciclo sem intervenção
 
 ### 4. Contrato de Integração

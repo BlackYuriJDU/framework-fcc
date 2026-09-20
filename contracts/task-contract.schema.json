@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FCC Task Contract",
+  "type": "object",
+  "required": [
+    "task_id",
+    "objective",
+    "domain",
+    "mode",
+    "risk",
+    "scope",
+    "success",
+    "verification",
+    "artifacts"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "objective": {
+      "type": "object",
+      "required": [
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "why": {
+          "type": "string"
+        }
+      }
+    },
+    "domain": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "risk": {
+      "type": "object",
+      "required": [
+        "class",
+        "score"
+      ],
+      "properties": {
+        "class": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "requires_approval": {
+          "type": "boolean"
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "allowed",
+        "forbidden"
+      ],
+      "properties": {
+        "allowed": {
+          "type": "array"
+        },
+        "forbidden": {
+          "type": "array"
+        }
+      }
+    },
+    "success": {
+      "type": "object",
+      "required": [
+        "criteria"
+      ],
+      "properties": {
+        "criteria": {
+          "type": "array"
+        },
+        "metric": {
+          "type": "string"
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "checks"
+      ],
+      "properties": {
+        "checks": {
+          "type": "array"
+        },
+        "fresh_reviewer": {
+          "type": "boolean"
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "required": [
+        "required"
+      ],
+      "properties": {
+        "required": {
+          "type": "array"
+        }
+      }
+    },
+    "context": {
+      "type": "object"
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "budget": {
+      "type": "object"
+    },
+    "approval": {
+      "type": "object"
+    }
+  }
+}

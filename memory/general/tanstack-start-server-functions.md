@@ -1,7 +1,7 @@
 # TanStack Start: Como testar server functions
 
 > Criado: 2026-07-11
-> Projeto: ZapMenu
+> Projeto: seu-projeto
 > Stack: TanStack Start (TanStack Router + Vinxi + Vite)
 
 ## Arquitetura RPC
@@ -68,7 +68,7 @@ Para verificar se uma correcao em server function foi deployed:
 
 ```bash
 # Baixar JS bundle do site e buscar por padrao
-curl -s https://zapmenu.com.br/assets/...js | grep -o 'seu-padrao-aqui'
+curl -s https://seu-projeto.com.br/assets/...js | grep -o 'seu-padrao-aqui'
 ```
 
 ## Resumo
